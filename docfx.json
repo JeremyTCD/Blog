@@ -26,8 +26,15 @@
       }
     ],
     "dest": "_site",
-    "globalMetadataFiles": [],
-    "fileMetadataFiles": [],
+    "globalMetadata": {
+      "_appTitle": "JeremyTCD",
+      "_enableSearch": true
+    },
+    "fileMetadata": {
+      "_tocRel" : {
+        "index.md": "articles/toc.html" 
+      }
+    },
     "template": [
       "default",
       "templates"
