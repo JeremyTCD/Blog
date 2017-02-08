@@ -1,4 +1,8 @@
-- name: All
-  href: all.md
-- name: Introduction
-  href: intro.md
+- name: Recent
+  href: ~/index.md
+  topicHref: ~/index.md
+- name: .Net Core
+  items:
+  - name: Auto Reload Options in a .Net Core Console Application
+    href: dot-net-core/intro.md
+
