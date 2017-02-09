@@ -5,6 +5,7 @@
         "files": [
           "articles/**.md",
           "articles/**/toc.yml",
+          "about.md",
           "toc.yml",
           "*.md"
         ],
