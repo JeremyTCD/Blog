@@ -1,0 +1,4 @@
+<div id="article-list">
+  <div class="al-items"></div>
+  <ul id="pagination"></ul>
+</div>
