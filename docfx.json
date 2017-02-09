@@ -37,6 +37,10 @@
         "index.md": "articles/toc.html" 
       }
     },
+    "theme": [
+      "default",
+      "customTheme"
+    ],
     "template": [
       "default",
       "customTemplate"
