@@ -1,6 +1,5 @@
 - name: Recent
-  href: ~/index.md
-  topicHref: ~/index.md
+  href: recent.md
 - name: .Net Core
   items:
   - name: Reloading Options in a .Net Core Console Application

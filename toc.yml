@@ -1,4 +1,7 @@
 - name: Home
   href: index.md
+- name: Articles
+  href: articles/
+  topicHref: articles/recent.md
 - name: About
   href: about.md

@@ -32,11 +32,6 @@
       "_appFooter": "<span>Copyright © 2017 JeremyTCD</span>",
       "_enableSearch": true
     },
-    "fileMetadata": {
-      "_tocRel" : {
-        "index.md": "articles/toc.html" 
-      }
-    },
     "theme": [
       "default",
       "customTheme"
