@@ -3,6 +3,6 @@
   topicHref: ~/index.md
 - name: .Net Core
   items:
-  - name: Auto Reload Options in a .Net Core Console Application
+  - name: Reloading Options in a .Net Core Console Application
     href: dotNetCore/reloadingOptionsInAConsoleApp.md
 
