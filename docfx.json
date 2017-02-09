@@ -38,7 +38,7 @@
     },
     "template": [
       "default",
-      "templates"
+      "customTemplate"
     ],
     "postProcessors": [],
     "noLangKeyword": false

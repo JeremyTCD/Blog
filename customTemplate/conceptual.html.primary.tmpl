@@ -39,14 +39,15 @@
           {{/_disableAffix}}
             <article class="content wrap" id="_content" data-uid="{{uid}}">
               {{{rawTitle}}}
-              <div class="meta">
-                <span class="date">{{date}}</span> • 
-                <span class="author-text">{{authorName}}</span>
-                <a href="{{authorLink}}" title="{{authorName}}">
-                    <img src="{{authorLink}}.png?size=16" alt="{{authorName}}">
-                </a>
-              </div>
+              {{^_disableMetadata}}
+              {{>partials/metadata}}
+              {{/_disableMetadata}}
+              {{#_articleList}}
+              {{>partials/articleList}}
+              {{/_articleList}}
+              {{^_articleList}}
               {{{conceptual}}}
+              {{/_articleList}}
             </article>
           </div>
           {{^_disableAffix}}
