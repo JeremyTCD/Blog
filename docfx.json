@@ -40,7 +40,7 @@
       "default",
       "customTemplate"
     ],
-    "postProcessors": ["CreateArticleList"],
+    "postProcessors": ["ArticleListPostProcessor"],
     "noLangKeyword": false
   }
 }
