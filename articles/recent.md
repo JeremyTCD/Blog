@@ -1,6 +1,6 @@
 ---
-_articleList: true
-_disableMetadata: true
 _disableAffix: true
 _disableContribution: true
+jr.enableArticleList: true
+jr.disableMetadata: true
 ---

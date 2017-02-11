@@ -39,15 +39,15 @@
           {{/_disableAffix}}
             <article class="content wrap" id="_content" data-uid="{{uid}}">
               {{{rawTitle}}}
-              {{^_disableMetadata}}
+              {{^jr.disableMetadata}}
               {{>partials/metadata}}
-              {{/_disableMetadata}}
-              {{#_articleList}}
+              {{/jr.disableMetadata}}
+              {{#jr.enableArticleList}}
               {{>partials/articleList}}
-              {{/_articleList}}
-              {{^_articleList}}
+              {{/jr.enableArticleList}}
+              {{^jr.enableArticleList}}
               {{{conceptual}}}
-              {{/_articleList}}
+              {{/jr.enableArticleList}}
             </article>
           </div>
           {{^_disableAffix}}

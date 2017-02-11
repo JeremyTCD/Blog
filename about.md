@@ -1,8 +1,8 @@
 ---
 _disableBreadcrumb: true
 _disableContribution: true
-_disableMetadata: true
 _disableAffix: true
+jr.disableMetadata: true
 ---
 
 # About
