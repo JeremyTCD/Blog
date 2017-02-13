@@ -7,9 +7,9 @@ jr.disableMetadata: true
 
 # About
 -----
-My name is Jeremy Tan. I'm a software developer based in Singapore. Designing and building systems is my jam. 
-I blog to document, share and learn - feel free to leave a message or submit a pull request 
-if an article can be improved. 
+My name is Jeremy Tan. I'm a software developer based in Singapore. I am passionate about designing and building software systems. 
+This blog was created to document, share and learn. Feel free to leave messages and submit pull requests if you think an article 
+can be improved upon! 
 ## Contact
 Email me at jeremytanchongdao@gmail.com. 
 ## Attributions
