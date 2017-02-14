@@ -123,12 +123,12 @@
 
     function handleSearchResults(hits) {
       var numPerPage = 5;
-      $('#pagination').empty();
-      $('#pagination').removeData("twbs-pagination");
+      $('#sr-pagination').empty();
+      $('#sr-pagination').removeData("twbs-pagination");
       if (hits.length === 0) {
         $('#search-results > .sr-items').html('<p>No results found</p>');
       } else {
-        $('#pagination').twbsPagination({
+        $('#sr-pagination').twbsPagination({
           totalPages: Math.ceil(hits.length / numPerPage),
           visiblePages: 5,
           onPageClick: function (event, page) {
