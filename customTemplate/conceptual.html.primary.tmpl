@@ -18,11 +18,9 @@
         {{>partials/breadcrumb}}
         {{/_disableBreadcrumb}}
       </header>
-      {{#_enableSearch}}
-      <div class="container body-content">
-        {{>partials/searchResults}}
-      </div>
-      {{/_enableSearch}}
+      {{#jr.enableSearch}}
+      {{>partials/searchResults}}
+      {{/jr.enableSearch}}
       <div role="main" class="container body-content hide-when-search">
       {{^_disableToc}}
         {{>partials/toc}}
