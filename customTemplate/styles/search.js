@@ -14,7 +14,7 @@
 
     // Search factory
     function searchFactory() {
-      var worker = new Worker('/styles/search-worker.js');
+      var worker = new Worker('/styles/searchWorker.js');
       if (!worker) return localSearch;
       return window.Worker ? webWorkerSearch : localSearch;
 
