@@ -1,4 +1,4 @@
 <script type="text/javascript" src="{{_rel}}styles/docfx.vendor.js"></script>
 <script type="text/javascript" src="{{_rel}}styles/docfx.js"></script>
-<script type="text/javascript" src="{{_rel}}styles/jr.js"></script>
+<script type="text/javascript" src="{{_rel}}styles/articleList.js"></script>
 <script type="text/javascript" src="{{_rel}}styles/main.js"></script>
