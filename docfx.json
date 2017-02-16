@@ -34,8 +34,7 @@
       "jr.enableSearch": true
     },
     "template": [
-      "default",
-      "customTemplate"
+      "DocFxBlogTemplate"
     ],
     "postProcessors": ["ArticleListPostProcessor", "SearchIndexPostProcessor"],
     "noLangKeyword": false
