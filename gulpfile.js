@@ -16,7 +16,7 @@ gulp.task('build:site', function () {
     buildSite();
 });
 
-gulp.task('start', function () {    
+gulp.task('start', function () {
     gulp.watch(['./articles/**/*.*',
         './*.md',
         './toc.yml',
@@ -35,8 +35,6 @@ gulp.task('start', function () {
             }
         }
     )
-
-    browserSync({server: "./_site"});
 });
 
 function buildSite() {
@@ -49,5 +47,9 @@ function buildSite() {
         {
             stdio: [0, 1, 2]
         });
+
+    if (!browserSync.active) {
+        browserSync({ server: "./_site", open: false });
+    }
     browserSync.reload();
 }
