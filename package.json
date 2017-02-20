@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Personal blog",
   "scripts": {
-    "start": "gulp start"
   },
   "keywords": [
     "blog"
@@ -11,8 +10,6 @@
   "author": "JeremyTCD",
   "license": "MIT",
   "devDependencies": {
-    "browser-sync": "^2.18.8",
-    "gulp": "^3.9.1",
     "rimraf": "^2.5.4",
     "webpack": "^2.2.1",
     "yargs": "^6.6.0"
