@@ -7,7 +7,7 @@ const templateProjectDir = argv.t;
 const webpack = require('webpack');
 const webpackDevServer = require('webpack-dev-server');
 const templateWebpackConfig = require(path.join(templateProjectDir, 'webpack.config.js'));
-templateWebpackConfig.entry['styles/bundle'].unshift("webpack-dev-server/client?http://localhost:8080/")
+templateWebpackConfig.entry.bundle.unshift("webpack-dev-server/client?http://localhost:8080/");
 templateWebpackConfig.resolve.modules.unshift(path.join(__dirname, "node_modules"));
 const compiler = webpack(templateWebpackConfig);
 const server = new webpackDevServer(compiler,
