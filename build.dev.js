@@ -14,7 +14,7 @@ const server = new webpackDevServer(compiler,
     {
         contentBase: path.join(__dirname, '_site'),
         watchContentBase: true,
-        publicPath: '/'
+        publicPath: '/styles/'
     });
 server.listen(8080, "127.0.0.1", function () {
     console.log("Starting server on http://localhost:8080");
