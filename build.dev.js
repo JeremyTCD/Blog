@@ -35,4 +35,4 @@ watch.watchTree(path.join(templateProjectDir, 'templates'), docfxBuild);
 watch.watchTree(path.join(templateProjectDir, 'plugins'), docfxBuild);
 watch.watchTree(path.join(templateProjectDir, 'fonts'), docfxBuild);
 watch.watchTree(path.join(templateProjectDir, 'misc'), docfxBuild);
-
+watch.watchTree(path.join(__dirname, 'articles'), docfxBuild);
