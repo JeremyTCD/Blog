@@ -3,5 +3,5 @@
 - name: .Net Core
   items:
   - name: Reloading Options in a .Net Core Console Application
-    href: dotNetCore/reloadingOptionsInAConsoleApp.md
 
+    href: reloadingOptionsInAConsoleApp.md
