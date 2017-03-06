@@ -11,8 +11,8 @@
   "author": "JeremyTCD",
   "license": "MIT",
   "devDependencies": {
+    "gaze": "^1.1.2",
     "rimraf": "^2.5.4",
-    "watch": "^1.0.2",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1",
     "yargs": "^6.6.0"

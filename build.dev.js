@@ -21,18 +21,30 @@ server.listen(8080, "127.0.0.1", function () {
 });
 
 // Start docfx watcher
-const watch = require('watch');
 const execFileSync = require('child_process').execFileSync;
+const gaze = require('gaze');
 const templateCopyFiles = require(path.join(templateProjectDir, 'build.copy.js'));
-var numRuns = 0;
 function docfxBuild(f, curr, previous) {
-    if (++numRuns > 3) {// Only run once on initialization
-        templateCopyFiles();
-        execFileSync('docfx', ['build', '-t ' + path.join(templateProjectDir, 'bin')], { stdio: [0, 1, 2] });
-    }
+    templateCopyFiles();
+    execFileSync('docfx', ['build', '-t ' + path.join(templateProjectDir, 'bin')], { stdio: [0, 1, 2] });
 }
-watch.watchTree(path.join(templateProjectDir, 'templates'), docfxBuild);
-watch.watchTree(path.join(templateProjectDir, 'plugins'), docfxBuild);
-watch.watchTree(path.join(templateProjectDir, 'fonts'), docfxBuild);
-watch.watchTree(path.join(templateProjectDir, 'misc'), docfxBuild);
-watch.watchTree(path.join(__dirname, 'articles'), docfxBuild);
+
+docfxBuild();
+
+gaze(['templates/*', 'plugins/*', 'fonts/*', 'misc/*'],
+    {
+        cwd: templateProjectDir
+    },
+    function (err, watcher) {
+        watcher.on('all', docfxBuild);
+    }
+);
+
+gaze(['articles/*', '*.md'],
+    {
+        cwd: __dirname
+    },
+    function (err, watcher) {
+        watcher.on('all', docfxBuild);
+    }
+);
