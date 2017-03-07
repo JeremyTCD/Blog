@@ -2,6 +2,7 @@
 _disableAffix: true
 _disableContribution: true
 uid: recent
-jr.enableArticleList: true
+jr.enableSal: true
 jr.disableMetadata: true
+jr.disableRightMenu: true
 ---
