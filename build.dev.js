@@ -1,5 +1,7 @@
 const path = require('path');
 const argv = require('yargs').argv;
+const fs = require('fs-extra');
+const rimraf = require('rimraf');
 
 const templateProjectDir = argv.t;
 
@@ -25,13 +27,16 @@ const execFileSync = require('child_process').execFileSync;
 const gaze = require('gaze');
 const templateCopyFiles = require(path.join(templateProjectDir, 'build.copy.js'));
 function docfxBuild(f, curr, previous) {
+    rimraf.sync('./bin');
+    // Symbolic link used to link index.html to default root object in production
+    fs.copySync(path.join(__dirname, 'index.html'), path.join(__dirname, '_site/index.html'));
     templateCopyFiles();
     execFileSync('docfx', ['build', '-t ' + path.join(templateProjectDir, 'bin')], { stdio: [0, 1, 2] });
 }
 
 docfxBuild();
 
-gaze(['templates/*', 'plugins/*', 'fonts/*', 'misc/*'],
+gaze(['templates/**/*', 'plugins/*', 'fonts/*', 'misc/*'],
     {
         cwd: templateProjectDir
     },
@@ -40,7 +45,7 @@ gaze(['templates/*', 'plugins/*', 'fonts/*', 'misc/*'],
     }
 );
 
-gaze(['articles/*', '*.md'],
+gaze(['articles/*', '*.md', '*.yml'],
     {
         cwd: __dirname
     },
