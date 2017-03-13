@@ -1,4 +1,5 @@
 ---
+title: Recent Articles
 _disableAffix: true
 _disableContribution: true
 uid: recent
