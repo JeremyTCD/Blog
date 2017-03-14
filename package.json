@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Personal blog",
   "scripts": {
-    "start": "node build.dev.js"
+    "start-dev": "set NODE_ENV=development&&node dev.js",
+    "start-production": "set NODE_ENV=production&&node dev.js",
+    "build-production": "set NODE_ENV=production&&node build.js"
   },
   "keywords": [
     "blog"
