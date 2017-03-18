@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Personal blog",
   "scripts": {
-    "build-production": "set NODE_ENV=production&&node build.js"
     "start-dev": "set NODE_ENV=development&&node tools/dev.js",
     "start-production": "set NODE_ENV=production&&node tools/dev.js",
+    "build-production": "docfx build -t node_modules/docfx-templates-basicblog/dist"
   },
   "keywords": [
     "blog"
