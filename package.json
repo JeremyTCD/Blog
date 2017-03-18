@@ -20,5 +20,7 @@
     "webpack-dev-server": "^2.4.1",
     "yargs": "^6.6.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "docfx-templates-basicblog": "0.1.6-beta"
+  }
 }
