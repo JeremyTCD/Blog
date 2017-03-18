@@ -4,12 +4,3 @@
   items:
   - name: Reloading Options in a .Net Core Console Application
     href: reloadingOptionsInAConsoleApp.md
-- name: Test Topic
-  items: 
-  - name: Test Topic 1
-    href: testArticle1.md
-    items:
-    - name: Test Topic 2
-      href: testArticle2.md
-    - name: Test Topic 3
-      href: testArticle3.md
