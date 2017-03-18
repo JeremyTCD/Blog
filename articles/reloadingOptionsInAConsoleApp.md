@@ -7,3 +7,5 @@ jr.date: 2/8/2017
 jr.includeInSal: true
 jr.includeInSearchIndex: true
 ---
+
+# Reloading Options in a .Net Core Console Application
