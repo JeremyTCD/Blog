@@ -36,7 +36,7 @@
     "template": [
       "DocFxBlogTemplate"
     ],
-    "postProcessors": ["SortedArticleListPostProcessor", "SearchIndexPostProcessor"],
+    "postProcessors": ["SortedArticleListGenerator", "SearchIndexGenerator"],
     "noLangKeyword": false
   }
 }
