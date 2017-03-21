@@ -4,7 +4,7 @@ environment:
     secure: tt/4l9UhbDPV4uWGleQkEzXKih1Z4KDaXKhk5kqE2PanYbdV44wLFiENtsHwpCBW
 install:
 - cmd: |
-    cinst docfx -y
+    cinst docfx --version 2.12.1
     if not exist "./node_modules" yarn install --pure-lockfile --ignore-optional
 build_script:
 - ps: |
