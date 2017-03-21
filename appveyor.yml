@@ -1,22 +1,15 @@
-version: 1.0.{build}
+version: '{build}'
 environment:
-  build_user: JeremyTCD
-  build_user_email: jeremytanchongdao@gmail.com
-  access_token:
-    secure: L1Ys6LUQsM3wJdJNTL/k0jYFw7BA1WnZFomos8EnhfpW8JpAOh2rnuIX9SQmYass
+  FIREBASE_TOKEN:
+    secure: tt/4l9UhbDPV4uWGleQkEzXKih1Z4KDaXKhk5kqE2PanYbdV44wLFiENtsHwpCBW
 install:
-- ps: cinst docfx -y
+- cmd: |
+    cinst docfx -y
+    if not exist "./node_modules" yarn install --pure-lockfile --ignore-optional
 build_script:
 - ps: |
-    git checkout $env:APPVEYOR_REPO_BRANCH -q
-    docfx docfx.json
-    git config --global credential.helper store
-    Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
-    git config --global user.email $env:build_user_email
-    git config --global user.name $env:build_user
-    git clone https://github.com/JeremyTCD/JeremyTCD.github.io.git -b master origin_site -q
-    Copy-Item origin_site/.git _site -recurse
-    CD _site
-    git add -A 2>&1
-    git commit -m "CI Updates" -q
-    git push origin master -q
+    yarn run build
+    firebase deploy
+cache:
+    - node_modules -> package.json
+test: off
