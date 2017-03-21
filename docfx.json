@@ -2,16 +2,12 @@
   "build": {
     "content": [
       {
+        "src": "src",
         "files": [
-          "articles/**.md",
-          "articles/**/toc.yml",
-          "about.md",
-          "toc.yml",
-          "*.md"
+          "**"
         ],
         "exclude": [
-          "obj/**",
-          "_site/**"
+          "**/*.json"
         ]
       }
     ],
@@ -19,10 +15,6 @@
       {
         "files": [
           "images/**"
-        ],
-        "exclude": [
-          "obj/**",
-          "_site/**"
         ]
       }
     ],
@@ -36,7 +28,7 @@
     "template": [
       "DocFxBlogTemplate"
     ],
-    "postProcessors": ["SortedArticleListGenerator", "SearchIndexGenerator"],
+    "postProcessors": [ "SortedArticleListGenerator", "SearchIndexGenerator" ],
     "noLangKeyword": false
   }
 }
