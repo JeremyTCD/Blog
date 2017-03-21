@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Personal blog",
   "scripts": {
+    "serve": "yarn run build&&docfx serve _site",
     "build": "docfx build -t node_modules/docfx-templates-basicblog/dist"
   },
   "keywords": [
