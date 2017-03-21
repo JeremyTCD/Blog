@@ -4,6 +4,7 @@
   "description": "Personal blog",
   "scripts": {
     "serve": "yarn run build&&docfx serve _site",
+    "deploy": "yarn run build&&firebase deploy --non-interactive",
     "build": "docfx build -t node_modules/docfx-templates-basicblog/dist"
   },
   "author": "JeremyTCD",

@@ -7,9 +7,7 @@ install:
     cinst docfx --version 2.12.1
     if not exist "./node_modules" yarn install --pure-lockfile --ignore-optional
 build_script:
-- ps: |
-    yarn run build
-    firebase deploy
+- cmd: yarn run deploy
 cache:
     - node_modules -> package.json
 test: off
