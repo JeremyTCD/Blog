@@ -6,21 +6,12 @@
     "serve": "yarn run build&&docfx serve _site",
     "build": "docfx build -t node_modules/docfx-templates-basicblog/dist"
   },
-  "keywords": [
-    "blog"
-  ],
   "author": "JeremyTCD",
   "license": "MIT",
   "devDependencies": {
-    "firebase-tools": "^3.5.0",
-    "fs-extra": "^2.0.0",
-    "gaze": "^1.1.2",
-    "rimraf": "^2.6.1",
-    "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.4.1",
-    "yargs": "^6.6.0"
+    "firebase-tools": "^3.5.0"
   },
   "dependencies": {
-    "docfx-templates-basicblog": "0.1.6-beta"
+    "docfx-templates-basicblog": "0.1.10-beta"
   }
 }
