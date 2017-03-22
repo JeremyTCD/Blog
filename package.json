@@ -13,6 +13,6 @@
     "firebase-tools": "^3.5.0"
   },
   "dependencies": {
-    "docfx-templates-basicblog": "0.1.10-beta"
+    "docfx-templates-basicblog": "^0.1.11-beta"
   }
 }
