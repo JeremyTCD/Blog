@@ -1,6 +1,0 @@
-- name: Recent
-  href: recent.md
-- name: .Net Core
-  items:
-  - name: Reloading Options in a .Net Core Console Application
-    href: reloadingOptionsInAConsoleApp.md

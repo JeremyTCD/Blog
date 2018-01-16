@@ -1,34 +1,54 @@
 {
-  "build": {
-    "content": [
-      {
-        "src": "src",
-        "files": [
-          "**"
+    "build": {
+        "content": [
+            {
+                "src": "src/content",
+                "files": [ "**" ]
+            }
         ],
-        "exclude": [
-          "**/*.json"
-        ]
-      }
-    ],
-    "resource": [
-      {
-        "files": [
-          "images/**"
-        ]
-      }
-    ],
-    "dest": "_site",
-    "globalMetadata": {
-      "_appTitle": "JeremyTCD",
-      "_appFooter": "<span>Copyright © 2017 JeremyTCD</span>",
-      "_enableSearch": false,
-      "jr.enableSearch": true
-    },
-    "template": [
-      "DocFxBlogTemplate"
-    ],
-    "postProcessors": [ "SortedArticleListGenerator", "SearchIndexGenerator" ],
-    "noLangKeyword": false
-  }
+        "resource": [
+            {
+                "src": "src/resources",
+                "files": [ "**" ],
+                "dest": "resources"
+            },
+            {
+                "src": "src/misc",
+                "files": [ "**" ]
+            }
+        ],
+        "globalMetadata": {
+            "jtcd_websiteName": "JeremyTCD",
+            "jtcd_authorName": "JeremyTCD",
+            "jtcd_copyrightText": "© 2017 JeremyTCD",
+
+            "jtcd.githubLink": "https://github.com/JeremyTCD",
+            "jtcd.twitterLink": "https://twitter.com/JeremyTCD?lang=en",
+            "jtcd.instagramLink": "https://www.instagram.com/jeremytcd/?hl=en",
+            "jtcd.facebookLink": "https://www.facebook.com/jeremy.chongdao",
+            "jtcd.googleplusLink": "https://plus.google.com/u/0/103822374294532823770",
+
+            "jtcd_licensesRelPath": "/licenses.html",
+            "jtcd_privacyPolicyRelPath": "/privacypolicy.html",
+            "jtcd_contactRelPath": "/about.html#contact",
+            "jtcd_logoRelPath": "/resources/logo.svg",
+            "jtcd_favIconRelPath": "/resources/favicon.ico",
+            "jtcd_fontLinks": [
+                { "link": "https://fonts.googleapis.com/css?family=Open+Sans" }
+            ]
+        },
+        "postProcessors": [ "SortedArticleListGenerator", "SearchIndexGenerator" ],
+        "sitemap": {
+            "baseUrl": "https://www.jeremytcd.com",
+            "priority": 0.1,
+            "fileOptions": {
+                "**/src/content/articles/*.md": {
+                    "priority": 1.0
+                },
+                "**/src/content/articles/allArticles.md": {
+                    "priority": 0.1
+                }
+            }
+        }
+    }
 }

@@ -1,18 +1,17 @@
 {
-  "name": "blog",
-  "version": "1.0.0",
-  "description": "Personal blog",
-  "scripts": {
-    "serve": "yarn run build&&docfx serve _site",
-    "deploy": "yarn run build&&firebase deploy --non-interactive",
-    "build": "docfx build -t node_modules/docfx-templates-basicblog/dist"
-  },
-  "author": "JeremyTCD",
-  "license": "MIT",
-  "devDependencies": {
-    "firebase-tools": "^3.5.0"
-  },
-  "dependencies": {
-    "docfx-templates-basicblog": "^0.1.11-beta"
-  }
+    "name": "my-blog",
+    "version": "1.0.0",
+    "main": "index.js",
+    "private":  true,
+    "scripts": {
+        "serve-dev": "set NODE_ENV=development && npm run serve",
+        "serve-production": "set NODE_ENV=production && npm run serve",
+        "serve": "node node_modules/mimo-theme/dist/tools/serve.js -p ../../../../ -n ../../../",
+        "build-dev": "set NODE_ENV=development && npm run build",
+        "build-production": "set NODE_ENV=production && npm run build",
+        "build": "node tools/build.js -p ../../../../ -n ../../../"
+    },
+    "devDependencies": {
+        "mimo-theme": "^1.0.0-alpha.1"
+    }
 }
