@@ -21,12 +21,14 @@
             "jtcd_websiteName": "JeremyTCD",
             "jtcd_authorName": "JeremyTCD",
             "jtcd_copyrightText": "© 2017 JeremyTCD",
+            "jtcd_disqusShortname": "jeremytcd",
+            "jtcd_googleTrackingID": "UA-111443979-1",
 
-            "jtcd.githubLink": "https://github.com/JeremyTCD",
-            "jtcd.twitterLink": "https://twitter.com/JeremyTCD?lang=en",
-            "jtcd.instagramLink": "https://www.instagram.com/jeremytcd/?hl=en",
-            "jtcd.facebookLink": "https://www.facebook.com/jeremy.chongdao",
-            "jtcd.googleplusLink": "https://plus.google.com/u/0/103822374294532823770",
+            "jtcd_githubLink": "https://github.com/JeremyTCD",
+            "jtcd_twitterLink": "https://twitter.com/JeremyTCD?lang=en",
+            "jtcd_instagramLink": "https://www.instagram.com/jeremytcd/?hl=en",
+            "jtcd_facebookLink": "https://www.facebook.com/jeremy.chongdao",
+            "jtcd_googleplusLink": "https://plus.google.com/u/0/103822374294532823770",
 
             "jtcd_licensesRelPath": "/licenses.html",
             "jtcd_privacyPolicyRelPath": "/privacypolicy.html",
@@ -35,7 +37,11 @@
             "jtcd_favIconRelPath": "/resources/favicon.ico",
             "jtcd_fontLinks": [
                 { "link": "https://fonts.googleapis.com/css?family=Open+Sans" }
-            ]
+            ],
+            "jtcd_hostInfo": {
+                "link": "https://pages.github.com/",
+                "name": "Github Pages"
+            }
         },
         "postProcessors": [ "SortedArticleListGenerator", "SearchIndexGenerator" ],
         "sitemap": {
