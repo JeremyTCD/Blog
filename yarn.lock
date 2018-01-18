@@ -18,6 +18,10 @@
   version "8.5.8"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.5.8.tgz#92509422653f10e9c0ac18d87e0610b39f9821c7"
 
+"@types/web-animations-js@^2.2.5":
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/@types/web-animations-js/-/web-animations-js-2.2.5.tgz#35a462ac3a3e0011163f403895b7eebeb922d0bb"
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -5456,6 +5460,10 @@ svg-sprite-loader@^3.6.2:
     svg-baker "^1.2.17"
     svg-baker-runtime "^1.3.3"
     url-slug "2.0.0"
+
+svg.js@^2.6.3:
+  version "2.6.3"
+  resolved "https://registry.yarnpkg.com/svg.js/-/svg.js-2.6.3.tgz#ac07c61f54ada2745548800307bb45b4b3b519eb"
 
 svgo-loader@^2.1.0:
   version "2.1.0"

@@ -2,7 +2,7 @@
     "name": "my-blog",
     "version": "1.0.0",
     "main": "index.js",
-    "private":  true,
+    "private": true,
     "scripts": {
         "serve-dev": "set NODE_ENV=development && npm run serve",
         "serve-production": "set NODE_ENV=production && npm run serve",
@@ -13,5 +13,8 @@
     },
     "devDependencies": {
         "mimo-theme": "^1.0.0-alpha.1"
+    },
+    "dependencies": {
+        "@types/web-animations-js": "^2.2.5"
     }
 }
