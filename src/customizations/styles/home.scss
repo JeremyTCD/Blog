@@ -2,7 +2,7 @@
 
 #home {
     @media #{$media-narrow} {
-        #header-logo{
+        #header-logo {
             visibility: hidden;
         }
     }
@@ -26,6 +26,9 @@
                 width: 240px;
                 overflow: visible;
                 user-select: none;
+
+                // In chrome, artifacts accumulate along planes that are rotated. Not sure why, but this solution helped: https: //stackoverflow.com/questions/13758215/artifacts-when-css-scaled-in-chrome
+                backface-visibility: hidden;
 
                 * {
                     perspective: 1000px;

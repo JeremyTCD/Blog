@@ -59,8 +59,26 @@ class Home extends Page {
                 { transform: 'rotate(0deg) translate(0px, 0px)' }
             ], this.timingOptions);
         this.animations.push(logoTranslationAnimation);
-        this.animations.push(this.createRotateAnimation('heart-left', '0,1,0,180deg', 0));
+        this.animations.push(this.createRotateAnimation('heart-left', '0,1,0,-180deg', 0));
+        this.animations.
+            push(this.
+                createFillAnimation(
+                'heart-left',
+                [
+                    { unitsFromStart: 0, fill: this.baseColor, gradual: false },
+                    { unitsFromStart: 1, fill: this.shadowLight, gradual: true }
+                ]
+                ));
         this.animations.push(this.createRotateAnimation('heart-right', '1,0,0,180deg', 0));
+        this.animations.
+            push(this.
+                createFillAnimation(
+                'heart-right',
+                [
+                    { unitsFromStart: 0, fill: this.baseColor, gradual: false },
+                    { unitsFromStart: 1, fill: this.shadowLight, gradual: true }
+                ]
+            ));
 
         this.animations.push(this.createGrowAnimation('top-quad', 1, 1, 'X', 1));
         this.animations.push(this.createGrowAnimation('top-tri', 1, 2, 'X'));
@@ -87,9 +105,9 @@ class Home extends Page {
                 createFillAnimation(
                 'bottom',
                 [
-                    { unitsFromStart: 4, fill: this.shadowLight, gradual: false },
-                    { unitsFromStart: 5.5, fill: this.shadowLight, gradual: false },
-                    { unitsFromStart: 6, fill: this.baseColor, gradual: true }
+                    { unitsFromStart: 5, fill: this.shadowLight, gradual: false },
+                    { unitsFromStart: 6.5, fill: this.shadowLight, gradual: false },
+                    { unitsFromStart: 7, fill: this.baseColor, gradual: true }
                 ]
                 ));
         this.animations.push(this.createGrowAnimation('left-tri', 1, 7, 'Y'));
