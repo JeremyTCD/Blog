@@ -14,29 +14,41 @@ jtcd_disableRightMenu: true
 jtcd_disableComments: true
 ---
 
-
-<svg version="1.1" id="animatable"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="240px" height="320px" viewBox="0 0 240 320" enable-background="new 0 0 240 320" xml:space="preserve">
-<g id="segment-one">
-	<g id="right" fill="#e23600">
-		<polygon id="right-quad"  points="160,320 240,240 240,80 160,80 		"/>
-		<polygon id="right-tri" points="160,80 240,80 160,0 		"/>
-	</g>
-	<g id="segment-two">
-        <g id="segment-three">
-		    <g id="left" fill="#e23600">
-			    <rect id="left-quad" y="160" width="80" height="80"/>
-			    <polygon id="left-tri" points="80,320 80,240 0,240 			"/>
-		    </g>
-        </g>
-		<g id="bottom" fill="#FE3D00">
-			<polygon id="bottom-quad"  points="0,240 80,320 160,320 160,240 			"/>
-			<polygon id="bottom-tri" points="160,240 160,320 240,240 			"/>
+<svg id="logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="240px"
+	 height="320px" viewBox="0 0 240 320" enable-background="new 0 0 240 320" xml:space="preserve">
+<g id="logo-animatable">
+	<g id="segment-one">
+		<g id="right" fill="#E23600">
+			<polygon id="right-top-tri" points="160,80 240,80 160,0 			"/>
+			<rect id="right-quad" x="160" y="80" width="80" height="160"/>
+			<polygon id="right-bottom-tri" points="160,320 240,240 160,240 			"/>
+            <defs>
+			    <linearGradient id="gradient" gradientUnits="userSpaceOnUse" x1="200" y1="120" x2="200" y2="80">
+				    <stop  offset="0" style="stop-color:#000000;stop-opacity:0"/>
+				    <stop  offset="1" style="stop-color:#000000;stop-opacity:0.15"/>
+			    </linearGradient>
+            </defs>
+			<rect id="right-gradient" x="160" y="80" fill="url(#gradient)" width="80" height="40"/>
+		</g>
+		<g id="segment-two">
+			<g id="left" fill="#E23600">
+				<rect id="left-quad" y="160"  width="80" height="80"/>
+				<polygon id="left-tri" points="80,320 80,240 0,240 				"/>
+			</g>
+			<g id="bottom" fill="#FE3D00">
+				<polygon id="bottom-right-tri" points="160,240 160,320 240,240 				"/>
+				<rect id="bottom-quad" x="80" y="240" width="80" height="80"/>
+				<polygon id="bottom-left-tri" points="0,240 80,320 80,240 				"/>
+			</g>
 		</g>
 	</g>
+	<g id="top" fill="#FE3D00">
+		<rect id="top-quad"  width="160" height="80"/>
+		<polygon id="top-tri" points="160,80 240,80 160,0 		"/>
+	</g>
 </g>
-<polygon id="top-quad" fill="#FE3D00" points="240,80 0,80 0,0 160,0 "/>
 </svg>
+
 
 
 

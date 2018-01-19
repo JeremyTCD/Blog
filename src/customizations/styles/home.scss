@@ -14,46 +14,73 @@
                 overflow: visible;
 
                 * {
+                    overflow: visible;
+                    perspective: 1000px;
                     transform-style: preserve-3d;
                 }
             }
 
+            #logo-animatable {
+                transform-origin: 120px 160px;
+            }
+
             #top-quad {
-                perspective: 600px;
                 transform-origin: 0px 40px;
             }
 
+            #top-tri {
+                transform-origin: 160px 40px;
+            }
+
+            #right-top-tri {
+                transform-origin: 200px 0px;
+            }
+
             #right-quad {
-                perspective: 600px;
                 transform-origin: 200px 80px;
             }
 
+            #right-bottom-tri {
+                transform-origin: 200px 240px;
+            }
+
+            #right-gradient {
+                transform-origin: 200px 80px;
+            }
+
+            #bottom-right-tri {
+                transform-origin: 240px 280px;
+            }
+
             #bottom-quad {
-                perspective: 600px;
                 transform-origin: 160px 280px;
             }
 
+            #bottom-left-tri {
+                transform-origin: 80px 280px;
+            }
+
             #left-quad {
-                perspective: 600px;
                 transform-origin: 40px 240px;
+            }
+
+            #left-tri {
+                transform-origin: 40px 320px;
+            }
+
+            #left {
+                transform-origin: 40px 280px;
             }
 
             #segment-one {
                 transform-origin: 200px 40px;
-                perspective: 600px;
             }
 
             #segment-two {
                 transform-origin: 200px 280px;
-                perspective: 600px;
             }
 
-            #segment-three {
-                transform-origin: 40px 280px;
-                perspective: 600px;
-            }
-            
-            h1{
+            h1 {
                 margin-top: 59px;
             }
         }
