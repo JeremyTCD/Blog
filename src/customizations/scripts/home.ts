@@ -1,17 +1,15 @@
 import Page from './page';
 
 class Home extends Page {
-    growSpeed = 0.004375; // units per ms
-    totalLength = 8; // units
-    heartMorphDuration = 300; //ms
-    totalDuration: number = this.totalLength / this.growSpeed;// + this.heartMorphDuration;
+    growSpeed = 0.006; // units per ms
+    totalDurationUnits = 9; // units
+    totalDuration: number = this.totalDurationUnits / this.growSpeed;// + this.heartMorphDuration;
     turnDurationUnits = 1; // ms
 
     animations: Animation[] = [];
     baseColor = '#FE3D00';
     shadowDark = '#B32B00';
     shadowLight = '#e23600';
-    bright = '#FE501A';
     easing = 'ease-in-out';
     timingOptions: AnimationEffectTiming = {
         duration: this.totalDuration,
@@ -23,85 +21,96 @@ class Home extends Page {
         return document.getElementById('home') ? true : false;
     }
 
-    protected setup(): void {
-        // Listener
+    protected registerListeners(): void {
         let svgElement = document.getElementById('logo');
-        svgElement.addEventListener('mouseenter', (event: MouseEvent) => {
-            if (event.target === event.currentTarget) {
-                this.animations.forEach((animation: Animation) => {
-                    animation.currentTime = Math.floor(animation.currentTime); // Firefox has a bug where if currentTime is not rounded down, the animation end flashes
+        svgElement.addEventListener('touchstart', this.enterListener);
+        svgElement.addEventListener('touchend', this.enterListener);
+        svgElement.addEventListener('mouseenter', this.enterListener);
+        svgElement.addEventListener('mouseleave', this.leaveListener);
+    }
 
-                    animation.reverse();
-                });
-            }
-        });
-        svgElement.addEventListener('mouseleave', (event: MouseEvent) => {
-            if (event.target === event.currentTarget) {
-                this.animations.forEach((animation: Animation) => {
-                    animation.reverse();
-                });
-            }
+    private enterListener = (event: Event) => {
+        this.animations.forEach((animation: Animation) => {
+            animation.currentTime = animation.currentTime - 1; // Firefox has a bug where at max time, styles from time = 0 are displayed for 1 frame
+            animation.reverse();
         });
 
-        this.animations.push(this.createGrowAnimation('top-quad', 1, 0, 'X', 1));
-        this.animations.push(this.createGrowAnimation('top-tri', 1, 1, 'X'));
-        this.animations.push(this.createGrowAnimation('right-top-tri', 1, 1, 'Y'));
-        this.animations.push(this.createGrowAnimation('right-quad', 2, 2, 'Y'));
-        this.animations.push(this.createRotateAnimation('segment-one', '1,1,0,-180deg', 2));
-        this.animations.push(this.createGrowAnimation('right-bottom-tri', 1, 4, 'Y'));
+        // If event is a touch event, prevents subsequent mouse events from firing
+        event.preventDefault();
+    }
+
+    private leaveListener = (event: Event) => {
+        this.animations.forEach((animation: Animation) => {
+            animation.reverse();
+        });
+
+        // If event is a touch event, prevents subsequent mouse events from firing
+        event.preventDefault();
+    }
+
+    protected setup(): void {
+        // Heart
+        let logoTranslationAnimation = document.
+            getElementById('wrapper').
+            animate([
+                { transform: 'rotate(45deg) translate(80px, 126px)' },
+                { transform: 'rotate(45deg) translate(80px, 126px)', offset: 1 / this.totalDurationUnits },
+                { transform: 'rotate(0deg) translate(0px, 126px)', offset: 3 / this.totalDurationUnits },
+                { transform: 'rotate(0deg) translate(0px, 0px)' }
+            ], this.timingOptions);
+        this.animations.push(logoTranslationAnimation);
+        this.animations.push(this.createRotateAnimation('heart-left', '0,1,0,180deg', 0));
+        this.animations.push(this.createRotateAnimation('heart-right', '1,0,0,180deg', 0));
+
+        this.animations.push(this.createGrowAnimation('top-quad', 1, 1, 'X', 1));
+        this.animations.push(this.createGrowAnimation('top-tri', 1, 2, 'X'));
+        this.animations.push(this.createGrowAnimation('right-top-tri', 1, 2, 'Y'));
+        this.animations.push(this.createGrowAnimation('right-quad', 2, 3, 'Y'));
+        this.animations.push(this.createRotateAnimation('segment-one', '1,1,0,-180deg', 3));
+        this.animations.push(this.createGrowAnimation('right-bottom-tri', 1, 5, 'Y'));
         this.animations.
             push(this.
                 createFillAnimation(
                 'right',
                 [
-                    { unitsFromStart: 1, fill: this.baseColor, gradual: false },
-                    { unitsFromStart: 2.5, fill: this.shadowDark, gradual: false },
-                    { unitsFromStart: 3, fill: this.shadowLight, gradual: true }
+                    { unitsFromStart: 2, fill: this.baseColor, gradual: false },
+                    { unitsFromStart: 3.5, fill: this.shadowDark, gradual: false },
+                    { unitsFromStart: 4, fill: this.shadowLight, gradual: true }
                 ]
                 ));
-        this.animations.push(this.createGrowAnimation('bottom-right-tri', 1, 4, 'X'));
-        this.animations.push(this.createGrowAnimation('bottom-quad', 1, 5, 'X'));
-        this.animations.push(this.createRotateAnimation('segment-two', '1,-1,0,180deg', 5));
-        this.animations.push(this.createGrowAnimation('bottom-left-tri', 1, 6, 'X'));
+        this.animations.push(this.createGrowAnimation('bottom-right-tri', 1, 5, 'X'));
+        this.animations.push(this.createGrowAnimation('bottom-quad', 1, 6, 'X'));
+        this.animations.push(this.createRotateAnimation('segment-two', '1,-1,0,180deg', 6));
+        this.animations.push(this.createGrowAnimation('bottom-left-tri', 1, 7, 'X'));
         this.animations.
             push(this.
                 createFillAnimation(
                 'bottom',
                 [
                     { unitsFromStart: 4, fill: this.shadowLight, gradual: false },
-                    { unitsFromStart: 5.5, fill: this.baseColor, gradual: false },
+                    { unitsFromStart: 5.5, fill: this.shadowLight, gradual: false },
                     { unitsFromStart: 6, fill: this.baseColor, gradual: true }
                 ]
                 ));
-        this.animations.push(this.createGrowAnimation('left-tri', 1, 6, 'Y'));
-        this.animations.push(this.createRotateAnimation('left', '1,1,0,180deg', 7));
-        this.animations.push(this.createGrowAnimation('left-quad', 1, 7, 'Y'));
+        this.animations.push(this.createGrowAnimation('left-tri', 1, 7, 'Y'));
+        this.animations.push(this.createRotateAnimation('left', '1,1,0,180deg', 8));
+        this.animations.push(this.createGrowAnimation('left-quad', 1, 8, 'Y'));
         this.animations.
             push(this.
                 createFillAnimation(
                 'left',
                 [
-                    { unitsFromStart: 6, fill: this.baseColor, gradual: false },
-                    { unitsFromStart: 7.5, fill: this.shadowDark, gradual: false },
-                    { unitsFromStart: 8, fill: this.shadowLight, gradual: true }
+                    { unitsFromStart: 7, fill: this.baseColor, gradual: false },
+                    { unitsFromStart: 8.5, fill: this.shadowDark, gradual: false },
+                    { unitsFromStart: 9, fill: this.shadowLight, gradual: true }
                 ]
                 ));
 
-         // Heart
-        //let logoTranslationAnimation = document.
-        //    getElementById('logo-animatable').
-        //    animate([
-        //        { transform: 'translate(80px, 120px)' },
-        //        { transform: 'translate(0px, 120px)', offset: 2 / this.totalLength},
-        //        { transform: 'translate(0px, 0px)' }
-        //    ], this.timingOptions);
-        //this.animations.push(logoTranslationAnimation);
-
         // Right gradient
-        let rightGradientLength = 0.25;
-        let rightGradientShrinkLength = 0.25;
-        let rightGradientShrinkStartOffset = (2 + this.turnDurationUnits / 2) / this.totalLength;
-        let rightGradientShrinkEndOffset = rightGradientShrinkStartOffset + rightGradientShrinkLength / this.totalLength;
+        let rightGradientLength = 0.0625;
+        let rightGradientShrinkLength = 0.0625;
+        let rightGradientShrinkStartOffset = (3 + this.turnDurationUnits / 2) / this.totalDurationUnits;
+        let rightGradientShrinkEndOffset = rightGradientShrinkStartOffset + rightGradientShrinkLength / this.totalDurationUnits;
         let rightGradientShrinkAnimation = document.
             getElementById('right-gradient').
             animate([
@@ -123,7 +132,7 @@ class Home extends Page {
                     return;
                 }
 
-                let startOffset = fillChangePoint.unitsFromStart / this.totalLength;
+                let startOffset = fillChangePoint.unitsFromStart / this.totalDurationUnits;
 
                 if (!fillChangePoint.gradual) {
                     let previousKeyFrame = keyframes[index - 1];
@@ -143,8 +152,8 @@ class Home extends Page {
     }
 
     private createRotateAnimation(elementID: string, axisAndAngle: string, unitsFromStart: number): Animation {
-        let startOffset = unitsFromStart / this.totalLength;
-        let endOffset = startOffset + this.turnDurationUnits / this.totalLength;
+        let startOffset = unitsFromStart / this.totalDurationUnits;
+        let endOffset = startOffset + this.turnDurationUnits / this.totalDurationUnits;
 
         return document.
             getElementById(elementID).
@@ -157,8 +166,8 @@ class Home extends Page {
     }
 
     private createGrowAnimation(elementID: string, growUnits: number, unitsFromStart: number, growAxis: string, initialLength: number = 0): Animation {
-        let startOffset = unitsFromStart / this.totalLength;
-        let endOffset = (unitsFromStart + growUnits) / this.totalLength;
+        let startOffset = unitsFromStart / this.totalDurationUnits;
+        let endOffset = (unitsFromStart + growUnits) / this.totalDurationUnits;
         let startScale = initialLength / (initialLength + growUnits);
 
         return document.
@@ -169,9 +178,6 @@ class Home extends Page {
                 { transform: `scale${growAxis}(1)`, offset: endOffset },
                 { transform: `scale${growAxis}(1)` }
             ], this.timingOptions);
-    }
-
-    protected registerListeners(): void {
     }
 }
 

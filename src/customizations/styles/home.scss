@@ -1,4 +1,12 @@
+@import '../../../node_modules/mimo-theme/dist/styles/constants';
+
 #home {
+    @media #{$media-narrow} {
+        #header-logo{
+            visibility: hidden;
+        }
+    }
+
     .jtcd-article {
         flex-direction: column;
         align-items: center;
@@ -9,18 +17,31 @@
             align-items: center;
 
             svg {
+                @media #{$media-narrow} {
+                    height: 200px;
+                    width: 150px;
+                }
+
                 height: 320px;
                 width: 240px;
                 overflow: visible;
+                user-select: none;
 
                 * {
-                    overflow: visible;
                     perspective: 1000px;
                     transform-style: preserve-3d;
                 }
             }
 
-            #logo-animatable {
+            #heart-left {
+                transform-origin: 0px, 40px;
+            }
+
+            #heart-left {
+                transform-origin: 40px, 0px;
+            }
+
+            #wrapper {
                 transform-origin: 120px 160px;
             }
 
