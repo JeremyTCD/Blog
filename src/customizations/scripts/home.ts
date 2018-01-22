@@ -1,12 +1,16 @@
 import Page from './page';
 
 class Home extends Page {
+    logoElement: HTMLElement;
+    mouseWithinSvg: boolean;
+    initialMorphComplete: boolean = false;
+
+    // Logo morph animation variables
     growSpeed = 0.006; // units per ms
     totalDurationUnits = 9; // units
     totalDuration: number = this.totalDurationUnits / this.growSpeed;// + this.heartMorphDuration;
     turnDurationUnits = 1; // ms
-
-    animations: Animation[] = [];
+    logoMorphSubAnimations: Animation[] = [];
     baseColor = '#FE3D00';
     shadowDark = '#B32B00';
     shadowLight = '#e23600';
@@ -22,33 +26,78 @@ class Home extends Page {
     }
 
     protected registerListeners(): void {
-        let svgElement = document.getElementById('logo');
-        svgElement.addEventListener('touchstart', this.enterListener);
-        svgElement.addEventListener('touchend', this.enterListener);
-        svgElement.addEventListener('mouseenter', this.enterListener);
-        svgElement.addEventListener('mouseleave', this.leaveListener);
+        this.logoElement.addEventListener('touchstart', this.enterListener);
+        this.logoElement.addEventListener('touchend', this.leaveListener);
+        this.logoElement.addEventListener('mouseenter', this.enterListener);
+        this.logoElement.addEventListener('mouseleave', this.leaveListener);
     }
 
     private enterListener = (event: Event) => {
-        this.animations.forEach((animation: Animation) => {
-            animation.currentTime = animation.currentTime - 1; // Firefox has a bug where at max time, styles from time = 0 are displayed for 1 frame
-            animation.reverse();
-        });
+        if (this.initialMorphComplete) {
+            this.logoMorphSubAnimations.forEach((animation: Animation) => {
+                animation.currentTime = animation.currentTime - 1; // Firefox has a bug where at max time, styles from time = 0 are displayed for 1 frame
+                animation.reverse();
+            });
+        }
+        this.mouseWithinSvg = true;
 
         // If event is a touch event, prevents subsequent mouse events from firing
         event.preventDefault();
     }
 
     private leaveListener = (event: Event) => {
-        this.animations.forEach((animation: Animation) => {
-            animation.reverse();
-        });
+        if (this.initialMorphComplete) {
+            this.logoMorphSubAnimations.forEach((animation: Animation) => {
+                animation.reverse();
+            });
+        }
+        this.mouseWithinSvg = false;
 
         // If event is a touch event, prevents subsequent mouse events from firing
         event.preventDefault();
     }
 
     protected setup(): void {
+        this.logoElement = document.getElementById('logo');
+
+        if (this.logoElement.animate) {
+            // Display the first frame (heart)
+            this.createAndStartLogoMorphAnimation();
+
+            // Pause
+            this.logoMorphSubAnimations.forEach((animation: Animation) => {
+                animation.pause();
+            });
+
+            this.logoElement.addEventListener('transitionend', this.fadeInTransitionEndListener);
+        }
+
+        // J should fade in smoothly even for browsers that do not support waapi
+        this.logoElement.classList.add('faded-in');
+    }
+
+    private fadeInTransitionEndListener = () => {
+        this.logoElement.removeEventListener('transitionend', this.fadeInTransitionEndListener);
+
+        this.logoMorphSubAnimations.forEach((animation: Animation) => {
+            animation.play();
+        });
+
+        // All sub animations end at the same time
+        this.logoMorphSubAnimations[0].onfinish = () => {
+            this.logoMorphSubAnimations[0].onfinish = null;
+
+            if (this.mouseWithinSvg) {
+                this.logoMorphSubAnimations.forEach((animation: Animation) => {
+                    animation.currentTime = animation.currentTime - 1; // Firefox has a bug where at max time, styles from time = 0 are displayed for 1 frame
+                    animation.reverse();
+                });
+            }
+            this.initialMorphComplete = true;
+        }
+    }
+
+    private createAndStartLogoMorphAnimation() {
         // Heart
         let logoTranslationAnimation = document.
             getElementById('wrapper').
@@ -58,37 +107,37 @@ class Home extends Page {
                 { transform: 'rotate(0deg) translate(0px, 126px)', offset: 3 / this.totalDurationUnits },
                 { transform: 'rotate(0deg) translate(0px, 0px)' }
             ], this.timingOptions);
-        this.animations.push(logoTranslationAnimation);
-        this.animations.push(this.createRotateAnimation('heart-left', '0,1,0,-180deg', 0));
-        this.animations.
+        this.logoMorphSubAnimations.push(logoTranslationAnimation);
+        this.logoMorphSubAnimations.push(this.createLogoMorphRotateAnimation('heart-left', '0,1,0,-180deg', 0));
+        this.logoMorphSubAnimations.
             push(this.
-                createFillAnimation(
+                createLogoMorphFillAnimation(
                 'heart-left',
                 [
                     { unitsFromStart: 0, fill: this.baseColor, gradual: false },
                     { unitsFromStart: 1, fill: this.shadowLight, gradual: true }
                 ]
                 ));
-        this.animations.push(this.createRotateAnimation('heart-right', '1,0,0,180deg', 0));
-        this.animations.
+        this.logoMorphSubAnimations.push(this.createLogoMorphRotateAnimation('heart-right', '1,0,0,180deg', 0));
+        this.logoMorphSubAnimations.
             push(this.
-                createFillAnimation(
+                createLogoMorphFillAnimation(
                 'heart-right',
                 [
                     { unitsFromStart: 0, fill: this.baseColor, gradual: false },
                     { unitsFromStart: 1, fill: this.shadowLight, gradual: true }
                 ]
-            ));
+                ));
 
-        this.animations.push(this.createGrowAnimation('top-quad', 1, 1, 'X', 1));
-        this.animations.push(this.createGrowAnimation('top-tri', 1, 2, 'X'));
-        this.animations.push(this.createGrowAnimation('right-top-tri', 1, 2, 'Y'));
-        this.animations.push(this.createGrowAnimation('right-quad', 2, 3, 'Y'));
-        this.animations.push(this.createRotateAnimation('segment-one', '1,1,0,-180deg', 3));
-        this.animations.push(this.createGrowAnimation('right-bottom-tri', 1, 5, 'Y'));
-        this.animations.
+        this.logoMorphSubAnimations.push(this.createLogoMorphGrowAnimation('top-quad', 1, 1, 'X', 1));
+        this.logoMorphSubAnimations.push(this.createLogoMorphGrowAnimation('top-tri', 1, 2, 'X'));
+        this.logoMorphSubAnimations.push(this.createLogoMorphGrowAnimation('right-top-tri', 1, 2, 'Y'));
+        this.logoMorphSubAnimations.push(this.createLogoMorphGrowAnimation('right-quad', 2, 3, 'Y'));
+        this.logoMorphSubAnimations.push(this.createLogoMorphRotateAnimation('segment-one', '1,1,0,-180deg', 3));
+        this.logoMorphSubAnimations.push(this.createLogoMorphGrowAnimation('right-bottom-tri', 1, 5, 'Y'));
+        this.logoMorphSubAnimations.
             push(this.
-                createFillAnimation(
+                createLogoMorphFillAnimation(
                 'right',
                 [
                     { unitsFromStart: 2, fill: this.baseColor, gradual: false },
@@ -96,13 +145,13 @@ class Home extends Page {
                     { unitsFromStart: 4, fill: this.shadowLight, gradual: true }
                 ]
                 ));
-        this.animations.push(this.createGrowAnimation('bottom-right-tri', 1, 5, 'X'));
-        this.animations.push(this.createGrowAnimation('bottom-quad', 1, 6, 'X'));
-        this.animations.push(this.createRotateAnimation('segment-two', '1,-1,0,180deg', 6));
-        this.animations.push(this.createGrowAnimation('bottom-left-tri', 1, 7, 'X'));
-        this.animations.
+        this.logoMorphSubAnimations.push(this.createLogoMorphGrowAnimation('bottom-right-tri', 1, 5, 'X'));
+        this.logoMorphSubAnimations.push(this.createLogoMorphGrowAnimation('bottom-quad', 1, 6, 'X'));
+        this.logoMorphSubAnimations.push(this.createLogoMorphRotateAnimation('segment-two', '1,-1,0,180deg', 6));
+        this.logoMorphSubAnimations.push(this.createLogoMorphGrowAnimation('bottom-left-tri', 1, 7, 'X'));
+        this.logoMorphSubAnimations.
             push(this.
-                createFillAnimation(
+                createLogoMorphFillAnimation(
                 'bottom',
                 [
                     { unitsFromStart: 5, fill: this.shadowLight, gradual: false },
@@ -110,12 +159,12 @@ class Home extends Page {
                     { unitsFromStart: 7, fill: this.baseColor, gradual: true }
                 ]
                 ));
-        this.animations.push(this.createGrowAnimation('left-tri', 1, 7, 'Y'));
-        this.animations.push(this.createRotateAnimation('left', '1,1,0,180deg', 8));
-        this.animations.push(this.createGrowAnimation('left-quad', 1, 8, 'Y'));
-        this.animations.
+        this.logoMorphSubAnimations.push(this.createLogoMorphGrowAnimation('left-tri', 1, 7, 'Y'));
+        this.logoMorphSubAnimations.push(this.createLogoMorphRotateAnimation('left', '1,1,0,180deg', 8));
+        this.logoMorphSubAnimations.push(this.createLogoMorphGrowAnimation('left-quad', 1, 8, 'Y'));
+        this.logoMorphSubAnimations.
             push(this.
-                createFillAnimation(
+                createLogoMorphFillAnimation(
                 'left',
                 [
                     { unitsFromStart: 7, fill: this.baseColor, gradual: false },
@@ -137,10 +186,10 @@ class Home extends Page {
                 { transform: 'scaleY(1)', offset: rightGradientShrinkEndOffset },
                 { transform: 'scaleY(1)' }
             ], this.timingOptions);
-        this.animations.push(rightGradientShrinkAnimation);
+        this.logoMorphSubAnimations.push(rightGradientShrinkAnimation);
     }
 
-    private createFillAnimation(elementID: string, fillChangePoints: FillChangePoint[]): Animation {
+    private createLogoMorphFillAnimation(elementID: string, fillChangePoints: FillChangePoint[]): Animation {
         let keyframes = [];
 
         fillChangePoints.
@@ -169,7 +218,7 @@ class Home extends Page {
             animate(keyframes, this.timingOptions);
     }
 
-    private createRotateAnimation(elementID: string, axisAndAngle: string, unitsFromStart: number): Animation {
+    private createLogoMorphRotateAnimation(elementID: string, axisAndAngle: string, unitsFromStart: number): Animation {
         let startOffset = unitsFromStart / this.totalDurationUnits;
         let endOffset = startOffset + this.turnDurationUnits / this.totalDurationUnits;
 
@@ -183,7 +232,7 @@ class Home extends Page {
             ], this.timingOptions);
     }
 
-    private createGrowAnimation(elementID: string, growUnits: number, unitsFromStart: number, growAxis: string, initialLength: number = 0): Animation {
+    private createLogoMorphGrowAnimation(elementID: string, growUnits: number, unitsFromStart: number, growAxis: string, initialLength: number = 0): Animation {
         let startOffset = unitsFromStart / this.totalDurationUnits;
         let endOffset = (unitsFromStart + growUnits) / this.totalDurationUnits;
         let startScale = initialLength / (initialLength + growUnits);

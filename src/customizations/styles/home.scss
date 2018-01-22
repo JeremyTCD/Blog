@@ -26,6 +26,15 @@
                 width: 240px;
                 overflow: visible;
                 user-select: none;
+                opacity: 0;
+                transform: translateY(62px);
+
+                transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+                &.faded-in{
+                    opacity: 1;
+                    transform: translateY(0px);
+                }
 
                 // In chrome, artifacts accumulate along planes that are rotated. Not sure why, but this solution helped: https: //stackoverflow.com/questions/13758215/artifacts-when-css-scaled-in-chrome
                 backface-visibility: hidden;
