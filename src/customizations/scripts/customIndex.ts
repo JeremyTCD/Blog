@@ -1,3 +1,6 @@
 import home from './home';
+import * as domReady from 'domready';
 
-home.initialize();
+domReady(function () {
+    home.initialize();
+});
