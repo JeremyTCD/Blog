@@ -49,4 +49,7 @@ jtcd_disableComments: true
 </svg>
 
 # hello, welcome to my blog
-Introduction here.shor
+My name is Jeremy Tan and I am a programmer. I enjoy turning ideas into tangible, useful systems. This 
+blog serves as a platform to document and share things I learn. I believe in 
+open-mindedness, honesty and humility. Feel free to check out my [articles](http://localhost:8080/articles/allArticles.html)
+and to leave your input in the comments.
