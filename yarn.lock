@@ -3416,9 +3416,9 @@ mimic-fn@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-1.1.0.tgz#e667783d92e89dbd342818b5230b9d62a672ad18"
 
-mimo-theme@^1.0.0-alpha.1:
-  version "1.0.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/mimo-theme/-/mimo-theme-1.0.0-alpha.1.tgz#2064dbd66ddadc76332cddb265b9c5532c9bf8c9"
+mimo-theme@^1.0.0-alpha.2:
+  version "1.0.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/mimo-theme/-/mimo-theme-1.0.0-alpha.2.tgz#8592471c546a70b0fe2099ab4eb0658d3f353e49"
   dependencies:
     "@types/clipboard" "^1.5.35"
     "@types/jquery" "^3.2.16"
@@ -3443,6 +3443,7 @@ mimo-theme@^1.0.0-alpha.1:
     name-all-modules-plugin "^1.0.1"
     node-sass "^4.5.0"
     postcss-loader "^2.0.10"
+    resize-observer-polyfill "^1.5.0"
     rimraf "^2.6.2"
     sass-loader "^6.0.0"
     smooth-scroll "^12.1.5"
@@ -4777,6 +4778,10 @@ requires-port@1.0.x, requires-port@1.x.x, requires-port@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
 
+resize-observer-polyfill@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.0.tgz#660ff1d9712a2382baa2cad450a4716209f9ca69"
+
 resolve-cwd@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/resolve-cwd/-/resolve-cwd-2.0.0.tgz#00a9f7387556e27038eae232caa372a6a59b665a"
@@ -5460,10 +5465,6 @@ svg-sprite-loader@^3.6.2:
     svg-baker "^1.2.17"
     svg-baker-runtime "^1.3.3"
     url-slug "2.0.0"
-
-svg.js@^2.6.3:
-  version "2.6.3"
-  resolved "https://registry.yarnpkg.com/svg.js/-/svg.js-2.6.3.tgz#ac07c61f54ada2745548800307bb45b4b3b519eb"
 
 svgo-loader@^2.1.0:
   version "2.1.0"

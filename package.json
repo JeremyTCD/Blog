@@ -9,10 +9,10 @@
         "serve": "node node_modules/mimo-theme/dist/tools/serve.js -p ../../../../ -n ../../../",
         "build-dev": "set NODE_ENV=development && npm run build",
         "build-production": "set NODE_ENV=production && npm run build",
-        "build": "node tools/build.js -p ../../../../ -n ../../../"
+        "build": "node  node_modules/mimo-theme/dist/tools/build.js -p ../../../../ -n ../../../"
     },
     "devDependencies": {
-        "mimo-theme": "^1.0.0-alpha.1"
+        "mimo-theme": "^1.0.0-alpha.2"
     },
     "dependencies": {
         "@types/web-animations-js": "^2.2.5"
