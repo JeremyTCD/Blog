@@ -72,8 +72,13 @@ class Home extends Page {
             this.logoElement.addEventListener('transitionend', this.fadeInTransitionEndListener);
         }
 
-        // J should fade in smoothly even for browsers that do not support waapi
-        this.logoElement.classList.add('faded-in');
+        // The load event fires after images and other resources have loaded and an initial render has occurred.
+        // This guarantees that the fade in tranistion occurs. If faded-in is added after DOMContentLoaded but
+        // before the first layout, chrome does not render the full transition.
+        window.addEventListener('load', () => {
+            // J should fade in smoothly even for browsers that do not support waapi
+            this.logoElement.classList.add('faded-in');
+        });
     }
 
     private fadeInTransitionEndListener = () => {
