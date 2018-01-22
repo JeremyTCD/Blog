@@ -7,114 +7,148 @@
         }
     }
 
-    .jtcd-article {
-        flex-direction: column;
-        align-items: center;
-        max-width: initial;
-
-        #content {
-            flex-direction: column;
-            align-items: center;
-
-            svg {
-                @media #{$media-narrow} {
-                    height: 200px;
-                    width: 150px;
-                }
-
-                height: 320px;
-                width: 240px;
-                overflow: visible;
-                user-select: none;
-                opacity: 0;
-                transform: translateY(62px);
-
-                transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-
-                &.faded-in{
-                    opacity: 1;
-                    transform: translateY(0px);
-                }
-
-                // In chrome, artifacts accumulate along planes that are rotated. Not sure why, but this solution helped: https: //stackoverflow.com/questions/13758215/artifacts-when-css-scaled-in-chrome
-                backface-visibility: hidden;
-
-                * {
-                    perspective: 1000px;
-                    transform-style: preserve-3d;
+    body {
+        header {
+            .container {
+                #header-navbar-and-search {
+                    .wrapper {
+                        @media #{$media-narrow} {
+                            #header-search {
+                                &.breadcrumbs-disabled {
+                                    margin-bottom: 37px;
+                                }
+                            }
+                        }
+                    }
                 }
             }
+        }
 
-            #heart-left {
-                transform-origin: 0px, 40px;
+        > .container {
+            padding-top: 59px;
+
+            @media #{$media-narrow} {
+                padding-top: 0;
             }
 
-            #heart-left {
-                transform-origin: 40px, 0px;
-            }
+            main {
+                padding-top: 0;
+                align-items: center;
 
-            #wrapper {
-                transform-origin: 120px 160px;
-            }
+                .jtcd-article {
+                    flex-direction: column;
+                    align-items: center;
 
-            #top-quad {
-                transform-origin: 0px 40px;
-            }
+                    #content {
+                        flex-direction: column;
+                        align-items: center;
 
-            #top-tri {
-                transform-origin: 160px 40px;
-            }
+                        svg {
+                            @media #{$media-narrow} {
+                                height: 248px;
+                                width: 186px;
+                            }
 
-            #right-top-tri {
-                transform-origin: 200px 0px;
-            }
+                            height: 320px;
+                            width: 240px;
+                            overflow: visible;
+                            user-select: none;
+                            opacity: 0;
+                            transform: translateY(62px);
+                            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 
-            #right-quad {
-                transform-origin: 200px 80px;
-            }
+                            &.faded-in {
+                                opacity: 1;
+                                transform: translateY(0px);
+                            }
+                            // In chrome, artifacts accumulate along planes that are rotated. Not sure why, but this solution helped: https: //stackoverflow.com/questions/13758215/artifacts-when-css-scaled-in-chrome
+                            backface-visibility: hidden;
 
-            #right-bottom-tri {
-                transform-origin: 200px 240px;
-            }
+                            * {
+                                perspective: 1000px;
+                                transform-style: preserve-3d;
+                            }
 
-            #right-gradient {
-                transform-origin: 200px 80px;
-            }
+                            #heart-left {
+                                transform-origin: 0px, 40px;
+                            }
 
-            #bottom-right-tri {
-                transform-origin: 240px 280px;
-            }
+                            #heart-left {
+                                transform-origin: 40px, 0px;
+                            }
 
-            #bottom-quad {
-                transform-origin: 160px 280px;
-            }
+                            #wrapper {
+                                transform-origin: 120px 160px;
+                            }
 
-            #bottom-left-tri {
-                transform-origin: 80px 280px;
-            }
+                            #top-quad {
+                                transform-origin: 0px 40px;
+                            }
 
-            #left-quad {
-                transform-origin: 40px 240px;
-            }
+                            #top-tri {
+                                transform-origin: 160px 40px;
+                            }
 
-            #left-tri {
-                transform-origin: 40px 320px;
-            }
+                            #right-top-tri {
+                                transform-origin: 200px 0px;
+                            }
 
-            #left {
-                transform-origin: 40px 280px;
-            }
+                            #right-quad {
+                                transform-origin: 200px 80px;
+                            }
 
-            #segment-one {
-                transform-origin: 200px 40px;
-            }
+                            #right-bottom-tri {
+                                transform-origin: 200px 240px;
+                            }
 
-            #segment-two {
-                transform-origin: 200px 280px;
-            }
+                            #right-gradient {
+                                transform-origin: 200px 80px;
+                            }
 
-            h1 {
-                margin-top: 59px;
+                            #bottom-right-tri {
+                                transform-origin: 240px 280px;
+                            }
+
+                            #bottom-quad {
+                                transform-origin: 160px 280px;
+                            }
+
+                            #bottom-left-tri {
+                                transform-origin: 80px 280px;
+                            }
+
+                            #left-quad {
+                                transform-origin: 40px 240px;
+                            }
+
+                            #left-tri {
+                                transform-origin: 40px 320px;
+                            }
+
+                            #left {
+                                transform-origin: 40px 280px;
+                            }
+
+                            #segment-one {
+                                transform-origin: 200px 40px;
+                            }
+
+                            #segment-two {
+                                transform-origin: 200px 280px;
+                            }
+                        }
+
+                        h1 {
+                            margin-top: 50px;
+                            text-align: center;
+
+                            & + p {
+                                text-align: center;
+                                margin-top: 24px;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
