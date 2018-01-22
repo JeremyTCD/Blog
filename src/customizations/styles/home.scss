@@ -57,7 +57,7 @@
                             transform: translateY(62px);
                             transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 
-                            &.faded-in {
+                            &.transitioned-in {
                                 opacity: 1;
                                 transform: translateY(0px);
                             }
@@ -138,11 +138,24 @@
                             }
                         }
 
+                        h1, h1 + p {
+                            transform: translateY(50%);
+                            opacity: 0;
+                            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+
+                            &.transitioned-in {
+                                opacity: 1;
+                                transform: translateY(0);
+                            }
+                        }
+
                         h1 {
                             margin-top: 50px;
                             text-align: center;
 
                             & + p {
+                                transition-delay: 0.75s;
+
                                 text-align: center;
                                 margin-top: 24px;
                             }

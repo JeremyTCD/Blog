@@ -69,20 +69,28 @@ class Home extends Page {
                 animation.pause();
             });
 
-            this.logoElement.addEventListener('transitionend', this.fadeInTransitionEndListener);
+            this.logoElement.addEventListener('transitionend', this.waapiHeartFadeInTransitionEndListener);
+        } else {
+            this.logoElement.addEventListener('transitionend', this.noWaapiHeartFadeInTransitionEndListener);
         }
 
         // The load event fires after images and other resources have loaded and an initial render has occurred.
-        // This guarantees that the fade in tranistion occurs. If faded-in is added after DOMContentLoaded but
+        // This guarantees that the fade in tranistion occurs. If transitioned-in is added after DOMContentLoaded but
         // before the first layout, chrome does not render the full transition.
         window.addEventListener('load', () => {
             // J should fade in smoothly even for browsers that do not support waapi
-            this.logoElement.classList.add('faded-in');
+            this.logoElement.classList.add('transitioned-in');
         });
     }
 
-    private fadeInTransitionEndListener = () => {
-        this.logoElement.removeEventListener('transitionend', this.fadeInTransitionEndListener);
+    private noWaapiHeartFadeInTransitionEndListener = () => {
+        let titleElement = document.getElementById('hello-welcome-to-my-blog');
+        titleElement.classList.add('transitioned-in');
+        titleElement.parentElement.querySelector('h1 + p').classList.add('transitioned-in');
+    }
+
+    private waapiHeartFadeInTransitionEndListener = () => {
+        this.logoElement.removeEventListener('transitionend', this.waapiHeartFadeInTransitionEndListener);
 
         this.logoMorphSubAnimations.forEach((animation: Animation) => {
             animation.play();
@@ -91,6 +99,9 @@ class Home extends Page {
         // All sub animations end at the same time
         this.logoMorphSubAnimations[0].onfinish = () => {
             this.logoMorphSubAnimations[0].onfinish = null;
+            let titleElement = document.getElementById('hello-welcome-to-my-blog');
+            titleElement.classList.add('transitioned-in');
+            titleElement.parentElement.querySelector('h1 + p').classList.add('transitioned-in');
 
             if (this.mouseWithinSvg) {
                 this.logoMorphSubAnimations.forEach((animation: Animation) => {
