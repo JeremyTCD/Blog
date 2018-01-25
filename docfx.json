@@ -32,16 +32,12 @@
 
             "jtcd_licensesRelPath": "/licenses.html",
             "jtcd_privacyPolicyRelPath": "/privacypolicy.html",
-            "jtcd_contactRelPath": "/about.html#contact",
+            "jtcd_contactRelPath": "/contact.html",
             "jtcd_logoRelPath": "/resources/logo.svg",
             "jtcd_favIconRelPath": "/resources/favicon.ico",
             "jtcd_fontLinks": [
                 { "link": "https://fonts.googleapis.com/css?family=Open+Sans" }
-            ],
-            "jtcd_hostInfo": {
-                "link": "https://pages.github.com/",
-                "name": "Github Pages"
-            }
+            ]
         },
         "postProcessors": [ "SortedArticleListGenerator", "SearchIndexGenerator" ],
         "sitemap": {
