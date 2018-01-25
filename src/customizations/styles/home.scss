@@ -141,7 +141,7 @@
                         h1, h1 + p {
                             transform: translateY(50%);
                             opacity: 0;
-                            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+                            transition: opacity 0.5s $ease-out-quad, transform 0.5s $ease-out-quad;
 
                             &.transitioned-in {
                                 opacity: 1;
