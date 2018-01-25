@@ -1446,7 +1446,7 @@ domhandler@^2.3.0:
   dependencies:
     domelementtype "1"
 
-domready@1.0.8:
+domready@1.0.8, domready@^1.0.8:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/domready/-/domready-1.0.8.tgz#91f252e597b65af77e745ae24dd0185d5e26d58c"
 
@@ -3416,9 +3416,9 @@ mimic-fn@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-1.1.0.tgz#e667783d92e89dbd342818b5230b9d62a672ad18"
 
-mimo-theme@^1.0.0-alpha.2:
-  version "1.0.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/mimo-theme/-/mimo-theme-1.0.0-alpha.2.tgz#8592471c546a70b0fe2099ab4eb0658d3f353e49"
+mimo-theme@^1.0.0-alpha.4:
+  version "1.0.0-alpha.4"
+  resolved "https://registry.yarnpkg.com/mimo-theme/-/mimo-theme-1.0.0-alpha.4.tgz#ef20564ec85d7a9d7cc93c9ac4185d370bd08a60"
   dependencies:
     "@types/clipboard" "^1.5.35"
     "@types/jquery" "^3.2.16"
@@ -3430,6 +3430,7 @@ mimo-theme@^1.0.0-alpha.2:
     clipboard "^1.7.1"
     cpy "^6.0.0"
     css-loader "^0.28.7"
+    domready "^1.0.8"
     extract-text-webpack-plugin "^3.0.2"
     file-loader "^1.1.5"
     fork-ts-checker-webpack-plugin "^0.2.9"
