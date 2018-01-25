@@ -15,7 +15,11 @@
                         @media #{$media-narrow} {
                             #header-search {
                                 &.breadcrumbs-disabled {
-                                    margin-bottom: 37px;
+                                    margin-bottom: 0px;
+
+                                    &.search-results-visible {
+                                        margin-bottom: 37px;
+                                    }
                                 }
                             }
                         }
@@ -26,10 +30,6 @@
 
         > .container {
             padding-top: 59px;
-
-            @media #{$media-narrow} {
-                padding-top: 0;
-            }
 
             main {
                 padding-top: 0;
@@ -55,7 +55,7 @@
                             user-select: none;
                             opacity: 0;
                             transform: translateY(62px);
-                            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+                            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 
                             &.transitioned-in {
                                 opacity: 1;
@@ -141,7 +141,7 @@
                         h1, h1 + p {
                             transform: translateY(50%);
                             opacity: 0;
-                            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+                            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 
                             &.transitioned-in {
                                 opacity: 1;
@@ -152,10 +152,10 @@
                         h1 {
                             margin-top: 50px;
                             text-align: center;
+                            transition-delay: 0.1s;
 
                             & + p {
-                                transition-delay: 0.75s;
-
+                                transition-delay: 0.85s;
                                 text-align: center;
                                 margin-top: 24px;
                             }
