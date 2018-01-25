@@ -1,0 +1,29 @@
+version: '{build}'
+skip_non_tags: true
+image: Visual Studio 2017
+environment:
+  build_user: JeremyTCD
+  build_user_email: jeremytanchongdao@gmail.com
+  access_token:
+    secure: +gVDTXWK1k+HQj8CZfBIzSnP/Y5RvoaXmuByOSir0MRSAW+eYRpjTrcXA0F/2k6r
+install:
+- ps: | 
+    cinst docfx -y
+    Install-Product node 8.9.1 x64
+- cmd: if not exist "./node_modules" yarn install
+build_script:
+- ps: |
+    yarn run build-production
+    git config --global credential.helper store
+    Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+    git config --global user.email $env:build_user_email
+    git config --global user.name $env:build_user
+    git clone https://github.com/JeremyTCD/JeremyTCD.github.io.git -b master origin_site -q
+    Copy-Item origin_site/.git bin/_site -recurse
+    CD bin/_site
+    git add -A 2>&1
+    git commit -m "CI Updates" -q
+    git push origin master -q
+cache:
+    - node_modules -> package.json
+test: off
