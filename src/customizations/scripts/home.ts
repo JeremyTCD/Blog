@@ -2,8 +2,6 @@ import Page from './page';
 
 class Home extends Page {
     logoElement: HTMLElement;
-    mouseWithinSvg: boolean;
-    initialMorphComplete: boolean = false;
 
     // Logo morph animation variables
     growSpeed = 0.006; // units per ms
@@ -26,32 +24,35 @@ class Home extends Page {
     }
 
     protected registerListeners(): void {
-        this.logoElement.addEventListener('touchstart', this.enterListener);
-        this.logoElement.addEventListener('touchend', this.leaveListener);
-        this.logoElement.addEventListener('mouseenter', this.enterListener);
-        this.logoElement.addEventListener('mouseleave', this.leaveListener);
     }
 
     private enterListener = (event: Event) => {
-        if (this.initialMorphComplete) {
-            this.logoMorphSubAnimations.forEach((animation: Animation) => {
-                animation.currentTime = animation.currentTime - 1; // Firefox has a bug where at max time, styles from time = 0 are displayed for 1 frame
+        let firstAnimation = this.logoMorphSubAnimations[0];
+        let reverse = firstAnimation.playbackRate > -1;
+
+        if (reverse) {
+            let currentTime = firstAnimation.currentTime === this.totalDuration ? firstAnimation.currentTime - 1 : firstAnimation.currentTime;
+
+            for (let i = 0; i < this.logoMorphSubAnimations.length; i++) {
+                let animation = this.logoMorphSubAnimations[i];
+
+                animation.currentTime = currentTime;
                 animation.reverse();
-            });
+            }
         }
-        this.mouseWithinSvg = true;
 
         // If event is a touch event, prevents subsequent mouse events from firing
         event.preventDefault();
     }
 
     private leaveListener = (event: Event) => {
-        if (this.initialMorphComplete) {
-            this.logoMorphSubAnimations.forEach((animation: Animation) => {
-                animation.reverse();
-            });
+        let reverse = this.logoMorphSubAnimations[0].playbackRate < 1;
+
+        if (reverse) {
+            for (let i = 0; i < this.logoMorphSubAnimations.length; i++) {
+                this.logoMorphSubAnimations[i].reverse();
+            }
         }
-        this.mouseWithinSvg = false;
 
         // If event is a touch event, prevents subsequent mouse events from firing
         event.preventDefault();
@@ -65,9 +66,9 @@ class Home extends Page {
             this.createAndStartLogoMorphAnimation();
 
             // Pause
-            this.logoMorphSubAnimations.forEach((animation: Animation) => {
-                animation.pause();
-            });
+            for (let i = 0; i < this.logoMorphSubAnimations.length; i++) {
+                this.logoMorphSubAnimations[i].pause();
+            }
 
             this.logoElement.addEventListener('transitionend', this.waapiHeartFadeInTransitionEndListener);
         } else {
@@ -92,25 +93,25 @@ class Home extends Page {
     private waapiHeartFadeInTransitionEndListener = () => {
         this.logoElement.removeEventListener('transitionend', this.waapiHeartFadeInTransitionEndListener);
 
-        this.logoMorphSubAnimations.forEach((animation: Animation) => {
-            animation.play();
-        });
+        for (let i = 0; i < this.logoMorphSubAnimations.length; i++) {
+            this.logoMorphSubAnimations[i].play();
+        }
 
         // All sub animations end at the same time
-        this.logoMorphSubAnimations[0].onfinish = () => {
-            this.logoMorphSubAnimations[0].onfinish = null;
-            let titleElement = document.getElementById('hello-welcome-to-my-blog');
-            titleElement.classList.add('transitioned-in');
-            titleElement.parentElement.querySelector('h1 + p').classList.add('transitioned-in');
+        this.logoMorphSubAnimations[0].onfinish = this.initialMorphOnFinishListener;
+    }
 
-            if (this.mouseWithinSvg) {
-                this.logoMorphSubAnimations.forEach((animation: Animation) => {
-                    animation.currentTime = animation.currentTime - 1; // Firefox has a bug where at max time, styles from time = 0 are displayed for 1 frame
-                    animation.reverse();
-                });
-            }
-            this.initialMorphComplete = true;
-        }
+    private initialMorphOnFinishListener = () => {
+        this.logoMorphSubAnimations[0].onfinish = null;
+
+        let titleElement = document.getElementById('hello-welcome-to-my-blog');
+        titleElement.classList.add('transitioned-in');
+        titleElement.parentElement.querySelector('h1 + p').classList.add('transitioned-in');
+
+        this.logoElement.addEventListener('touchstart', this.enterListener);
+        this.logoElement.addEventListener('touchend', this.leaveListener);
+        this.logoElement.addEventListener('mouseenter', this.enterListener);
+        this.logoElement.addEventListener('mouseleave', this.leaveListener);
     }
 
     private createAndStartLogoMorphAnimation() {
