@@ -7,10 +7,10 @@
 	<polygon fill="#FE3D00" points="0,13 26,13 26,39 13,39 13,26 0,26 0,39 13,52 26,52 39,39 39,13 26,0 13,0 0,0 	"/>
 	<rect x="26" y="13" opacity="0.11" width="13" height="26"/>
 	<rect y="26" opacity="0.11" width="13" height="13"/>
-	<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="32.5" y1="19" x2="32.5" y2="13">
+	<linearGradient id="shadow-gradient" gradientUnits="userSpaceOnUse" x1="32.5" y1="19" x2="32.5" y2="13">
 		<stop  offset="0" style="stop-color:#000000;stop-opacity:0"/>
 		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.15"/>
 	</linearGradient>
-	<rect x="26" y="13" fill="url(#SVGID_4_)" width="13" height="6"/>
+	<rect x="26" y="13" fill="url(#shadow-gradient)" width="13" height="1"/>
 </g>
 </svg>
