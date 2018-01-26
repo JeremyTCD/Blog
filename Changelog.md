@@ -1,9 +1,12 @@
 # Changelog
-This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/1.0.2...HEAD)
 
-## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/1.0.1...HEAD)
+## [1.0.2](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/1.0.1...1.0.2) - Jan 26, 2018
+### Fixed
+- Privacy policy link.
+- 404 page.
 
-## 1.0.1 - Jan 26, 2018
+## [1.0.1](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/1.0.0...1.0.1)- Jan 26, 2018
 ### Changed
 - home.ts no longer generates objects on mouse enter/leave red J. 
 ### Fixed
