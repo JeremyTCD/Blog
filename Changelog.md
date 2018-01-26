@@ -1,5 +1,10 @@
 # Changelog
-## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/1.0.2...HEAD)
+## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/1.0.3...HEAD)
+
+## [1.0.3](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/1.0.2...1.0.3) - Jan 26, 2018
+### Changed
+- Updated mimo-theme to alpha.5.
+- Minor style and language changes.
 
 ## [1.0.2](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/1.0.1...1.0.2) - Jan 26, 2018
 ### Fixed
