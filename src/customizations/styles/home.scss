@@ -15,11 +15,7 @@
                         @media #{$media-narrow} {
                             #header-search {
                                 &.breadcrumbs-disabled {
-                                    margin-bottom: 0px;
-
-                                    &.search-results-visible {
-                                        margin-bottom: 37px;
-                                    }
+                                    margin-bottom: 37px;
                                 }
                             }
                         }
@@ -29,8 +25,6 @@
         }
 
         > .container {
-            padding-top: 59px;
-
             main {
                 padding-top: 0;
                 align-items: center;
