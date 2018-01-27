@@ -1,5 +1,5 @@
 ---
-jtcd_pageDescription: A landing page.
+jtcd_pageDescription: Landing page.
 jtcd_pageTitle: Home
 jtcd_pageID: home
 
@@ -50,5 +50,5 @@ jtcd_disableComments: true
 
 # hello, welcome to my blog
 My name is Jeremy Tan and I'm a programmer. I enjoy turning ideas into useful systems. This 
-blog is my platform for documenting and sharing things I learn. Feel free to check out my [articles](/articles/allArticles.html)
-and to leave your input in the comments.
+blog is my platform for documenting and sharing things I learn. Feel free to check out my [articles](/articles/allArticles.html) - I 
+sincerely hope that you find them to be of value.
