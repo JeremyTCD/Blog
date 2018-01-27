@@ -1,7 +1,11 @@
 # Changelog
-## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/1.0.4...HEAD)
+## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/1.0.5...HEAD)
 
-## [1.0.4](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/1.0.3...1.0.4) - Jan 27, 2018
+## [1.0.5](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/1.0.4...1.0.5) - Jan 27, 2018
+### Fixed
+- Css updated to select article content using class instead of id.
+
+## [1.0.4](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/1.0.3...1.0.4) - Jan 27, 2018 [YANKED]
 ### Changed
 - Updated mimo-theme to alpha.6.
 - Tweaked about and home text.
