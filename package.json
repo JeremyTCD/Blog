@@ -11,7 +11,7 @@
         "build": "node  node_modules/mimo-theme/dist/tools/build.js -p ../../../../ -n ../../../"
     },
     "devDependencies": {
-        "mimo-theme": "^1.0.0-alpha.5"
+        "mimo-theme": "^1.0.0-alpha.6"
     },
     "dependencies": {
         "@types/web-animations-js": "^2.2.5"
