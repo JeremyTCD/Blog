@@ -11,7 +11,7 @@ class Home extends Page {
     }
 
     protected setup(): void {
-        this.logoElement = document.getElementById('content-logo');
+        this.logoElement = document.querySelector('.jtcd-article > .content > .logo') as HTMLElement;
 
         // The load event fires after images and other resources have loaded and an initial render has occurred.
         // This guarantees that the fade in tranistion occurs. If transitioned-in is added after DOMContentLoaded but
