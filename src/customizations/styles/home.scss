@@ -45,21 +45,97 @@
 
                             height: 320px;
                             width: 240px;
+                            overflow: visible;
                             user-select: none;
                             opacity: 0;
-                            transform: translateY(25%);
-                            transition: opacity 0.5s $ease-out-quad, transform 0.5s $ease-out-quad;
+                            transform: translateY(62px);
+                            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 
                             &.transitioned-in {
                                 opacity: 1;
                                 transform: translateY(0px);
+                            }
+                            // In chrome, artifacts accumulate along planes that are rotated. Not sure why, but this solution helped: https: //stackoverflow.com/questions/13758215/artifacts-when-css-scaled-in-chrome
+                            backface-visibility: hidden;
+
+                            * {
+                                perspective: 1000px;
+                                transform-style: preserve-3d;
+                            }
+
+                            #heart-left {
+                                transform-origin: 0px, 40px;
+                            }
+
+                            #heart-left {
+                                transform-origin: 40px, 0px;
+                            }
+
+                            #wrapper {
+                                transform-origin: 120px 160px;
+                            }
+
+                            #top-quad {
+                                transform-origin: 0px 40px;
+                            }
+
+                            #top-tri {
+                                transform-origin: 160px 40px;
+                            }
+
+                            #right-top-tri {
+                                transform-origin: 200px 0px;
+                            }
+
+                            #right-quad {
+                                transform-origin: 200px 80px;
+                            }
+
+                            #right-bottom-tri {
+                                transform-origin: 200px 240px;
+                            }
+
+                            #right-gradient {
+                                transform-origin: 200px 80px;
+                            }
+
+                            #bottom-right-tri {
+                                transform-origin: 240px 280px;
+                            }
+
+                            #bottom-quad {
+                                transform-origin: 160px 280px;
+                            }
+
+                            #bottom-left-tri {
+                                transform-origin: 80px 280px;
+                            }
+
+                            #left-quad {
+                                transform-origin: 40px 240px;
+                            }
+
+                            #left-tri {
+                                transform-origin: 40px 320px;
+                            }
+
+                            #left {
+                                transform-origin: 40px 280px;
+                            }
+
+                            #segment-one {
+                                transform-origin: 200px 40px;
+                            }
+
+                            #segment-two {
+                                transform-origin: 200px 280px;
                             }
                         }
 
                         h1, h1 + p {
                             transform: translateY(50%);
                             opacity: 0;
-                            transition: opacity 0.4s $ease-out-quad, transform 0.4s $ease-out-quad;
+                            transition: opacity 0.5s $ease-out-quad, transform 0.5s $ease-out-quad;
 
                             &.transitioned-in {
                                 opacity: 1;
@@ -70,10 +146,10 @@
                         h1 {
                             margin-top: 46px;
                             text-align: center;
-                            transition-delay: 0.6s;
+                            transition-delay: 0.1s;
 
                             & + p {
-                                transition-delay: 1.1s;
+                                transition-delay: 0.85s;
                                 text-align: center;
                                 margin-top: 19px;
                             }
