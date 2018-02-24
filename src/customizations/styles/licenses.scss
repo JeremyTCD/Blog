@@ -1,0 +1,11 @@
+#licenses {
+    .heading-1{
+        &::after{
+            content: none;
+        }
+
+        & + p{
+            margin-top: 20px;
+        }
+    }
+}
