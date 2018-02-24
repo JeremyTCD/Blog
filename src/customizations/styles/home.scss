@@ -149,6 +149,9 @@
                             margin-top: 46px;
                             transition-delay: 0.1s;
 
+                            h1{
+                                font-size: 32px;
+                            }
                             &::after {
                                 content: none;
                             }
@@ -159,7 +162,7 @@
 
                             & + p {
                                 transition-delay: 0.85s;
-                                margin-top: 18px;
+                                margin-top: 19px;
                             }
                         }
                     }
