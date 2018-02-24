@@ -13,7 +13,6 @@ jtcd_disableRightMenu: true
 jtcd_disableComments: true
 ---
 
-# About
 My name is Jeremy Tan and I'm a programmer. Programming is both my job and my hobby, so to be honest, I don't do much else; I read for an hour or two a day, game a bit on Sundays and get some exercise in here and there -
 that's about all there is to my daily life.
 

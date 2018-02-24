@@ -13,5 +13,4 @@ jtcd_disableRightMenu: true
 jtcd_disableComments: true
 ---
 
-# Contact
 I can be reached at jeremytanchongdao@gmail.com. Kindly note that at present, I am not looking for employment or to participate in any projects besides my own.

@@ -13,9 +13,7 @@ jtcd_disableRightMenu: true
 jtcd_disableComments: true
 ---
 
-# Licenses
-
-## Code Examples
+# Code Examples
 Code examples are licensed under the following MIT license:
 
 Copyright (c) 2017-2018 JeremyTCD
@@ -38,7 +36,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-## Article Content
+# Article Content
 Unless otherwise stated, article content is licensed under a [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) license. 
 To provide attribution, include a link to the original article.
 

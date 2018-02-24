@@ -13,7 +13,6 @@ jtcd_disableRightMenu: true
 jtcd_disableComments: true
 ---
 
-# Privacy Policy
-My blog does not collect or store any of your personal information. Also, it does not use cookies to track you. It does utilize third-party 
+This blog does not collect or store any of your personal information. Also, it does not use cookies to track visitors. It does utilize third-party 
 services such as [Google Analytics](https://analytics.google.com/) and [Disqus](https://disqus.com/); such services have separate and independent
 privacy policies.
