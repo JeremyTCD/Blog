@@ -30,26 +30,27 @@
                 align-items: center;
 
                 .jtcd-article {
-                    flex-direction: column;
-                    align-items: center;
+                    .title {
+                        display: none;
+                    }
 
                     .content {
-                        flex-direction: column;
                         align-items: center;
 
-                        svg {
+                        .logo-animatable {
                             @media #{$media-narrow} {
-                                height: 248px;
-                                width: 186px;
+                                height: 160px;
+                                width: 120px;
                             }
 
+                            margin-top: 0;
                             height: 320px;
                             width: 240px;
                             overflow: visible;
                             user-select: none;
                             opacity: 0;
-                            transform: translateY(62px);
-                            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+                            transform: translateY(20%);
+                            transition: opacity 0.5s $ease-out-quad, transform 0.5s $ease-out-quad;
 
                             &.transitioned-in {
                                 opacity: 1;
@@ -63,79 +64,80 @@
                                 transform-style: preserve-3d;
                             }
 
-                            #heart-left {
+                            .heart-left {
                                 transform-origin: 0px, 40px;
                             }
 
-                            #heart-left {
+                            .heart-left {
                                 transform-origin: 40px, 0px;
                             }
 
-                            #wrapper {
+                            .logo-wrapper {
                                 transform-origin: 120px 160px;
                             }
 
-                            #top-quad {
+                            .top-quad {
                                 transform-origin: 0px 40px;
                             }
 
-                            #top-tri {
+                            .top-tri {
                                 transform-origin: 160px 40px;
                             }
 
-                            #right-top-tri {
+                            .right-top-tri {
                                 transform-origin: 200px 0px;
                             }
 
-                            #right-quad {
+                            .right-quad {
                                 transform-origin: 200px 80px;
                             }
 
-                            #right-bottom-tri {
+                            .right-bottom-tri {
                                 transform-origin: 200px 240px;
                             }
 
-                            #right-gradient {
+                            .right-gradient {
                                 transform-origin: 200px 80px;
                             }
 
-                            #bottom-right-tri {
+                            .bottom-right-tri {
                                 transform-origin: 240px 280px;
                             }
 
-                            #bottom-quad {
+                            .bottom-quad {
                                 transform-origin: 160px 280px;
                             }
 
-                            #bottom-left-tri {
+                            .bottom-left-tri {
                                 transform-origin: 80px 280px;
                             }
 
-                            #left-quad {
+                            .left-quad {
                                 transform-origin: 40px 240px;
                             }
 
-                            #left-tri {
+                            .left-tri {
                                 transform-origin: 40px 320px;
                             }
 
-                            #left {
+                            .left {
                                 transform-origin: 40px 280px;
                             }
 
-                            #segment-one {
+                            .segment-one {
                                 transform-origin: 200px 40px;
                             }
 
-                            #segment-two {
+                            .segment-two {
                                 transform-origin: 200px 280px;
                             }
                         }
 
-                        h1, h1 + p {
+                        .heading-1, .heading-1 + p {
                             transform: translateY(50%);
                             opacity: 0;
                             transition: opacity 0.5s $ease-out-quad, transform 0.5s $ease-out-quad;
+                            text-align: center;
 
                             &.transitioned-in {
                                 opacity: 1;
@@ -143,15 +145,30 @@
                             }
                         }
 
-                        h1 {
+                        .heading-1 {
                             margin-top: 46px;
-                            text-align: center;
                             transition-delay: 0.1s;
+
+                            h1 {
+                                @media #{$media-narrow} {
+                                    font-size: $font-size-6;
+                                }
+
+                                font-size: $font-size-7;
+                                font-weight: 400;
+                            }
+
+                            &::after {
+                                content: none;
+                            }
+
+                            div[role="button"] {
+                                display: none;
+                            }
 
                             & + p {
                                 transition-delay: 0.85s;
-                                text-align: center;
-                                margin-top: 19px;
+                                margin-top: 18px;
                             }
                         }
                     }

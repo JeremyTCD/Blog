@@ -59,7 +59,7 @@ class Home extends Page {
     }
 
     protected setup(): void {
-        this.logoElement = document.querySelector('.jtcd-article > .content > .logo') as HTMLElement;
+        this.logoElement = document.querySelector('.logo-animatable') as HTMLElement;
 
         if (this.logoElement.animate) {
             // Display the first frame (heart)
@@ -72,7 +72,7 @@ class Home extends Page {
 
             this.logoElement.addEventListener('transitionend', this.waapiHeartFadeInTransitionEndListener);
         } else {
-            this.logoElement.addEventListener('transitionend', this.noWaapiHeartFadeInTransitionEndListener);
+            this.logoElement.addEventListener('transitionend', this.startTextFadeIn);
         }
 
         // The load event fires after images and other resources have loaded and an initial render has occurred.
@@ -84,10 +84,9 @@ class Home extends Page {
         });
     }
 
-    private noWaapiHeartFadeInTransitionEndListener = () => {
-        let titleElement = document.getElementById('hello-welcome-to-my-blog');
-        titleElement.classList.add('transitioned-in');
-        titleElement.parentElement.querySelector('h1 + p').classList.add('transitioned-in');
+    private startTextFadeIn = () => {
+        document.querySelector('.heading-1').classList.add('transitioned-in');
+        document.querySelector('p').classList.add('transitioned-in');
     }
 
     private waapiHeartFadeInTransitionEndListener = () => {
@@ -104,9 +103,7 @@ class Home extends Page {
     private initialMorphOnFinishListener = () => {
         this.logoMorphSubAnimations[0].onfinish = null;
 
-        let titleElement = document.getElementById('hello-welcome-to-my-blog');
-        titleElement.classList.add('transitioned-in');
-        titleElement.parentElement.querySelector('h1 + p').classList.add('transitioned-in');
+        this.startTextFadeIn();
 
         this.logoElement.addEventListener('touchstart', this.enterListener);
         this.logoElement.addEventListener('touchend', this.leaveListener);
@@ -116,8 +113,8 @@ class Home extends Page {
 
     private createAndStartLogoMorphAnimation() {
         // Heart
-        let logoTranslationAnimation = document.
-            getElementById('wrapper').
+        let logoTranslationAnimation = this.logoElement.
+            querySelector('.logo-wrapper').
             animate([
                 { transform: 'rotate(45deg) translate(80px, 126px)' },
                 { transform: 'rotate(45deg) translate(80px, 126px)', offset: 1 / this.totalDurationUnits },
@@ -195,8 +192,8 @@ class Home extends Page {
         let rightGradientShrinkLength = 0.0625;
         let rightGradientShrinkStartOffset = (3 + this.turnDurationUnits / 2) / this.totalDurationUnits;
         let rightGradientShrinkEndOffset = rightGradientShrinkStartOffset + rightGradientShrinkLength / this.totalDurationUnits;
-        let rightGradientShrinkAnimation = document.
-            getElementById('right-gradient').
+        let rightGradientShrinkAnimation = this.logoElement.
+            querySelector('.right-gradient').
             animate([
                 { transform: `scaleY(0)`, easing: 'step-end' },
                 { transform: `scaleY(${(rightGradientLength + rightGradientShrinkLength) / rightGradientLength})`, offset: rightGradientShrinkStartOffset },
@@ -206,7 +203,7 @@ class Home extends Page {
         this.logoMorphSubAnimations.push(rightGradientShrinkAnimation);
     }
 
-    private createLogoMorphFillAnimation(elementID: string, fillChangePoints: FillChangePoint[]): Animation {
+    private createLogoMorphFillAnimation(elementClass: string, fillChangePoints: FillChangePoint[]): Animation {
         let keyframes = [];
 
         fillChangePoints.
@@ -230,17 +227,17 @@ class Home extends Page {
                 }
             });
 
-        return document.
-            getElementById(elementID).
+        return this.logoElement.
+            querySelector(`.${elementClass}`).
             animate(keyframes, this.timingOptions);
     }
 
-    private createLogoMorphRotateAnimation(elementID: string, axisAndAngle: string, unitsFromStart: number): Animation {
+    private createLogoMorphRotateAnimation(elementClass: string, axisAndAngle: string, unitsFromStart: number): Animation {
         let startOffset = unitsFromStart / this.totalDurationUnits;
         let endOffset = startOffset + this.turnDurationUnits / this.totalDurationUnits;
 
-        return document.
-            getElementById(elementID).
+        return this.logoElement.
+            querySelector(`.${elementClass}`).
             animate([
                 { transform: `rotate3d(${axisAndAngle})` },
                 { transform: `rotate3d(${axisAndAngle})`, offset: startOffset },
@@ -249,13 +246,13 @@ class Home extends Page {
             ], this.timingOptions);
     }
 
-    private createLogoMorphGrowAnimation(elementID: string, growUnits: number, unitsFromStart: number, growAxis: string, initialLength: number = 0): Animation {
+    private createLogoMorphGrowAnimation(elementClass: string, growUnits: number, unitsFromStart: number, growAxis: string, initialLength: number = 0): Animation {
         let startOffset = unitsFromStart / this.totalDurationUnits;
         let endOffset = (unitsFromStart + growUnits) / this.totalDurationUnits;
         let startScale = initialLength / (initialLength + growUnits);
 
-        return document.
-            getElementById(elementID).
+        return this.logoElement.
+            querySelector(`.${elementClass}`).
             animate([
                 { transform: `scale${growAxis}(${startScale})` },
                 { transform: `scale${growAxis}(${startScale})`, offset: startOffset },
