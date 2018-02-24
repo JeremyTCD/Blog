@@ -14,7 +14,7 @@ jtcd_disableRightMenu: true
 jtcd_disableComments: true
 ---
 
-[!include[logo](../resources/logo.svg)] 
+[!include-markdown]{"src":"../resources/logo-animatable.svg"} 
 
 # hello, welcome to my blog
 My name is Jeremy Tan and I'm a programmer. I enjoy turning ideas into useful systems. This 
