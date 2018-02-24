@@ -149,15 +149,6 @@
                             margin-top: 46px;
                             transition-delay: 0.1s;
 
-                            h1 {
-                                @media #{$media-narrow} {
-                                    font-size: $font-size-6;
-                                }
-
-                                font-size: $font-size-7;
-                                font-weight: 400;
-                            }
-
                             &::after {
                                 content: none;
                             }
