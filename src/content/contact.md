@@ -1,16 +1,16 @@
 ---
-jtcd_pageDescription: Contact Information.
-jtcd_pageTitle: Contact
+mimo_pageDescription: Contact Information.
+mimo_pageTitle: Contact
 
-jtcd_includeInSal: false
-jtcd_includeInSearchIndex: false
+mimo_includeInSal: false
+mimo_includeInSearchIndex: false
 
-jtcd_disableBreadcrumbs: true
-jtcd_disableEditArticle: true
-jtcd_disableMetadata: true
-jtcd_disableLeftMenu: true
-jtcd_disableRightMenu: true
-jtcd_disableComments: true
+mimo_disableBreadcrumbs: true
+mimo_disableEditArticle: true
+mimo_disableMetadata: true
+mimo_disableLeftMenu: true
+mimo_disableRightMenu: true
+mimo_disableComments: true
 ---
 
 I can be reached at jeremytanchongdao@gmail.com. Kindly note that at present, I am not looking for employment or to participate in any projects besides my own.

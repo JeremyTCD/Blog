@@ -1,16 +1,16 @@
 ---
-jtcd_pageDescription: Details about me.
-jtcd_pageTitle: About
+mimo_pageDescription: Details about me.
+mimo_pageTitle: About
 
-jtcd_includeInSal: false
-jtcd_includeInSearchIndex: false
+mimo_includeInSal: false
+mimo_includeInSearchIndex: false
 
-jtcd_disableBreadcrumbs: true
-jtcd_disableEditArticle: true
-jtcd_disableMetadata: true
-jtcd_disableLeftMenu: true
-jtcd_disableRightMenu: true
-jtcd_disableComments: true
+mimo_disableBreadcrumbs: true
+mimo_disableEditArticle: true
+mimo_disableMetadata: true
+mimo_disableLeftMenu: true
+mimo_disableRightMenu: true
+mimo_disableComments: true
 ---
 
 My name is Jeremy Tan and I'm a programmer. Programming is both my job and my hobby, so to be honest, I don't do much else; I read for an hour or two a day, game a bit on Sundays and get some exercise in here and there -

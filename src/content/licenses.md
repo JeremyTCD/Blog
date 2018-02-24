@@ -1,17 +1,17 @@
 ---
-jtcd_pageDescription: Licenses for this blog.
-jtcd_pageTitle: Licenses
-jtcd_pageID: licenses
+mimo_pageDescription: Licenses for this blog.
+mimo_pageTitle: Licenses
+mimo_pageID: licenses
 
-jtcd_includeInSal: false
-jtcd_includeInSearchIndex: false
+mimo_includeInSal: false
+mimo_includeInSearchIndex: false
 
-jtcd_disableBreadcrumbs: true
-jtcd_disableEditArticle: true
-jtcd_disableMetadata: true
-jtcd_disableLeftMenu: true
-jtcd_disableRightMenu: true
-jtcd_disableComments: true
+mimo_disableBreadcrumbs: true
+mimo_disableEditArticle: true
+mimo_disableMetadata: true
+mimo_disableLeftMenu: true
+mimo_disableRightMenu: true
+mimo_disableComments: true
 ---
 
 # Code Examples
