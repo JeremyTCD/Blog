@@ -20,7 +20,7 @@
         "globalMetadata": {
             "jtcd_websiteName": "JeremyTCD",
             "jtcd_authorName": "JeremyTCD",
-            "jtcd_copyrightText": "© 2017 JeremyTCD",
+            "jtcd_copyrightText": "2017-2018 JeremyTCD",
             "jtcd_disqusShortname": "jeremytcd",
             "jtcd_googleTrackingID": "UA-111443979-1",
 
@@ -36,7 +36,7 @@
             "jtcd_logoRelPath": "/resources/logo.svg",
             "jtcd_favIconRelPath": "/resources/favicon.ico",
             "jtcd_fontLinks": [
-                { "link": "https://fonts.googleapis.com/css?family=Open+Sans" }
+                { "link": "https://fonts.googleapis.com/css?family=Open+Sans:400,600" }
             ]
         },
         "postProcessors": [ "SortedArticleListGenerator", "SearchIndexGenerator" ],
