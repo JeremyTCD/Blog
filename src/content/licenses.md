@@ -1,6 +1,7 @@
 ---
 jtcd_pageDescription: Licenses for this blog.
 jtcd_pageTitle: Licenses
+jtcd_pageID: licenses
 
 jtcd_includeInSal: false
 jtcd_includeInSearchIndex: false
@@ -39,7 +40,3 @@ SOFTWARE.
 # Article Content
 Unless otherwise stated, article content is licensed under a [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) license. 
 To provide attribution, include a link to the original article.
-
-
-
-
