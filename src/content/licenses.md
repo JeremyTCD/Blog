@@ -1,5 +1,5 @@
 ---
-mimo_pageDescription: Licenses for this blog.
+mimo_pageDescription: Licenses for JeremyTCD's blog.
 mimo_pageTitle: Licenses
 mimo_pageID: licenses
 

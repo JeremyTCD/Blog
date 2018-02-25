@@ -1,5 +1,5 @@
 ---
-mimo_pageDescription: A list of all articles in this blog, sorted by date.
+mimo_pageDescription: List of all articles on JeremyTCD's blog.
 mimo_pageTitle: All Articles
 mimo_pageID: all-articles
 

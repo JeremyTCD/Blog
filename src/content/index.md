@@ -1,5 +1,5 @@
 ---
-mimo_pageDescription: Landing page.
+mimo_pageDescription: Home page for JeremyTCD's blog.
 mimo_pageTitle: Home
 mimo_pageID: home
 

@@ -1,5 +1,5 @@
 ---
-mimo_pageDescription: The privacy policy for this blog.
+mimo_pageDescription: Privacy policy for JeremyTCD's blog.
 mimo_pageTitle: Privacy Policy
 
 mimo_includeInSal: false

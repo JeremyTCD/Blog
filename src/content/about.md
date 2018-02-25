@@ -1,5 +1,5 @@
 ---
-mimo_pageDescription: Details about me.
+mimo_pageDescription: General information about JeremyTCD.
 mimo_pageTitle: About
 
 mimo_includeInSal: false

@@ -1,5 +1,5 @@
 ---
-mimo_pageDescription: Contact Information.
+mimo_pageDescription: JeremyTCD's contact information.
 mimo_pageTitle: Contact
 
 mimo_includeInSal: false
