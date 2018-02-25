@@ -39,8 +39,8 @@
 
                         .logo-animatable {
                             @media #{$media-narrow} {
-                                height: 160px;
-                                width: 120px;
+                                height: 176px;
+                                width: 132px;
                             }
 
                             margin-top: 0;
@@ -149,9 +149,12 @@
                             margin-top: 46px;
                             transition-delay: 0.1s;
 
-                            h1{
-                                font-size: 32px;
+                            h1 {
+                                @media #{$media-medium}, #{$media-wide} {
+                                    font-size: 32px;
+                                }
                             }
+
                             &::after {
                                 content: none;
                             }
