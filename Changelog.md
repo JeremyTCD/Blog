@@ -1,5 +1,13 @@
 # Changelog
-## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/2.0.0...HEAD)
+## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/2.0.1...HEAD)
+
+## [2.0.1](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/2.0.0...2.0.1) - Feb 25, 2018
+### Changed
+- Removed .html extension from links.
+- Made page descriptions more search friendly.
+- Changed page names to hyphenated strings.
+- Bumped mimo-theme to 1.0.0-alpha.9.
+- Minor style changes to home page.
 
 ## [2.0.0](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/1.0.5...2.0.0) - Feb 24, 2018
 ### Changed
