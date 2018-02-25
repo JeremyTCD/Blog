@@ -18,4 +18,4 @@ mimo_disableComments: true
 
 # hello, welcome to my blog
 My name is Jeremy Tan and I'm a programmer. I enjoy turning ideas into useful systems. This 
-blog is my platform for documenting and sharing things I learn. Feel free to check out my [articles](/articles/allArticles).
+blog is my platform for documenting and sharing things I learn. Feel free to check out my [articles](/articles/all-articles).
