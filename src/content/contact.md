@@ -13,4 +13,4 @@ mimo_disableRightMenu: true
 mimo_disableComments: true
 ---
 
-I can be reached at jeremytanchongdao@gmail.com. Kindly note that at present, I am not looking for employment or to participate in any projects besides my own.
+If you have any questions, suggestions, or feedback, I'd love to hear from you. I can be reached at jeremytanchongdao@gmail.com.
