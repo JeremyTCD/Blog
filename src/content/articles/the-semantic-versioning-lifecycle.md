@@ -5,9 +5,6 @@ mimo_pageID: the-semantic-versioning-lifecycle
 mimo_date: Feb 26, 2018
 mimo_fontLinks:
   - link: https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600
-
-# Update and fix
-mimo_disableComments: true
 ---
 
 <!--
@@ -134,7 +131,7 @@ of whether or not changes are backward compatible. For example, at the end of th
 
 [!include-code] { 
     "src": "./the-semantic-versioning-lifecycle.md",
-    "ranges": [{"start": 79, "end": 86 }],
+    "ranges": [{"start": 76, "end": 83 }],
     "highlight": false
 }
 
@@ -172,7 +169,7 @@ the simplified changelog of a piece of software might look like this:
 
 [!include-code] { 
     "src": "./the-semantic-versioning-lifecycle.md",
-    "ranges": [{"start": 59, "end": 86 }],
+    "ranges": [{"start": 56, "end": 83 }],
     "highlight": false
 }
 
@@ -224,7 +221,7 @@ At the end of a maintenance phase, the simplified changelog of a piece of softwa
 
 [!include-code] { 
     "src": "./the-semantic-versioning-lifecycle.md",
-    "ranges": [{"start": 39, "end": 86 }],
+    "ranges": [{"start": 36, "end": 83 }],
     "highlight": false
 }
 
@@ -238,7 +235,7 @@ of software might look like this:
 
 [!include-code] { 
     "src": "./the-semantic-versioning-lifecycle.md",
-    "ranges": [{"start": 14, "end": 86 }],
+    "ranges": [{"start": 11, "end": 83 }],
     "highlight": false
 }
 
