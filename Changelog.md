@@ -1,5 +1,13 @@
 # Changelog
-## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/2.0.1...HEAD)
+## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/9...HEAD)
+
+## [9](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/2.0.1...9) - Mar 3, 2018
+### Added
+- Article: The Semantic Versioning Lifecycle.
+### Changed
+- Minor changes to home, about and contact pages.
+- Removed redundant G+ link.
+- Bumped mimo-website to 1.0.0-alpha.10
 
 ## [2.0.1](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/2.0.0...2.0.1) - Feb 25, 2018
 ### Changed
