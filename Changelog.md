@@ -1,5 +1,12 @@
 # Changelog
-## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/9...HEAD)
+## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/10...HEAD)
+
+## [10](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/9...10) - Mar 5, 2018
+### Added
+- Fonts to serve "locally".
+- mimo_authors value._
+### Changed
+- Bumped mimo-website to 1.0.0-alpha.11.
 
 ## [9](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/8...9) - Mar 3, 2018
 ### Added
@@ -7,7 +14,7 @@
 ### Changed
 - Minor changes to home, about and contact pages.
 - Removed redundant G+ link.
-- Bumped mimo-website to 1.0.0-alpha.10
+- Bumped mimo-website to 1.0.0-alpha.10.
 
 ## [8](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/7...8) - Feb 25, 2018
 ### Changed
