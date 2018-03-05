@@ -1,10 +1,8 @@
 ---
-mimo_pageDescription: This article focuses on the use of semantic versioning (semver) in practice; it journeys through a software release lifecycle, providing examples of how semver should be used at each phase. This article describes the semver lifecycle.
+mimo_pageDescription: This article focuses on the use of semantic versioning (semver) in practice; it journeys through a software development lifecycle, providing examples of how semver should be used in each phase - this article describes the semantic versioning lifecycle.
 mimo_pageTitle: The Semantic Versioning Lifecycle
 mimo_pageID: the-semantic-versioning-lifecycle
 mimo_date: Mar 3, 2018
-mimo_fontLinks:
-  - link: https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600
 ---
 
 <!--
@@ -84,8 +82,8 @@ mimo_fontLinks:
 -->
 
 Semantic versioning (semver) is a system for versioning software. By defining a standard way to version software, semver facilitates software interoperability. The full what, why, and a detailed specification for 
-this excellent system can be found at [semver.org](https://semver.org). This article focuses on the use of semver in practice; it journeys through the software versioning lifecycle, providing examples of how semver should be used in 
-each phase. This article describes *the semantic versioning lifecycle*.
+this excellent system can be found at [semver.org](https://semver.org). This article focuses on the use of semver in practice; it journeys through a software development lifecycle, providing examples of how semver should be used in 
+each phase - this article describes *the semantic versioning lifecycle*.
 
 # Terminology
 Before delving into the semver lifecycle, some terms need to be defined:
@@ -104,7 +102,7 @@ Before delving into the semver lifecycle, some terms need to be defined:
 | Pre-release | A *pre-release* is a non-production-ready version that closely precedes a release. |
 
 > [!alert-warning]
-> Semver can only be used to version software that declares a public API, such as a library. Examples of software that do not declare public APIs include many games and websites. 
+> Semver can only be used to version software that declares a public API, such as a library. Examples of software that do not declare a public API include many games and websites. 
 > These kinds of software are typically standalone end-products that are not programmatically accessible. For such software, it's impossible to determine backward compatibility
 > since 2 or more interdependent systems are required for compatibility to be determined (a standalone system has nothing to be compatible or incompatible with). Not being able to determine backward
 > compatibility makes semver impossible to apply - alternative versioning systems should be used for such software.
@@ -114,7 +112,7 @@ Before delving into the semver lifecycle, some terms need to be defined:
 
 # Initial Development Phase
 > [!alert-note]
-> This article's focus is on the use of semver in practice. To that end, it journeys through a generic software versioning lifecycle. Don't worry about the lifecycle's specifics like its phase's names. Getting the gist of 
+> This article's focus is on the use of semver in practice. To that end, it journeys through a simplified software development lifecycle. Don't worry about the lifecycle's specifics like its phase's names. Getting the gist of 
 > what each phase covers is enough to derive value from this article.
 
 A piece of software is in this phase just after conception; architectural plans and feature requirements are typically in flux, development is rapid and the software's public API is very unstable. 
@@ -126,7 +124,7 @@ of whether or not changes are backward compatible. For example, at the end of th
 
 [!include-code] { 
     "src": "./the-semantic-versioning-lifecycle.md",
-    "ranges": [{"start": 76, "end": 83 }],
+    "ranges": [{"start": 74, "end": 81 }],
     "highlight": false
 }
 
@@ -169,7 +167,7 @@ the simplified changelog of a piece of software might look like this:
 
 [!include-code] { 
     "src": "./the-semantic-versioning-lifecycle.md",
-    "ranges": [{"start": 56, "end": 83 }],
+    "ranges": [{"start": 54, "end": 81 }],
     "highlight": false
 }
 
@@ -225,18 +223,18 @@ At the end of a maintenance phase, the simplified changelog of a piece of softwa
 
 [!include-code] { 
     "src": "./the-semantic-versioning-lifecycle.md",
-    "ranges": [{"start": 36, "end": 83 }],
+    "ranges": [{"start": 34, "end": 81 }],
     "highlight": false
 }
 
 ### Rationale
 The reasons for the above-mentioned rules are as follows:
 
-- Mandating major version increments for backward incompatible changes makes it such that whether or not a version contains backward incompatible changes can be deduced its version number. This 
-enables semver to facilitate software interoperability, for example, consumers can configure a package manager to automatically install only backward compatible changes such as bug fixes and optimizations. 
+- Mandating major version increments for backward incompatible changes makes it such that whether or not a version contains backward incompatible changes can be deduced from its version number. This 
+enables semver to facilitate software interoperability, for example, software consumers can configure package managers to automatically install only backward compatible changes such as bug fixes and optimizations. 
 
 - Mandating patch version increments for versions that contain only backward compatible bug fixes makes it such that whether or not a version contains only backward incompatible bug fixes can be deduced from its
-version number. This also facilitates software interoperability.
+version number. This facilitates software interoperability in a similar manner to the previous reason.
 
 # Coming Full Circle
 At some point in a maintenance phase, the need for a rewrite might arise. A rewrite will take the project back to the pre-release phase. For example, after a second pre-release phase, the simplified changelog of a piece 
@@ -244,7 +242,7 @@ of software might look like this:
 
 [!include-code] { 
     "src": "./the-semantic-versioning-lifecycle.md",
-    "ranges": [{"start": 11, "end": 83 }],
+    "ranges": [{"start": 9, "end": 81 }],
     "highlight": false
 }
 
@@ -252,5 +250,5 @@ of software might look like this:
 > A pre-release phase can take place in parallel with a maintenance phase, with each phase occurring on a different branch. This would allow bug fixes to be released even while a pre-release phase is underway.
 
 # Conclusion
-While this article describes and lists the advantages of *the semantic versioning lifecycle*, ultimately, a piece of software should be versioned according to its specific circumstances - always do what makes sense.
-Thanks for reading this article, I hope it has been useful. Feel free to share tips or point out any mistakes in a comment below!
+While this article describes and lists the advantages of *the semantic versioning lifecycle*, semver should not be taken as dogma. Ultimately, the circumstances must be taken into account when versioning a piece of 
+software. Thanks for reading this article, feel free to share tips or to point out any mistakes in the comments below!
