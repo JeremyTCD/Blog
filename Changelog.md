@@ -1,7 +1,7 @@
 # Changelog
 ## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/9...HEAD)
 
-## [9](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/2.0.1...9) - Mar 3, 2018
+## [9](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/8...9) - Mar 3, 2018
 ### Added
 - Article: The Semantic Versioning Lifecycle.
 ### Changed
@@ -9,7 +9,7 @@
 - Removed redundant G+ link.
 - Bumped mimo-website to 1.0.0-alpha.10
 
-## [2.0.1](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/2.0.0...2.0.1) - Feb 25, 2018
+## [8](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/7...8) - Feb 25, 2018
 ### Changed
 - Removed .html extension from links.
 - Made page descriptions more search friendly.
@@ -17,31 +17,31 @@
 - Bumped mimo-theme to 1.0.0-alpha.9.
 - Minor style changes to home page.
 
-## [2.0.0](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/1.0.5...2.0.0) - Feb 24, 2018
+## [7](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/6...7) - Feb 24, 2018
 ### Changed
 - Bumped mimo-theme to 1.0.0-alpha.8, can now start writing articles.
 - Miscellaneous style and design changes.
 
-## [1.0.5](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/1.0.4...1.0.5) - Jan 27, 2018
+## [6](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/5...6) - Jan 27, 2018
 ### Fixed
 - Css updated to select article content using class instead of id.
 
-## [1.0.4](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/1.0.3...1.0.4) - Jan 27, 2018 [YANKED]
+## [5](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/4...5) - Jan 27, 2018 [YANKED]
 ### Changed
 - Updated mimo-theme to alpha.6.
 - Tweaked about and home text.
 
-## [1.0.3](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/1.0.2...1.0.3) - Jan 26, 2018
+## [4](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/3...4) - Jan 26, 2018
 ### Changed
 - Updated mimo-theme to alpha.5.
 - Minor style and language changes.
 
-## [1.0.2](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/1.0.1...1.0.2) - Jan 26, 2018
+## [3](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/2...3) - Jan 26, 2018
 ### Fixed
 - Privacy policy link.
 - 404 page.
 
-## [1.0.1](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/1.0.0...1.0.1)- Jan 26, 2018
+## [2](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/1.0.0...2)- Jan 26, 2018
 ### Changed
 - home.ts no longer generates objects on mouse enter/leave red J. 
 ### Fixed
@@ -49,5 +49,5 @@
 ### Added
 - Support for Github pages and cloudflare
 
-## 1.0.0 - Jan 25, 2018
+## 1 - Jan 25, 2018
 Initial release.
