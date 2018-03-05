@@ -24,7 +24,13 @@
         ],
         "globalMetadata": {
             "mimo_websiteName": "JeremyTCD",
-            "mimo_authorName": "JeremyTCD",
+            "mimo_authors": [
+                {
+                    "name": "JeremyTCD",
+                    "link": "https://github.com/JeremyTCD",
+                    "imgSrc": "/resources/logo.svg"
+                }
+            ],
             "mimo_copyrightText": "2017-2018 JeremyTCD",
             "mimo_disqusShortname": "jeremytcd",
             "mimo_googleTrackingID": "UA-111443979-1",
