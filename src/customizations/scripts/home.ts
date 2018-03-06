@@ -78,10 +78,16 @@ class Home extends Page {
         // The load event fires after images and other resources have loaded and an initial render has occurred.
         // This guarantees that the fade in tranistion occurs. If transitioned-in is added after DOMContentLoaded but
         // before the first layout, chrome does not render the full transition.
-        window.addEventListener('load', () => {
-            // J should fade in smoothly even for browsers that do not support waapi
-            this.logoElement.classList.add('transitioned-in');
-        });
+        if (document.readyState === "complete") {
+            this.onDocumentLoad();
+        } else {
+            window.addEventListener('load', this.onDocumentLoad);
+        }
+    }
+
+    private onDocumentLoad = () => {
+        // J should fade in smoothly even for browsers that do not support waapi
+        this.logoElement.classList.add('transitioned-in');
     }
 
     private startTextFadeIn = () => {
