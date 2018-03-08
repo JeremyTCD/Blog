@@ -19,7 +19,7 @@ class Home extends Page {
         fill: 'both'
     };
 
-    protected canInitialize(): boolean {
+    protected validDomElementExists(): boolean {
         return document.getElementById('home') ? true : false;
     }
 
@@ -58,7 +58,7 @@ class Home extends Page {
         event.preventDefault();
     }
 
-    protected setup(): void {
+    protected setupOnDomContentLoaded(): void {
         this.logoElement = document.querySelector('.logo-animatable') as HTMLElement;
 
         if (this.logoElement.animate) {
@@ -74,18 +74,8 @@ class Home extends Page {
         } else {
             this.logoElement.addEventListener('transitionend', this.startTextFadeIn);
         }
-
-        // The load event fires after images and other resources have loaded and an initial render has occurred.
-        // This guarantees that the fade in tranistion occurs. If transitioned-in is added after DOMContentLoaded but
-        // before the first layout, chrome does not render the full transition.
-        if (document.readyState === "complete") {
-            this.onDocumentLoad();
-        } else {
-            window.addEventListener('load', this.onDocumentLoad);
-        }
     }
-
-    private onDocumentLoad = () => {
+    protected setupOnLoad(): void {
         // J should fade in smoothly even for browsers that do not support waapi
         this.logoElement.classList.add('transitioned-in');
     }
