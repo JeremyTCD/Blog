@@ -1,0 +1,27 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "traceResolution": true,
+        "module": "commonjs",
+        "target": "es5",
+        "lib": [ "es6", "dom" ],
+        "noImplicitAny": false,
+        "sourceMap": true,
+        "allowJs": true,
+        "noEmitOnError": true,
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        //"noUnusedLocals": true,
+        //"noUnusedParameters": true,
+        "typeRoots": [
+            "../../../JeremyTCD.DocFx.Themes.Mimo/node_modules/@types",
+            "../../node_modules/@types"
+        ],
+        // Does not work if an absolute url is specified
+        "baseUrl": "../../../JeremyTCD.DocFx.Themes.Mimo"
+    },
+    "include": [
+        "./index.ts"
+    ]
+}

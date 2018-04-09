@@ -14,7 +14,7 @@ mimo_disableArticleMenu: true
 mimo_disableComments: true
 ---
 
-[!include-markdown]{"src":"../resources/logo-animatable.svg"} 
+[!include-markdown]{"src":"../resources/logo.svg"} 
 
 # hello, welcome to my blog
 My name is Jeremy Tan and I'm a programmer. I enjoy turning ideas into useful systems. This 
