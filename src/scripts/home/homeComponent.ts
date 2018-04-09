@@ -1,20 +1,31 @@
 import RootComponent from 'scripts/shared/rootComponent';
 
 export default class HomeComponent extends RootComponent {
+    private _coreElement: HTMLElement;
     private _homeElement: HTMLElement;
+    private _mainElement: HTMLElement;
+    private _logoElement: HTMLElement;
+    private _contentElement: HTMLElement;
+
+    private _lastWindowInnerWidth: number;
+    private _lastWindowInnerHeight: number;
+    private _textHeight: number;
+
+    private WINDOW_LOGO_HEIGHT_RATIO = 2.4;
+    private BOTTOM_TOP_GAP_HEIGHT_RATIO = 1.13;
+    private MIN_TOP_GAP = 95;
+    private MIN_BOTTOM_GAP = 59;
+    private MIN_LOGO_HEIGHT = 200;
 
     public setupImmediate(): void {
         this._homeElement = document.getElementById('home');
 
         if (this.enabled()) {
-            let core = document.getElementById('core');
-            // Update on resize
-            //core.style.minHeight = `${window.innerHeight - 95}px`;
-            // https://developers.google.com/web/updates/2016/12/url-bar-resizing
-            // why not just use 100%?
-            // - body 100%
-            // - html 100%
-            // - core calc(100% - 95px)
+            this._coreElement = document.getElementById('core');
+            this._contentElement = document.querySelector('.jtcd-article .content');
+            this._mainElement = document.querySelector('main') as HTMLElement;
+            this._logoElement = this._contentElement.querySelector('.logo') as HTMLElement;
+
         }
     }
 
@@ -22,13 +33,70 @@ export default class HomeComponent extends RootComponent {
     }
 
     public setupOnLoad(): void {
-        let contentElement = document.querySelector('.jtcd-article .content');
+        let header1Element = this._contentElement.querySelector('.header-1');
+        let pElement = this._contentElement.querySelector('p');
+        let pStyle = getComputedStyle(pElement);
+        let header1Style = getComputedStyle(header1Element);
 
-        contentElement.querySelector('.logo').classList.add('transitioned-in');
-        contentElement.querySelector('.header-1').classList.add('transitioned-in');
-        contentElement.querySelector('p').classList.add('transitioned-in');
+        this._textHeight = parseFloat(pStyle.height) + parseFloat(pStyle.marginTop) + parseFloat(header1Style.height) + parseFloat(header1Style.marginTop);
 
+        this.updateContent();
+
+        window.addEventListener('resize', this.updateContent);
+
+        this._logoElement.classList.add('transitioned-in');
+        header1Element.classList.add('transitioned-in');
+        pElement.classList.add('transitioned-in');
+
+        // TODO move to a separate project
         //this.generateSpringKeyframes();
+    }
+
+    private updateContent = () => {
+        // Don't update if only height of window changes (avoids updating of the layout when url bar scrolls out on mobiles)
+        // Don't update if width changes but height does not change (nothing to update)
+        let windowInnerWidth = window.innerWidth;
+        let windowInnerHeight = window.innerHeight;
+        if (windowInnerWidth === this._lastWindowInnerWidth || windowInnerHeight === this._lastWindowInnerHeight) {
+            return;
+        }
+        this._lastWindowInnerWidth = windowInnerWidth;
+        this._lastWindowInnerHeight = windowInnerHeight;
+
+        // Setup gaps, in order of preference:
+        // - Make logo 1/2.4 of window.innerHeight, split spare height between top and bottom gaps, with bottom gap = 1.15 * top gap and top gap is no less than 95px
+        // - If 1/2.15 of the spare height is less than 95px, fix top gap to 95 px. If the remaining spare height is less than 59px, reduce logo height so that bottom gap is at least 59px. If logo height is 
+        //   reduced to less than 200px, fix it at 200px and add a margin bottom to main so that there is at least 59px between text and next section.
+
+        // Divisible by 4 since width = 3/4 * height
+        let idealLogoHeight = Math.floor((windowInnerHeight / this.WINDOW_LOGO_HEIGHT_RATIO) / 4) * 4;
+        let spareHeight = windowInnerHeight - idealLogoHeight - this._textHeight;
+
+        // Bottom gap = top gap * BOTTOM_TOP_GAP_HEIGHT_RATIO
+        let idealTopGap = spareHeight / (1 + this.BOTTOM_TOP_GAP_HEIGHT_RATIO);
+        // Min top gap
+        if (idealTopGap < this.MIN_TOP_GAP) {
+            idealTopGap = this.MIN_TOP_GAP;
+
+            // Min bottom gap
+            let bottomGap = spareHeight - idealTopGap;
+            if (bottomGap < this.MIN_BOTTOM_GAP) {
+                idealLogoHeight = idealLogoHeight - (this.MIN_BOTTOM_GAP - bottomGap);
+
+                if (idealLogoHeight < this.MIN_LOGO_HEIGHT) {
+                    idealLogoHeight = this.MIN_LOGO_HEIGHT;
+                    this._mainElement.style.marginBottom = `${this.MIN_BOTTOM_GAP}px`;
+                }
+            }
+        } else {
+            this._mainElement.style.marginTop = `${idealTopGap - this.MIN_TOP_GAP}px`;
+        }
+
+        this._logoElement.style.height = `${idealLogoHeight}px`;
+        this._logoElement.style.width = `${0.75 * idealLogoHeight}px`;
+
+        // By default core element's minHeight is calc(100vh - this.MIN_TOP_GAP), since 100vh can include the url bar on mobiles, windowInnerHeight - this.MIN_TOP_GAP is used to gaurantee that the landing page appears as expected by default
+        this._coreElement.style.minHeight = `${windowInnerHeight - this.MIN_TOP_GAP}px`;
     }
 
     public enabled(): boolean {
@@ -41,8 +109,8 @@ export default class HomeComponent extends RootComponent {
         result += "@keyframes spring {";
 
         for (let i = 0; i <= 30; i++) {
-            result += `${i/30 * 100}% {\n`;
-            result += `transform: scale(${this.springDisplacement(i/30)});\n`;
+            result += `${i / 30 * 100}% {\n`;
+            result += `transform: scale(${this.springDisplacement(i / 30)});\n`;
             result += `}\n`;
         }
 

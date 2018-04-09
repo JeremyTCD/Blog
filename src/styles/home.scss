@@ -8,88 +8,82 @@
         }
     }
 
-    .jtcd-article {
-        @media #{$media-narrow} {
-            margin-top: 0;
-        }
+    #core {
+        // To avoid a flash of the footer
+        min-height: calc(100vh - 95px);
 
-        @media #{$media-wide}, #{$media-medium} {
-            margin-top: 59px;
-        }
+        main {
+            margin-bottom: 0;
 
-        .title {
-            display: none;
-        }
+            .jtcd-article {
+                margin-top: 0;
 
-        .content {
-            align-items: center;
-
-            .logo {
-
-                @media #{$media-narrow} {
-                    height: 176px;
-                    width: 132px;
-                }
-
-                @media #{$media-medium} {
-                    height: 248px;
-                    width: 186px;
-                }
-
-                height: 320px;
-                width: 240px;
-                opacity: 0;
-                transform: scale(0);
-                animation-duration: 0.8s;
-                animation-fill-mode: forwards;
-                animation-timing-function: linear;
-                will-change: transform;
-                transition: opacity 0.3s $ease-out-quad;
-
-                &.transitioned-in {
-                    animation-name: spring;
-                    opacity: 1;
-                }
-            }
-
-            .header-1, .header-1 + p {
-                transform: translateY(50%);
-                opacity: 0;
-                transition: opacity 0.3s $ease-out-quad, transform 0.3s $ease-out-quad;
-                text-align: center;
-
-                &.transitioned-in {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            p {
-                max-width: 650px;
-            }
-
-            .header-1 {
-                padding-top: 0;
-                margin-top: 48px;
-                transition-delay: 0.4s;
-
-                h1 {
-                    @media #{$media-medium}, #{$media-wide} {
-                        font-size: 32px;
-                    }
-                }
-
-                &::after {
-                    content: none;
-                }
-
-                div[role="button"] {
+                .title {
                     display: none;
                 }
 
-                & + p {
-                    transition-delay: 0.8s;
-                    margin-top: 19px;
+                .content {
+                    align-items: center;
+
+                    .logo {
+                        // Must be above header
+                        position: relative;
+                        z-index: 2;
+                        margin-top: 0;
+                        opacity: 0;
+                        transform: scale(0);
+                        animation-duration: 0.8s;
+                        animation-fill-mode: forwards;
+                        animation-timing-function: linear;
+                        will-change: transform;
+                        transition: opacity 0.3s $ease-out-quad;
+
+                        &.transitioned-in {
+                            animation-name: spring;
+                            opacity: 1;
+                        }
+                    }
+
+                    .header-1, .header-1 + p {
+                        transform: translateY(50%);
+                        opacity: 0;
+                        transition: opacity 0.3s $ease-out-quad, transform 0.3s $ease-out-quad;
+                        text-align: center;
+
+                        &.transitioned-in {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+
+                    p {
+                        max-width: 650px;
+                    }
+
+                    .header-1 {
+                        padding-top: 0;
+                        margin-top: 48px;
+                        transition-delay: 0.4s;
+
+                        h1 {
+                            @media #{$media-medium}, #{$media-wide} {
+                                font-size: 32px;
+                            }
+                        }
+
+                        &::after {
+                            content: none;
+                        }
+
+                        div[role="button"] {
+                            display: none;
+                        }
+
+                        & + p {
+                            transition-delay: 0.8s;
+                            margin-top: 19px;
+                        }
+                    }
                 }
             }
         }
