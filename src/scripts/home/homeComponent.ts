@@ -6,13 +6,14 @@ export default class HomeComponent extends RootComponent {
     private _mainElement: HTMLElement;
     private _logoElement: HTMLElement;
     private _contentElement: HTMLElement;
+    private _header1Element: HTMLElement;
+    private _pElement: HTMLElement;
 
     private _lastWindowInnerWidth: number;
     private _lastWindowInnerHeight: number;
-    private _textHeight: number;
 
     private WINDOW_LOGO_HEIGHT_RATIO = 2.4;
-    private BOTTOM_TOP_GAP_HEIGHT_RATIO = 1.13;
+    private BOTTOM_TOP_GAP_HEIGHT_RATIO = 1.1;
     private MIN_TOP_GAP = 95;
     private MIN_BOTTOM_GAP = 59;
     private MIN_LOGO_HEIGHT = 200;
@@ -25,7 +26,8 @@ export default class HomeComponent extends RootComponent {
             this._contentElement = document.querySelector('.jtcd-article .content');
             this._mainElement = document.querySelector('main') as HTMLElement;
             this._logoElement = this._contentElement.querySelector('.logo') as HTMLElement;
-
+            this._header1Element = this._contentElement.querySelector('.header-1');
+            this._pElement = this._contentElement.querySelector('p');
         }
     }
 
@@ -33,23 +35,13 @@ export default class HomeComponent extends RootComponent {
     }
 
     public setupOnLoad(): void {
-        let header1Element = this._contentElement.querySelector('.header-1');
-        let pElement = this._contentElement.querySelector('p');
-        let pStyle = getComputedStyle(pElement);
-        let header1Style = getComputedStyle(header1Element);
-
-        this._textHeight = parseFloat(pStyle.height) + parseFloat(pStyle.marginTop) + parseFloat(header1Style.height) + parseFloat(header1Style.marginTop);
-
         this.updateContent();
 
         window.addEventListener('resize', this.updateContent);
 
         this._logoElement.classList.add('transitioned-in');
-        header1Element.classList.add('transitioned-in');
-        pElement.classList.add('transitioned-in');
-
-        // TODO move to a separate project
-        //this.generateSpringKeyframes();
+        this._header1Element.classList.add('transitioned-in');
+        this._pElement.classList.add('transitioned-in');
     }
 
     private updateContent = () => {
@@ -67,13 +59,16 @@ export default class HomeComponent extends RootComponent {
         // - Make logo 1/2.4 of window.innerHeight, split spare height between top and bottom gaps, with bottom gap = 1.15 * top gap and top gap is no less than 95px
         // - If 1/2.15 of the spare height is less than 95px, fix top gap to 95 px. If the remaining spare height is less than 59px, reduce logo height so that bottom gap is at least 59px. If logo height is 
         //   reduced to less than 200px, fix it at 200px and add a margin bottom to main so that there is at least 59px between text and next section.
-
+        let pStyle = getComputedStyle(this._pElement);
+        let header1Style = getComputedStyle(this._header1Element);
+        let textHeight = parseFloat(pStyle.height) + parseFloat(pStyle.marginTop) + parseFloat(header1Style.height) + parseFloat(header1Style.marginTop);
         // Divisible by 4 since width = 3/4 * height
         let idealLogoHeight = Math.floor((windowInnerHeight / this.WINDOW_LOGO_HEIGHT_RATIO) / 4) * 4;
-        let spareHeight = windowInnerHeight - idealLogoHeight - this._textHeight;
+        let spareHeight = windowInnerHeight - idealLogoHeight - textHeight;
 
         // Bottom gap = top gap * BOTTOM_TOP_GAP_HEIGHT_RATIO
         let idealTopGap = spareHeight / (1 + this.BOTTOM_TOP_GAP_HEIGHT_RATIO);
+        let idealBottomGap = 0;
         // Min top gap
         if (idealTopGap < this.MIN_TOP_GAP) {
             idealTopGap = this.MIN_TOP_GAP;
@@ -85,13 +80,14 @@ export default class HomeComponent extends RootComponent {
 
                 if (idealLogoHeight < this.MIN_LOGO_HEIGHT) {
                     idealLogoHeight = this.MIN_LOGO_HEIGHT;
-                    this._mainElement.style.marginBottom = `${this.MIN_BOTTOM_GAP}px`;
+                    // Push footer down
+                    idealBottomGap = this.MIN_BOTTOM_GAP;
                 }
             }
-        } else {
-            this._mainElement.style.marginTop = `${idealTopGap - this.MIN_TOP_GAP}px`;
         }
 
+        this._mainElement.style.marginBottom = `${idealBottomGap}px`;
+        this._mainElement.style.marginTop = `${idealTopGap - this.MIN_TOP_GAP}px`;
         this._logoElement.style.height = `${idealLogoHeight}px`;
         this._logoElement.style.width = `${0.75 * idealLogoHeight}px`;
 
@@ -101,26 +97,5 @@ export default class HomeComponent extends RootComponent {
 
     public enabled(): boolean {
         return this._homeElement ? true : false;
-    }
-
-    private generateSpringKeyframes() {
-        let result: string = '';
-
-        result += "@keyframes spring {";
-
-        for (let i = 0; i <= 30; i++) {
-            result += `${i / 30 * 100}% {\n`;
-            result += `transform: scale(${this.springDisplacement(i / 30)});\n`;
-            result += `}\n`;
-        }
-
-        result += '}';
-
-        console.log(result);
-    }
-
-    // https://medium.com/@dtinth/spring-animation-in-css-2039de6e1a03
-    private springDisplacement(time: number) {
-        return -0.5 * Math.exp(-6 * time) * (-2 * Math.exp(6 * time) + Math.sin(12 * time) + 2 * Math.cos(12 * time));
     }
 }

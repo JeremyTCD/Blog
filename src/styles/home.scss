@@ -1,9 +1,8 @@
 @import '../../node_modules/mimo-website/dist/styles/shared/constants';
-@import './animations';
 
 #home {
-    @media #{$media-narrow} {
-        #page-header-logo {
+    #page-header-logo {
+        @media #{$media-narrow} {
             visibility: hidden;
         }
     }
@@ -32,14 +31,12 @@
                         margin-top: 0;
                         opacity: 0;
                         transform: scale(0);
-                        animation-duration: 0.8s;
-                        animation-fill-mode: forwards;
-                        animation-timing-function: linear;
                         will-change: transform;
-                        transition: opacity 0.3s $ease-out-quad;
+                        // TODO $ease-out-back
+                        transition: opacity 0.3s $ease-out-quad, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
                         &.transitioned-in {
-                            animation-name: spring;
+                            transform: scale(1);
                             opacity: 1;
                         }
                     }
