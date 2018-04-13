@@ -1,4 +1,4 @@
-import RootComponent from 'scripts/shared/rootComponent';
+import { RootComponent } from 'mimo-website/components'
 
 export default class HomeComponent extends RootComponent {
     private _coreElement: HTMLElement;

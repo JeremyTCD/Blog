@@ -1,7 +1,6 @@
 {
     "compileOnSave": false,
     "compilerOptions": {
-        "traceResolution": true,
         "module": "commonjs",
         "target": "es5",
         "lib": [ "es6", "dom" ],
@@ -12,14 +11,15 @@
         "moduleResolution": "node",
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        //"noUnusedLocals": true,
-        //"noUnusedParameters": true,
-        "typeRoots": [
-            "../../../JeremyTCD.DocFx.Themes.Mimo/node_modules/@types",
-            "../../node_modules/@types"
-        ],
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
         // Does not work if an absolute url is specified
-        "baseUrl": "../../../JeremyTCD.DocFx.Themes.Mimo"
+        "baseUrl": ".",
+        "paths": {
+            "mimo-website/*": [
+                "../../node_modules/mimo-website/dist/scripts/*"
+            ]
+        }
     },
     "include": [
         "./index.ts"

@@ -1,8 +1,8 @@
 import '../styles/index.scss';
 
-import Host from 'scripts/host';
+import { Host } from 'mimo-website/core';
+import { RootComponent } from 'mimo-website/components';
 import HomeComponent from './home/homeComponent';
-import RootComponent from 'scripts/shared/rootComponent';
 
 let host = new Host();
 let container = host.getContainer();
