@@ -13,15 +13,21 @@
         "emitDecoratorMetadata": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
+        //"typeRoots": [
+        //    "../../../jeremytcd.docfx.themes.mimo/node_modules/@types",
+        //    "../../node_modules/@types"
+        //],
         // Does not work if an absolute url is specified
         "baseUrl": ".",
         "paths": {
             "mimo-website/*": [
                 "../../node_modules/mimo-website/dist/scripts/*"
+               // "../../../jeremytcd.docfx.themes.mimo/scripts/*"
             ]
         }
     },
     "include": [
-        "./index.ts"
+        "./index.ts"//,
+        //"../../../jeremytcd.docfx.themes.mimo/scripts/typings/*.d.ts"
     ]
 }
