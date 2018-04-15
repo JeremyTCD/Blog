@@ -82,11 +82,11 @@ mimo_date: Mar 3, 2018
 -->
 
 Semantic versioning (semver) is a system for versioning software. By defining a standard way to version software, semver facilitates software interoperability. The full what, why, and a detailed specification for 
-this excellent system can be found at [semver.org](https://semver.org). This article focuses on the use of semver in practice; it journeys through a software development lifecycle, providing examples of how semver should be used in 
+semver can be found at [semver.org](https://semver.org). This article focuses on the use of semver in practice; it journeys through a software development lifecycle, providing examples of how semver should be used in 
 each phase - this article describes *the semantic versioning lifecycle*.
 
 # Terminology
-Before delving into the semver lifecycle, some terms need to be defined:
+Before delving into the semver lifecycle, some terms must be defined:
 
 | Term | Description |
 | ---- | ---------- |
@@ -115,9 +115,10 @@ Before delving into the semver lifecycle, some terms need to be defined:
 > This article's focus is on the use of semver in practice. To that end, it journeys through a simplified software development lifecycle. Don't worry about the lifecycle's specifics like its phase's names. Getting the gist of 
 > what each phase covers is enough to derive value from this article.
 
+## Description
 A piece of software is in this phase just after conception; architectural plans and feature requirements are typically in flux, development is rapid and the software's public API is very unstable. 
 
-## Semver in the Initial Development Phase
+## Semver in this Phase
 ### Rules
 Semver suggests beginning this phase with the version number `0.1.0`. During this phase, each subsequent version number should only have its minor version incremented, regardless
 of whether or not changes are backward compatible. For example, at the end of this phase, the simplified changelog of a piece of software might look like this:
@@ -145,7 +146,8 @@ The reasons for the above-mentioned rules are as follows:
 
 # Pre-Release Phase
 
-A piece of software is in this phase when it isn't production ready, but is working its way toward a target release (a production-ready version); like in the initial development phase, development is rapid and 
+## Description
+A piece of software is in this phase when it isn't production ready, but is moving toward a release (a production-ready version); like in the initial development phase, development is rapid and 
 the software's public API is very unstable. 
 
 > [!alert-note]
@@ -159,7 +161,7 @@ the software's public API is very unstable.
 > This phase can occur after the initial development phase or after a [maintenance phase](#maintenance-phase). After the initial development phase, a piece of software would 
 > be working its way toward the `1.0.0` version - its first release. After a maintenance phase, a piece of software could be working toward any release, for example, `2.0.0` or `3.0.0`.
 
-## Semver in the Pre-Release Phase
+## Semver in this Phase
 ### Rules
 During this phase, semver specifies that version numbers should be the version number of the target release followed by a `-` and dot-separated pre-release identifiers, 
 for example, `1.0.0-alpha.1`. Each subsequent version number should only have its pre-release identifiers incremented, regardless of whether or not changes are backward compatible. For example, at the end of this phase, 
@@ -178,10 +180,10 @@ The reasons for the above-mentioned rules are as follows:
 
 # Maintenance Phase
 
+## Description
 A piece of software is in this phase when it's production ready; typically, other software have begun depending on it in production, and as a result, backward compatibility has started to matter.
 
-## Semver in the Maintenance Phase
-
+## Semver in this Phase
 ### Rules
 This phase begins with the version number of the release that the preceding pre-release phase was working toward, for example, `1.0.0`. During this phase, semver specifies that version numbers 
 should be incremented in the following manner:
@@ -204,7 +206,7 @@ In short, if a version:
 > [!alert-note]
 > Major version increments are often associated with significant changes and rewrites. Incrementing major version even for small, backward incompatible changes might seem unusual. 
 > Moreover, doing so could cause major version to balloon, causing versions to end up with version numbers like `42.0.0`. That said, incrementing major version for every backward incompatible change in this phase is a
-> critical rule: if it isn't followed,
+> critical rule, if it isn't followed,
 > consumers in production could break because of unexpected backward incompatible changes.
 > 
 > Semver's FAQ
@@ -213,10 +215,10 @@ In short, if a version:
 > 
 > - Avoid rushing into this phase. Whether or not a piece of software is production ready is subjective, not least because 
 > software can almost always be improved upon. Setting a high bar for production readiness and staying in the pre-release phase for longer would allow for more kinks to be ironed 
-> out before this phase. An especially prudent developer might wait until consumers actually begin expressing interest in using the software in production before advancing to this phase.
+> out before this phase. An especially prudent developer might wait until consumers begin expressing interest in using the software in production before advancing to this phase.
 > 
 > - Batch backward incompatible changes. For example, [Angular](https://github.com/angular/angular/blob/master/CHANGELOG.md) batches backward incompatible changes, 
-> releasing new major versions only once every few months. Of course, this would mean that backward incompatible bug fixes 
+> releasing new major versions only once every few months. This would mean that backward incompatible bug fixes 
 > could take longer to reach consumers, so a release cycle must be carefully planned.
 
 At the end of a maintenance phase, the simplified changelog of a piece of software might look like this:
@@ -230,14 +232,14 @@ At the end of a maintenance phase, the simplified changelog of a piece of softwa
 ### Rationale
 The reasons for the above-mentioned rules are as follows:
 
-- Mandating major version increments for backward incompatible changes makes it such that whether or not a version contains backward incompatible changes can be deduced from its version number. This 
-enables semver to facilitate software interoperability, for example, software consumers can configure package managers to automatically install only backward compatible changes such as bug fixes and optimizations. 
+- These rules ensure that whether or not a version is backward compatible can be deduced from its version number. This 
+enables semver to facilitate software interoperability, for example, consumers can configure package managers to automatically upgrade dependencies to the latest compatible versions. 
 
-- Mandating patch version increments for versions that contain only backward compatible bug fixes makes it such that whether or not a version contains only backward incompatible bug fixes can be deduced from its
-version number. This facilitates software interoperability in a similar manner to the previous reason.
+- These rules also ensure that whether or not a version contains only backward incompatible bug fixes can be deduced from its
+version number. This facilitates software interoperability as well, for example, consumers can configure package managers to only install backward compatible bug fixes.
 
 # Coming Full Circle
-At some point in a maintenance phase, the need for a rewrite might arise. A rewrite will take the project back to the pre-release phase. For example, after a second pre-release phase, the simplified changelog of a piece 
+At some point in a maintenance phase, the need for a rewrite might arise. A rewrite takes the project back to the pre-release phase. For example, after a rewrite, the simplified changelog of a piece 
 of software might look like this:
 
 [!include-code] { 
@@ -247,8 +249,8 @@ of software might look like this:
 }
 
 > [!alert-note]
-> A pre-release phase can take place in parallel with a maintenance phase, with each phase occurring on a different branch. This would allow bug fixes to be released even while a pre-release phase is underway.
+> A pre-release phase can take place in parallel with a maintenance phase, with each phase occurring on a different version control branch. This would allow bug fixes to be released even while a pre-release phase is underway.
 
 # Conclusion
-While this article describes and lists the advantages of *the semantic versioning lifecycle*, semver should not be taken as dogma. Ultimately, the circumstances must be taken into account when versioning a piece of 
-software. Thanks for reading this article, feel free to share tips or to point out any mistakes in the comments below!
+While this article describes the advantages of *the semantic versioning lifecycle*, semver should not be taken as dogma. Ultimately, when versioning a piece of 
+software, its circumstances must be taken into account. Thanks for reading this article, feel free to share tips or to point out any mistakes in the comments below!
