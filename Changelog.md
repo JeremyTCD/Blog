@@ -1,5 +1,13 @@
 # Changelog
-## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/10...HEAD)
+## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/11...HEAD)
+
+## [11](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/10...11) - Apr 15, 2018
+### Added
+### Changed
+- Bumped mimo-website to 1.0.0-alpha.12.
+- Updated scripts and styles for compatiblity with new mimo-website version.
+### Fixed
+- Home page animations. Simplified it so it works cross browser.
 
 ## [10](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/9...10) - Mar 5, 2018
 ### Added
