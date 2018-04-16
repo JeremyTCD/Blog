@@ -14,7 +14,7 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         //"typeRoots": [
-        //    "../../../jeremytcd.docfx.themes.mimo/node_modules/@types",
+        //    "../../../JeremyTCD.DocFx.Themes.Mimo/node_modules/@types",
         //    "../../node_modules/@types"
         //],
         // Does not work if an absolute url is specified
@@ -22,12 +22,12 @@
         "paths": {
             "mimo-website/*": [
                 "../../node_modules/mimo-website/dist/scripts/*"
-               // "../../../jeremytcd.docfx.themes.mimo/scripts/*"
+                //"../../../JeremyTCD.DocFx.Themes.Mimo/scripts/*"
             ]
         }
     },
     "include": [
         "./index.ts"//,
-        //"../../../jeremytcd.docfx.themes.mimo/scripts/typings/*.d.ts"
+        //"../../../JeremyTCD.DocFx.Themes.Mimo/scripts/typings/*.d.ts"
     ]
 }
