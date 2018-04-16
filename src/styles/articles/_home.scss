@@ -32,21 +32,20 @@
                         opacity: 0;
                         transform: scale(0);
                         will-change: transform;
-                        transition: opacity 0.2s $ease-out-quad, transform 0.5s $ease-out-back;
 
                         &.transitioned-in {
+                            transition: opacity 0.2s $ease-out-quad, transform 0.5s $ease-out-back;
                             transform: scale(1);
                             opacity: 1;
                         }
                     }
 
                     .header-1, .header-1 + p {
-                        transform: translateY(50%);
                         opacity: 0;
-                        transition: opacity 0.3s $ease-out-quad, transform 0.3s $ease-out-quad;
                         text-align: center;
 
                         &.transitioned-in {
+                            transition: opacity 0.3s $ease-out-quad, transform 0.3s $ease-out-quad;
                             opacity: 1;
                             transform: translateY(0);
                         }
@@ -59,7 +58,11 @@
                     .header-1 {
                         padding-top: 0;
                         margin-top: 48px;
-                        transition-delay: 0.4s;
+                        transform: translateY(21px);
+
+                        &.transitioned-in {
+                            transition-delay: 0.4s;
+                        }
 
                         h1 {
                             @media #{$media-medium}, #{$media-wide} {
@@ -76,7 +79,12 @@
                         }
 
                         & + p {
-                            transition-delay: 0.8s;
+                            transform: translateY(21px);
+
+                            &.transitioned-in {
+                                transition-delay: 0.8s;
+                            }
+
                             margin-top: 19px;
                         }
                     }
