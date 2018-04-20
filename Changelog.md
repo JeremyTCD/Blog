@@ -1,12 +1,17 @@
 # Changelog
-## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/12...HEAD)
+## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/13...HEAD)
+
+## [13](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/12...13) - Apr 20, 2018
+### Changed
+- Bumped mimo-website to 1.0.0-alpha.14. Fixes a couple of bugs.
+### Added
+- Added an article and the skeleton for another article.
 
 ## [12](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/11...12) - Apr 16, 2018
 ### Changed
 - Bumped mimo-website to 1.0.0-alpha.13. Fixes a couple of bugs.
 
 ## [11](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/10...11) - Apr 15, 2018
-### Added
 ### Changed
 - Bumped mimo-website to 1.0.0-alpha.12.
 - Updated scripts and styles for compatiblity with new mimo-website version.
