@@ -1,5 +1,9 @@
 # Changelog
-## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/13...HEAD)
+## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/14...HEAD)
+
+## [14](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/13...14) - Apr 21, 2018
+### Changed
+- Bumped mimo-website to 1.0.0-alpha.15. Fixes 404 page navigation bar bug.
 
 ## [13](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/12...13) - Apr 20, 2018
 ### Changed
