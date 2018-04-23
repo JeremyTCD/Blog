@@ -10,82 +10,6 @@ mimo_shareOnTwitter:
     via: JeremyTCD
 ---
 
-<!--
-3.0.0
-- Fixed bugs.
-- Software finally production ready.
-
-3.0.0-beta.2
-- Fixed bugs.
-- Made backward compatible changes.
-
-3.0.0-beta.1
-- Improved performance.
-- Made backward incompatible changes.
-
-3.0.0-beta.0
-- Completed feature F.
-- All features complete but software not been rigorously tested and optimized.
-
-3.0.0-alpha.1
-- Completed feature E.
-- Made backward compatible changes.
-
-3.0.0-alpha.0
-- Removed feature A.
-- Completed feature D.
-- Made backward incompatible changes.
-
-2.1.0
-- Marked feature A as deprecated.
-
-2.0.0
-- Fixed backward incompatible bugs
-
-1.2.0
-- Made backward compatible, non-bug-fix changes to private code.
-
-1.1.0
-- Added public API functionality.
-
-1.0.1
-- Made backward compatible bug fixes.
-
-1.0.0
-- Fixed bugs, improved performance.
-- Made backward incompatible changes.
-- Software finally production ready.
-
-1.0.0-beta.1
-- Fixed bugs, improved performance.
-- Made backward incompatible changes.
-
-1.0.0-beta.0
-- Completed feature C.
-- All features complete but software not rigorously tested and optimized.
-
-1.0.0-alpha.2
-- Completed feature B.
-- Made backward incompatible changes.
-
-1.0.0-alpha.1
-- Completed feature A.
-- Made backward compatible changes.
-
-1.0.0-alpha.0
-- Architectural plans have stabilized and features have been locked but several features are incomplete.
-- Made backward incompatible changes.
-
-0.3.0 
-- Made backward incompatible changes.
-
-0.2.0 
-- Made backward compatible changes.
-
-0.1.0 
-- Initial release.
--->
-
 Semantic versioning (semver) is a system for versioning software. By defining a standard way to version software, semver facilitates software interoperability. The full what, why, and a detailed specification for 
 semver can be found at [semver.org](https://semver.org). This article focuses on the use of semver in practice; it journeys through a software development lifecycle, providing examples of how semver should be used in 
 each phase - this article describes *the semantic versioning lifecycle*.
@@ -129,9 +53,8 @@ Semver suggests beginning this phase with the version number `0.1.0`. During thi
 of whether or not changes are backward compatible. For example, at the end of this phase, the simplified changelog of a piece of software might look like this:
 
 [!include-code] { 
-    "src": "./the-semantic-versioning-lifecycle.md",
-    "ranges": [{"start": 74, "end": 81 }],
-    "highlight": false
+    "src": "../../resources/articles/theSemanticVersioningLifecycle/exampleChangelog.txt",
+    "regions": [{"name": "initial-development-phase"}]
 }
 
 > [!alert-note]
@@ -173,9 +96,8 @@ for example, `1.0.0-alpha.1`. Each subsequent version number should only have it
 the simplified changelog of a piece of software might look like this:
 
 [!include-code] { 
-    "src": "./the-semantic-versioning-lifecycle.md",
-    "ranges": [{"start": 54, "end": 81 }],
-    "highlight": false
+    "src": "../../resources/articles/theSemanticVersioningLifecycle/exampleChangelog.txt",
+    "regions": [{"name":"pre-release-phase", "lineBreak":"after"}, {"name": "initial-development-phase"}]
 }
 
 ### Rationale
@@ -229,9 +151,8 @@ In short, if a version:
 At the end of a maintenance phase, the simplified changelog of a piece of software might look like this:
 
 [!include-code] { 
-    "src": "./the-semantic-versioning-lifecycle.md",
-    "ranges": [{"start": 34, "end": 81 }],
-    "highlight": false
+    "src": "../../resources/articles/theSemanticVersioningLifecycle/exampleChangelog.txt",
+    "regions": [{"name":"maintenance-phase", "lineBreak":"after"}, {"name":"pre-release-phase", "lineBreak":"after"}, {"name": "initial-development-phase"}]
 }
 
 ### Rationale
@@ -248,9 +169,8 @@ At some point in a maintenance phase, the need for a rewrite might arise. A rewr
 of software might look like this:
 
 [!include-code] { 
-    "src": "./the-semantic-versioning-lifecycle.md",
-    "ranges": [{"start": 9, "end": 81 }],
-    "highlight": false
+    "src": "../../resources/articles/theSemanticVersioningLifecycle/exampleChangelog.txt",
+    "regions": [{"name":"pre-release-phase-2", "lineBreak":"after"}, {"name":"maintenance-phase", "lineBreak":"after"}, {"name":"pre-release-phase", "lineBreak":"after"}, {"name": "initial-development-phase"}]
 }
 
 > [!alert-note]
