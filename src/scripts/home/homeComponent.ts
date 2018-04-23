@@ -13,10 +13,12 @@ export default class HomeComponent extends RootComponent {
     private _lastWindowInnerHeight: number;
 
     private WINDOW_LOGO_HEIGHT_RATIO = 2.4;
-    private BOTTOM_TOP_GAP_HEIGHT_RATIO = 1.1;
+    private BOTTOM_TOP_GAP_HEIGHT_RATIO = 1.08;
     private MIN_TOP_GAP = 95;
     private MIN_BOTTOM_GAP = 59;
     private MIN_LOGO_HEIGHT = 200;
+    // Text naturally have to and bottom gaps due to acenders/decenders
+    private P_BOTTOM_GAP = 6;
 
     public setupImmediate(): void {
         this._homeElement = document.getElementById('home');
@@ -61,7 +63,7 @@ export default class HomeComponent extends RootComponent {
         //   reduced to less than 200px, fix it at 200px and add a margin bottom to main so that there is at least 59px between text and next section.
         let pStyle = getComputedStyle(this._pElement);
         let header1Style = getComputedStyle(this._header1Element);
-        let textHeight = parseFloat(pStyle.height) + parseFloat(pStyle.marginTop) + parseFloat(header1Style.height) + parseFloat(header1Style.marginTop);
+        let textHeight = parseFloat(pStyle.height) + parseFloat(pStyle.marginTop) + parseFloat(header1Style.height) + parseFloat(header1Style.marginTop) - this.P_BOTTOM_GAP;
         // Divisible by 4 since width = 3/4 * height
         let idealLogoHeight = Math.floor((windowInnerHeight / this.WINDOW_LOGO_HEIGHT_RATIO) / 4) * 4;
         let spareHeight = windowInnerHeight - idealLogoHeight - textHeight;
