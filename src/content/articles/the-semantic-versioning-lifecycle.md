@@ -3,6 +3,11 @@ mimo_pageDescription: This article focuses on the use of semantic versioning (se
 mimo_pageTitle: The Semantic Versioning Lifecycle
 mimo_pageID: the-semantic-versioning-lifecycle
 mimo_date: Mar 3, 2018
+mimo_socialMediaCard: true
+mimo_shareOnFacebook: true
+mimo_shareOnTwitter:
+    hashtags: semver
+    via: JeremyTCD
 ---
 
 <!--
