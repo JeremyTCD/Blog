@@ -1,0 +1,11 @@
+@import '../../../node_modules/mimo-website/dist/styles/shared/constants';
+
+#css-only-responsive-tables {
+    #method-example {
+        @import '../../resources/articles/cssOnlyResponsiveTables/methodExample';
+    }
+
+    #alternative-example{
+        @import '../../resources/articles/cssOnlyResponsiveTables/alternativeExample';
+    }
+}
