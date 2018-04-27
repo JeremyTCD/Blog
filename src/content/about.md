@@ -16,5 +16,3 @@ mimo_disableComments: true
 Hi there, my name is Jeremy Tan and I'm a programmer. At present, I'm part way through a multi-year project. This year (2018), I plan to lay the foundations for my project by releasing
 several libraries and tools. I get a kick out of putting systems together and am really excited about the year ahead. I have a lot to learn, and hopefully, a lot to 
 share. This blog is my platform for documenting and sharing things. I sincerely hope that you find it to be of value.
-
-If you are looking for my contact, it can be found [here](/contact).
