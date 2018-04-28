@@ -1,5 +1,9 @@
 # Changelog
-## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/15...HEAD)
+## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/16...HEAD)
+
+## [16](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/15...16) - Apr 27, 2018
+### Changed
+- Enabled comments for CSS-Only Responsive Tables.
 
 ## [15](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/14...15) - Apr 27, 2018
 ### Changed
