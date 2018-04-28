@@ -3463,9 +3463,9 @@ mimic-fn@^1.0.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-1.2.0.tgz#820c86a39334640e99516928bd03fca88057d022"
 
-mimo-website@^1.0.0-alpha.15:
-  version "1.0.0-alpha.15"
-  resolved "https://registry.yarnpkg.com/mimo-website/-/mimo-website-1.0.0-alpha.15.tgz#2c4d02e0666475b7ff3a9fcfb0df7e7d5fdd24f5"
+mimo-website@^1.0.0-alpha.16:
+  version "1.0.0-alpha.16"
+  resolved "https://registry.yarnpkg.com/mimo-website/-/mimo-website-1.0.0-alpha.16.tgz#3a47494067b3852768f522f29cfc2907a7285cde"
   dependencies:
     "@types/clipboard" "^1.5.35"
     "@types/jquery" "^3.2.16"
