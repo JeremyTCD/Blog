@@ -1,5 +1,12 @@
 # Changelog
-## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/14...HEAD)
+## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/15...HEAD)
+
+## [15](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/14...15) - Apr 27, 2018
+### Changed
+- Bumped mimo-website to 1.0.0-alpha.16.
+- Added social media button and card metadata for "The Semantic Versioning Lifecycle".
+### Added
+- Article: CSS-Only Responsive Tables.
 
 ## [14](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/13...14) - Apr 21, 2018
 ### Changed
