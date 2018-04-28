@@ -75,7 +75,7 @@ basic stuff about investing. I saved every cent and invested most of what I earn
 This part of my plan began when I bought my first programming books as a teen. Since then, I have been learning, working on small projects and making gradual progress. This is an extremely broad phase of my plan 
 as building commercially viable software is non-trivial. At present, this is the phase I am in. The following are some details on this phase.
 
-**How I Learn:**
+#### How I Learn:
 - I figure out what to learn by looking through university curriculums. For example, Standford [lists](http://exploredegrees.stanford.edu/schoolofengineering/#majorstext) the modules for many of their courses. Such
 university curriculums were especially useful early on. They made me aware of foundational subjects like discrete mathematics and algorithms and datastructures.
 - I read textbooks. Most of my foundational knowledge (theoretical stuff) was obtained from textbooks. I set aside time to read at least 1 textbook a year, both to prepare for specific tasks and to 
@@ -94,7 +94,7 @@ people's libraries.
 On a side note, Elasticsearch is the kind of product that I am working toward at this point in time.
 - I google. I spend a good amount of time googling for specialized knowledge and reading whatever pops up, like blog articles.
 
-**How I Keep Track of My Pace:**
+#### How I Keep Track of My Pace:
 - I use a simple app called [Toggl](https://toggl.com/) to track my work hours. I count hours spent [in the zone](https://www.huffingtonpost.com/emily-hill/what-it-really-means-to-b_b_10300610.html) as work hours. 
 Being in the zone refers to a state of mind where everything irrelevant melts away. It is similar to one's state of mind when taking a math exam or playing competitive sports.  At present, I aim for 5.5 work hours per day, 
 6 days a week. This is about third more than what most programmers clock. I achieve this by keeping my non-work life as simple as possible.
@@ -105,7 +105,7 @@ in size and complexity, but I do write a lot of code.
 ### Phase: Build Commercially Viable Software
 After picking up the requisite skills. I intend to build commercially viable software. 
 
-**How long does it take to build a piece of commercially viable software?**  
+#### How long does it take to build a piece of commercially viable software?  
 Consider the following applications:
 - Instagram: Relative to many technical products, Instagram is comparatively simple, nonetheless, there is quite a bit going on under the hood. It was built by two Standford graduates and took about a year to 
 reach its first launch (started out late 2009 as Burbn, launched in October 2010). It could take a good developer up to 2 years to build such a product (with the same level of polish).
@@ -115,7 +115,7 @@ several years to build.
 - Minecraft: Notch (the creator of Minecraft) spent [a year and a half](https://www.reddit.com/r/Minecraft/comments/xfzdg/i_am_markus_persson_aka_notch_creator_of/) working alone on the early versions of Minecraft. 
 He wrote his own game engine, so his efficiency is quite respectable.
 
-**What kind of software do I intend to build?**  
+#### What kind of software do I intend to build?  
 The tech scene exhibits a phenomenon that I call the *ebb and flow of opportunity*. Every once in awhile, a new technology creates opportunities for small developers. Over time, those who are successful
 consolidate their gains and make it difficult for small developers to enter the market. For example, when online shopping first became viable, the internet was littered with small products. Over time, the market has consolidated 
 into large, generalists like IHerb and Amazon - making it hard for small developers to enter the market. The same thing happened in mobile application development - initially, small developers could easily 
@@ -148,7 +148,7 @@ It will be about 2 years before web assembly is ready and integrated with .Net c
 and .Net core. In other words, I am also preparing to make the most of web assembly's rise. Eventually, I intend to have a go at building component libraries and 
 tools for building component libraries using web assembly and .Net core. 
 
-### Projects I am working on now
+### Current Projects
 **[Mimo](https://github.com/JeremyTCD/Mimo)**  
 This is a tool for generating documentation/blogs. I am working on this first because I need it to generate documentation for my other projects. It should be released in a month or two.
 
@@ -175,7 +175,7 @@ At present, assuming I maintain my current environment, I have enough savings to
 are documentation sites for populate libraries: [HTML Agility Pack](http://html-agility-pack.Net/from-file), [Newtonsoft](https://www.newtonsoft.com/json/help/html/Introduction.htm). Both run ads. Further down the road, I intend 
 to monetize some of my tools by providing extra services.
 
-### How You Can Follow My progress
+### Following My Progress
 You can visit my [Github page](https://github.com/JeremyTCD) to see what I've been up to. The green squares correspond to days, you can click them to see what I did on a given day.
 
 ## Back-Up Plan
