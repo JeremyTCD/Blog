@@ -1,4 +1,4 @@
-/* Styles for card mode (presentation styles are marked as optional) */
+/* Styles for card mode (presentational styles are marked as optional) */
 @media (max-width: 855px) {
     table {
         display: block;
@@ -41,7 +41,7 @@
         }
 }
 
-/* Styles for normal mode (all are optional, presentation styles) */
+/* Styles for normal mode (all are optional, presentational styles) */
 @media (min-width: 856px) {
     th {
         white-space: nowrap;
