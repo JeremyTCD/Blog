@@ -18,7 +18,7 @@ each phase - this article describes *the semantic versioning lifecycle*.
 Before delving into the semver lifecycle, some terms must be defined:
 
 | Term | Description |
-| ---- | ---------- |
+| ---- | :---------- |
 | Public&nbsp;API | The *public API (public application programming interface)* of a piece of software refers to the portion of its surface area that is publically exposed for programmatic access. For example, the public API of a web service could refer to a REST API, the public API of a library could refer to its public members, and the public API of a command line application could refer to the list of commands that it accepts. |  
 | Private&nbsp;code | The *private code* of a piece of software refers to code that isn't publically exposed. For example, the private code of a web service could include a repository layer, the private code of a library could refer to its private classes and members, and the private code of a command line application could include business logic. |
 | Version | A *version* is a snapshot of a piece of software. |
@@ -124,7 +124,7 @@ to 0. Examples of backward compatible, non-bug-fix changes include:
 
 In short, if a version:
 | Adds only Backward Compatible Changes | Adds only Bug Fixes | Action |
-| :--------------------: | :--------: | -------------------------- |
+| ------------------------------------- | ------------------- | ------ |
 | true | true | Increment patch version. |
 | true | false | Increment minor version, set patch version to 0. |
 | false | true | Increment major version, set minor version and patch version to 0. |
