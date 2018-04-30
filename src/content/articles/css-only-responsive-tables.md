@@ -25,7 +25,7 @@ which are useful in certain situations.
 }
 
 > [!alert-note]
-> To test the table's responsiveness, adjust your window's width.
+> Adjust your window's width to test the table's responsiveness.
 
 ## Code
 [!include-code] { 
@@ -259,6 +259,6 @@ Thanks for reading, I hope this article has been useful, feel free to share tips
 - [CSS spec for tables](https://www.w3.org/TR/CSS22/tables.html)
 
 # Citations
-- Persian cat. (n.d.). In Wikipedia. Retrieved April 27, 2017, from https://en.wikipedia.org/wiki/Persian_cat
-- Maine Coon. (n.d.). In Wikipedia. Retrieved April 27, 2017, from https://en.wikipedia.org/wiki/Maine_Coon
-- British Shorthair. (n.d.). In Wikipedia. Retrieved April 27, 2017, from https://en.wikipedia.org/wiki/British_Shorthair
+- Persian cat. (n.d.). In Wikipedia. Retrieved April 27, 2018, from https://en.wikipedia.org/wiki/Persian_cat
+- Maine Coon. (n.d.). In Wikipedia. Retrieved April 27, 2018, from https://en.wikipedia.org/wiki/Maine_Coon
+- British Shorthair. (n.d.). In Wikipedia. Retrieved April 27, 2018, from https://en.wikipedia.org/wiki/British_Shorthair
