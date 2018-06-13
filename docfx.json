@@ -3,7 +3,8 @@
         "content": [
             {
                 "src": "src/content",
-                "files": [ "**" ]
+                "files": [ "**" ],
+                "exclude": [ "**/*-ignore.md" ]
             }
         ],
         "resource": [
@@ -53,7 +54,8 @@
                 "<link rel=\"preload\" href=\"/fonts/droid-sans-mono-latin-400.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>"
             ]
         },
-        "postProcessors": [ "SortedArticleListGenerator", "SearchIndexGenerator" ],
+        "markdownEngineName": "mimo-markdown",
+        //"postProcessors": [ "SortedArticleListGenerator", "SearchIndexGenerator" ],
         "sitemap": {
             "baseUrl": "https://jeremytcd.com",
             "priority": 0.1,

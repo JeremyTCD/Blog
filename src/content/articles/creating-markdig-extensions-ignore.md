@@ -36,8 +36,11 @@ mimo_shareOnTwitter:
     - container block: block that contains other blocks
     - leaf block: block that contains inline content
 - what is a lazy continuation?
-    - Within container blocks, if a paragraph continues into a new line,
-      no need to include indicator that block is still open (> or spaces).
+	- within certain blocks, such as list items and blockquotes, if a line is a continuation of a paragraph, it does not need to begin with special characters like "  " or ">".
+	- when such a line is reached, block processor tries to continue the paragraph's parent block. since the line does not begin with the parent block's special characters, 
+      parent block is marked for closing.
+	- blockprocessor then tries to open blocks (TryOpenBlocks). since CurrentBlock is a paragraph block, TryOpenBlocks tries to continue the CurrentBlock. When it succeeds,
+      it calls OpenAll, marking the parent block and its last child (paragraph block) as open.  
 - container inline vs leaf inline
     - ?
 
@@ -50,6 +53,7 @@ mimo_shareOnTwitter:
     - sections
 - create a leaf block extension
     - code blocks
+        - options extension 
 - create an inline extension
     - inline include
 
