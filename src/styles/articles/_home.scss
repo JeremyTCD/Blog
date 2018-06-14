@@ -8,6 +8,7 @@
     }
 
     #core {
+        border-top: none;
         // To avoid a flash of the footer
         min-height: calc(100vh - 95px);
 
