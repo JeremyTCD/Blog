@@ -54,8 +54,7 @@
                 "<link rel=\"preload\" href=\"/fonts/droid-sans-mono-latin-400.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>"
             ]
         },
-        "markdownEngineName": "mimo-markdown",
-        //"postProcessors": [ "SortedArticleListGenerator", "SearchIndexGenerator" ],
+        "postProcessors": [ "SortedArticleListGenerator", "SearchIndexGenerator" ],
         "sitemap": {
             "baseUrl": "https://jeremytcd.com",
             "priority": 0.1,
