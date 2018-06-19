@@ -16,7 +16,11 @@ mimo_shareOnTwitter:
 This article is a step-by-step tutorial on creating C# wrappers for Javascript (JS) libraries. Over the course of this tutorial, we'll be creating a simplified C# wrapper for
 the syntax-highlighting library, [Prism](https://prismjs.com/). The wrapper we create will be publishable as a Nuget package for easy consumption by .Net projects.  
 
-If you'd like to dive straight into the source code for a complete C# wrapper for Prism, check out this repository: [WebUtils.SyntaxHighlighters.Prism](https://github.com/JeremyTCD/WebUtils.SyntaxHighlighters.Prism).
+The C# wrapper we create in this article is simplified for brevity's sake. Features like exception handling, disposal, infrastructure for dependency injection, guard clauses and more have been omitted. While these
+features are important, they are outside the scope of this tutorial. The complete code for this tutorial can be found here: TODO. The code for a complete C# wrapper for Prism (with feautures that were omitted in the
+demo) can be found here: [WebUtils.SyntaxHighlighters.Prism](https://github.com/JeremyTCD/WebUtils.SyntaxHighlighters.Prism).
+
+Calling into JS libraries from C# is relatively straightforward. This article's focus is on setting up a system for managing JS packages, bundling JS modules and packing a JS bundle into a Nuget package.
 
 ## Why?
 
@@ -52,7 +56,10 @@ TODO:Add to table: JS Module: There are a bunch of module definition system in t
     }
     ```
 
-## Creating a Project
+## Pre requisites
+TODO exact versions of tools used
+
+
 Using Visual Studio 2017+ (VS), or the [.NET Core CLI](https://docs.microsoft.com/en-us/dotnet/core/tools), create a .NET Standard 2.0+ class library project named `MyPrismWrapper` in a new solution. 
 The solution's directory should look like this:
 
@@ -105,6 +112,8 @@ We're going to specify which JS packages we need in a `package.json` and set thi
 
     The `BeforeTargets` attribute specifies that `NodeBuild` must run before every build. The Yarn task specifies that `yarn install` must be called 
     in the `Node` folder whenever `NodeBuild` runs.  
+
+    TODO: `Projects and Solutions > Web Package Management > NPM` can be disabled
 5. Build the `MyPrismWrapper` project. 
 
     A `node_modules` folder and a `yarn.lock` will be generated in the `Node` folder. 
@@ -173,7 +182,7 @@ MyPrismWrapper
 |-- MyPrismWrapper.sln  
 ```
 
-## Using Javascript Libraries
+## Preparing Javascript Libraries for Consumption
 Now that our JS packages are automatically restored, we can move on to utilizing the libraries they contain. We're going to create our C# types and a JS interop layer that binds these types to JS libraries. 
 Then, we'll be bundling our JS and setting things up so that the generated bundle gets copied to the output directory. Finally,
 we'll write a couple of integration tests to verify that our setup works. 
@@ -187,11 +196,8 @@ infrastructure for dependency injection.
    ```
     var Prism = require('prismjs');
     var PrismLanguageLoader = require('prismjs/components/index.js');
-    var components = require('prismjs/components.js');
-
     // Require all languages
-    var languageAliases = Object.keys(components.languages).filter(languageName => languageName !== 'meta');
-    PrismLanguageLoader(languageAliases);
+    PrismLanguageLoader();
 
     module.exports = function (callback, code, languageAlias) {
         var result = Prism.highlight(code, Prism.languages[languageAlias], languageAlias);
@@ -242,6 +248,7 @@ infrastructure for dependency injection.
     production bundle will be minified.
     
 4. Add a file named build.js to the `Node` folder:
+    // TODO supply bundle name as command line arg, pass bundle name to webpack
     ```
     const fs = require('fs');
     const path = require('path');
@@ -264,7 +271,9 @@ infrastructure for dependency injection.
         }
     }
 
-    if (fs.existsSync('./lastBuildData')) {
+    if (!fs.existsSync('./bin/MyPrismWrapper.bundle.js')) {
+        console.log('Bundle does not exist, building bundle.js.');
+    } else if (fs.existsSync('./lastBuildData')) {
         // Get last modified time
         let lastBuildData = JSON.parse(fs.readFileSync('./lastBuildData', 'utf8'));
         let lastMode = lastBuildData.mode;
@@ -387,14 +396,16 @@ infrastructure for dependency injection.
     
     Rebuild `MyPrismWrapper` in `Debug` configuration, then navigate to `MyPrismWrapper\bin\Debug\netstandard2.0`. `MyPrismWrapper.bundle.js` will be in the directory, alongside `MyPrismWrapper.dll` and
     some other files. Since our library will be used by other projects, our bundle's name must be unique within the output directory. I recommend naming the bundle after the assembly that uses it since the assembly's name
-    is guaranteed to be unique. For example, in my project `JeremyTCD.WebUtils.SyntaxHighlighters.Prism`, my bundle's name is `JeremyTCD.WebUtils.SyntaxHighlighters.Prism.bundle.js`.
+    is guaranteed to be unique. For example, your assemblies name is `JeremyTCD.WebUtils.SyntaxHighlighters.Prism.dll`, your bundle's name should be `JeremyTCD.WebUtils.SyntaxHighlighters.Prism.bundle.js`.
 
-8. Install the Nuget package [Microsoft.AspNetCore.NodeServices](https://github.com/aspnet/JavaScriptServices/tree/dev/src/Microsoft.AspNetCore.NodeServices) to the `MyPrismWrapper` project. 
+## Consuming a Javascript Bundle
+
+1. Install the Nuget package [Microsoft.AspNetCore.NodeServices](https://github.com/aspnet/JavaScriptServices/tree/dev/src/Microsoft.AspNetCore.NodeServices) to the `MyPrismWrapper` project. 
 
    Microsoft.AspNetCore.NodeServices facilitates execution of JS using Node.js. I recommend reading through its 
    [documentation](https://github.com/aspnet/JavaScriptServices/tree/dev/src/Microsoft.AspNetCore.NodeServices) before proceeding to the next step.
 
-9. Replace `Class.cs` with `PrismService.cs`:
+2. Replace `Class.cs` with `PrismService.cs`:
    ```
     using Microsoft.AspNetCore.NodeServices;
     using System;
@@ -423,14 +434,17 @@ infrastructure for dependency injection.
 
     `moduleName` must be the path of a JS module, relative to the current working directory (obtained using 
     [Directory.GetCurrentDirectory](https://docs.microsoft.com/en-sg/dotnet/api/system.io.directory.getcurrentdirectory?view=netcore-2.1#System_IO_Directory_GetCurrentDirectory)) 
-    of the calling application. The JS module must export a single function that takes the contents of `args` as arguments and creates a JS object that is 
-    equivalent to an instance of type `T`. We'll create a JS module that satisfies these requirements in the next step and setup generation of `MyPrismWrapper.bundle.js` in subsequent steps.
+    of the calling application. 
+
+    The JS module must export a single function that takes a callback and the contents of `args` as arguments. The function must call the callback with
+    a result argument equivalent to an instance of type `T`. The module `interop.js` satisfies these conditions. Since `MyPrismWrapper.bundle.js` uses `interop.js` as its entry, 
+    the bundle is essentially a JS module that exports the function exported by `interop.js`. You can confirm this by reading through `MyPrismWrapper.bundle.js`.
 
     TODO INFO:
     Under the hood, this is how the default implementation of `InvokeAsync<T>(string moduleName, params object[] args)` works:
-    - Upon invocation, if no Node.js process exists, a Node.js process is started and a Http server is created in the Node.js process.
-    - The `args` argument is serialized into a JSON string and sent, together with `moduleName`, to the Node.js process. All inter-process communication is done over Http.
-    - The Http server running in the Node.js process deserializes the JSON string to a JS array, then runs the function exported by the module, passing a callback and the JS array as arguments.
+    - Upon invocation, if no Node.js process exists, a Node.js process is started and a Http server is created in the Node.js process. All inter-process communication is done over Http.
+    - The `args` `object[]` is serialized as a JSON string and sent, together with `moduleName`, to the Node.js process
+    - The Http server running in the Node.js process deserializes the JSON string to a JS array, then runs the function exported by the module, passing a callback and the contents of the JS array as arguments.
     - The function exported by the module calls the callback with either a return value or an error.
     - Finally, the Http server serializes the result or error to a JSON string, and sends it back to the C# application, which deserializes the JSON string.
 
@@ -450,19 +464,215 @@ infrastructure for dependency injection.
    - [Espresso](https://github.com/prepare/Espresso), a fork of [VroomJS](https://github.com/fogzot/vroomjs), is shaping up to be an alternative to Edge.js. Espresso supports calls to Node.js from CoreCLR, but 
      is still in early stages of development at the time of this writing.
 
-10. Add test project 
+3. We're going to add some integration tests to verify that our setup works. There are several excellent test frameworks that you can choose from, in the following code, I'll be using [xUnit](https://xunit.github.io/),
+    but you can use whatever you're comfortable with. Create a .NET Core console application project named `MyPrismWrapper.Tests` in your solution. The solution's directory should look 
+    like this:
 
-    // TODO explain debugging
-  - we can finally run js now
-  - addNodeServices
+    ```
+    MyPrismWrapper
+    |-- MyPrismWrapper
+    |   |-- ...
+    |-- MyPrismWrapper.Tests
+    |   |-- MyPrismWrapper.Tests.csproj
+    |   |-- Program.cs
+    |   |-- ...
+    |-- MyPrismWrapper.sln  
+    ```
+
+    Update MyPrismWrapper.Tests.csproj with the following contents: 
+
+    ```
+    <Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.7.2" />
+        <PackageReference Include="xunit" Version="2.3.1" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\MyPrismWrapper\MyPrismWrapper.csproj" />
+    </ItemGroup>
+
+    </Project>
+    ```
+
+    Replace `Program.cs` with `PrismServiceIntegrationTests.cs`:
+    ```
+    using Microsoft.AspNetCore.NodeServices;
+    using Microsoft.Extensions.DependencyInjection;
+    using MyPrismWrapper;
+    using Xunit;
+
+    namespace JeremyTCD.WebUtils.SyntaxHighlighters.Prism.Tests
+    {
+        public class PrismServiceIntegrationTests
+        {
+            [Fact]
+            public void HighlightAsync_HighlightsCode()
+            {
+                // Arrange 
+                PrismService prismService = CreatePrismService();
+                string dummyCode = @"public string ExampleFunction(string arg)
+    {
+        // Example comment
+        return arg + ""dummyString"";
+    }";
+                string dummyLanguageAlias = "csharp";
+
+                // Act
+                string result = prismService.HighlightAsync(dummyCode, dummyLanguageAlias).Result;
+
+                // Assert
+                string expectedResult = @"<span class=""token keyword"">public</span> <span class=""token keyword"">string</span> <span class=""token function"">ExampleFunction</span><span class=""token punctuation"">(</span><span class=""token keyword"">string</span> arg<span class=""token punctuation"">)</span>
+    <span class=""token punctuation"">{</span>
+        <span class=""token comment"">// Example comment</span>
+        <span class=""token keyword"">return</span> arg <span class=""token operator"">+</span> <span class=""token string"">""dummyString""</span><span class=""token punctuation"">;</span>
+    <span class=""token punctuation"">}</span>";
+                Assert.Equal(expectedResult, result);
+            }
+
+            private PrismService CreatePrismService()
+            {
+                var services = new ServiceCollection();
+                services.AddNodeServices();
+                ServiceProvider serviceProvider = services.BuildServiceProvider();
+                INodeServices nodeServices = serviceProvider.GetRequiredService<INodeServices>();
+
+                return new PrismService(nodeServices);
+            }
+        }
+    }
+    ```
+
+    Using VS's [test explorer](https://docs.microsoft.com/en-sg/visualstudio/test/run-unit-tests-with-test-explorer) or `dotnet test`, run the test `HighlightAsync_HighlightsCode`. It should pass.
+
+    TODO:INFO: Debugging javascript
+    ```
+    private PrismService CreatePrismService()
+    {
+        var services = new ServiceCollection();
+        INodeServices nodeServices;
+
+        if (Debugger.IsAttached)
+        {
+            // Override INodeServices service registered by AddPrism to enable debugging
+            services.AddNodeServices(options =>
+            {
+                options.LaunchWithDebugging = true;
+                options.InvocationTimeoutMilliseconds = 99999999; // -1 doesn't work, once a js breakpoint is hit, the debugger disconnects
+            });
+
+            ServiceProvider serviceProvider = services.BuildServiceProvider();
+
+            // InvokeAsync implicitly starts up a node instance. Adding a break point after InvokeAsync allows
+            // chrome to connect to the debugger
+            nodeServices = serviceProvider.GetRequiredService<INodeServices>();
+            try
+            {
+                int dummy = nodeServices.InvokeAsync<int>("").Result;
+            }
+            catch
+            {
+                // Do nothing
+            }
+        }
+        else
+        {
+            services.AddNodeServices();
+            ServiceProvider serviceProvider = services.BuildServiceProvider();
+            nodeServices = serviceProvider.GetRequiredService<INodeServices>();
+        }
+
+        return new PrismService(nodeServices);
+    }
+    ```
     - configure launchdebug
     - --inspect-brk not supported, pull request created
     - break after dummy invokeAsync and wait for debugger to connect (find correct phrasing)
     - chrome://inspect 
 
 ## Packing Javascript
-1. Add msbuild properties for proper nuspec generation
-INFO: on embedding js
-2. pack an verify that nuspec is correct
+We're going to tweak `MyPrismWrapper.csproj` to setup `.nuspec` generation, then, we're going to verify that the package generated from the `MyPrismWrapper` is valid.
+
+1. Add the following lines to `MyPrismWrapper.csproj`:
+
+    ```
+    <Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.NodeServices" Version="2.1.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.0" />
+        <PackageReference Include="Yarn.MSBuild" Version="1.5.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="Node\bin\MyPrismWrapper.bundle.js">
+            <!-- Discards Node\bin file structure - https://github.com/Microsoft/msbuild/issues/2795 -->
+            <Link>%(Filename)%(Extension)</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <!-- This adds copyToOutput="true" to the corresponding files element in the nuspec generated for this project. copyToOutput="true" instructs consuming applications to copy this file
+                 to the output directory on build - https://docs.microsoft.com/en-us/nuget/reference/msbuild-targets#including-content-in-a-package -->
+            <PackageCopyToOutput>true</PackageCopyToOutput>
+            <!-- Discards Node\bin file structure when copying to consuming project's application's folder - https://docs.microsoft.com/en-us/nuget/reference/nuspec#using-the-contentfiles-element-for-content-files -->
+            <PackagePath>contentFiles\any\any</PackagePath>
+        </Content>
+    </ItemGroup>
+
+    <Target Name="NodeBuild" BeforeTargets="BeforeBuild">
+        <Yarn WorkingDirectory="./Node" Command="install" />
+        <Exec WorkingDirectory="./Node" Command="node build.js --mode=$(Configuration)"></Exec>
+    </Target>
+
+    </Project>
+    ```
+
+    The `PackageCopyToOutput` and `PackagePath` elements ensure that `MyPrismWrapper.bundle.js` is copied to the consuming application's output folder.
+
+    TODO:INFO: on embedding js
+
+2. Using the Release configuration, create a nuget package for the `MyPrismWrapper` project using VS (right click project > publish) or `dotnet pack -c release`.
+
+    Locate your package (if using VS, depending on the `Target Location` in the publish configuration options, it might be in `MyPrismWrapper\bin\Release\netstandard2.0\publish\` or `MyPrismWrapper\bin\Debug\netstandard2.0\publish\`). Extract the files 
+    in the package and locate `MyPrismWrapper.nuspec`. It will look like this:
+
+    ```
+    <?xml version="1.0" encoding="utf-8"?>
+    <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+      <metadata>
+        <id>MyPrismWrapper</id>
+        <version>1.0.0</version>
+        <authors>MyPrismWrapper</authors>
+        <owners>MyPrismWrapper</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Package Description</description>
+        <dependencies>
+          <group targetFramework=".NETStandard2.0">
+            <dependency id="Microsoft.AspNetCore.NodeServices" version="2.1.0" exclude="Build,Analyzers" />
+            <dependency id="Microsoft.Extensions.DependencyInjection" version="2.1.0" exclude="Build,Analyzers" />
+            <dependency id="Yarn.MSBuild" version="1.5.2" exclude="Build,Analyzers" />
+          </group>
+        </dependencies>
+        <contentFiles>
+          <files include="any/any/MyPrismWrapper.bundle.js" buildAction="Content" copyToOutput="true" />
+        </contentFiles>
+      </metadata>
+    </package>
+    ```
+    
+    Note the `files` element. Note the `include` attribute, `any/any/MyPrismWrapper.bundle.js`. It just means that `MyPrismWrapper.bundle.js` is located in `contentFiles\any\any` in your package. By default, the [structure](https://docs.microsoft.com/en-us/nuget/reference/nuspec#package-folder-structure)
+    of `contentFiles` should be `contentFiles/{codeLanguage}/{targetFrameworkMoniker}`, `any\any` just means that `MyPrismWrapper.bundle.js` can be used for any `codeLanguage`/`targetFrameworkMoniker` combination. The `copyToOutput` attribute instructs MSBuild to copy
+    `MyPrismWrapper.bundle.js` to the output folder of any consuming project/application.
+
+    TODO the simple C# wrapper for Prism built in this article is available from my myget feed...
 
 ## Conclusion
+TODO
