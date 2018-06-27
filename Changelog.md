@@ -1,10 +1,16 @@
 # Changelog
-## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/17...HEAD)
+## [Unreleased](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/18...HEAD)
+
+## [18](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/17...18) - Jun 27, 2018
+### Changed
+- Hid border top for Core for several pages.
+- Bumped mimo-website to 1.0.0-alpha.18.
+- Added ids for several pages.
 
 ## [17](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/16...17) - Jun 27, 2018
 ### Changed
 - Articles with names *-ignore are no longer published.
-- Bumped mimo-website to 1.0.0-alpha.17
+- Bumped mimo-website to 1.0.0-alpha.17.
 - Removed border top for Core in home page
 
 ## [16](https://github.com/JeremyTCD/JeremyTCD.github.io/compare/15...16) - Apr 27, 2018
