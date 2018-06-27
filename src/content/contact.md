@@ -1,6 +1,7 @@
 ---
 mimo_pageDescription: JeremyTCD's contact information.
 mimo_pageTitle: Contact
+mimo_pageID: contact
 
 mimo_includeInSal: false
 mimo_includeInSearchIndex: false

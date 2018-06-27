@@ -1,6 +1,7 @@
 ---
 mimo_pageDescription: General information about JeremyTCD.
 mimo_pageTitle: About
+mimo_pageID: about
 
 mimo_includeInSal: false
 mimo_includeInSearchIndex: false
