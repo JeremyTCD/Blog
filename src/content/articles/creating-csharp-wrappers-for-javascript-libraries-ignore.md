@@ -79,39 +79,47 @@ We're going to specify which JS packages we need in a `package.json` and set thi
 2. Add a file named `package.json` with the following contents to the `Node` folder:
    ```
     {
+        "private": true,
         "dependencies": {
             "prismjs": "^1.14.0"
         }
     }
    ```
-    We've specified a single JS depedency, Prism.
-
-    INFO: Since this `package.json` isn't metadata for a package, fields like `name`, `description` and `license` are redundant and can be omitted.    
+    We've specified a single JS depedency, Prism. Since we're only using `package.json` to specify packages, we include the property `private` with value `true` to indicate that 
+    this `package.json` should not be published.
 3. Install the Nuget package [Yarn.MSBuild](https://github.com/natemcmaster/Yarn.MSBuild) to the `MyPrismWrapper` project. 
 
     The Yarn.MSBuild package contains Yarn and exposes an MSBuild task for running Yarn.
-4. Add a target named `NodeBuild` to `MyPrismWrapper.csproj` and add a `Yarn` task to the target:
+4. Add a target named `JavascriptBuild` to `MyPrismWrapper.csproj` and add a `Yarn` task to the target:
     ```
     <Project Sdk="Microsoft.NET.Sdk">
 
         <PropertyGroup>
             <TargetFramework>netstandard2.0</TargetFramework>
+            <BundleName>$(AssemblyName).bundle.js</BundleName>
+            <!-- Exclude Javascript\bin and Javascript\node_modules from project - https://github.com/dotnet/cli/issues/7525 -->
+            <DefaultItemExcludes>Javascript\bin\**;Javascript\node_modules\**;$(DefaultItemExcludes)</DefaultItemExcludes>
         </PropertyGroup>
 
         <ItemGroup>
             <PackageReference Include="Yarn.MSBuild" Version="1.5.2" />
         </ItemGroup>
 
+        <ItemGroup>
+            <JavascriptInputs Include="Javascript\**" Exclude="$(DefaultItemExcludes)" />
+            <JavascriptOutputs Include="Javascript\bin\$(BundleName)" />
+        </ItemGroup>
+
         // TODO highlight these
-        <Target Name="NodeBuild" BeforeTargets="BeforeBuild">
-            <Yarn WorkingDirectory="./Node" Command="install" />
+        <Target Name="JavascriptBuild" BeforeTargets="BeforeBuild" Inputs="@(JavascriptInputs)" Outputs="@(JavascriptOutputs)">
+            <Yarn WorkingDirectory=".\Javascript" Command="run build --env.mode=$(Configuration) --env.bundleName=$(BundleName)" />
         </Target>
 
     </Project>
     ```
 
-    The `BeforeTargets` attribute specifies that `NodeBuild` must run before every build. The Yarn task specifies that `yarn install` must be called 
-    in the `Node` folder whenever `NodeBuild` runs.  
+    The `BeforeTargets` attribute specifies that `JavascriptBuild` must run before every build. The Yarn task specifies that `yarn install` must be called 
+    in the `Node` folder whenever `JavascriptBuild` runs.  
 
     TODO: `Projects and Solutions > Web Package Management > NPM` can be disabled
 5. Build the `MyPrismWrapper` project. 
@@ -133,16 +141,14 @@ We're going to specify which JS packages we need in a `package.json` and set thi
     ```
     1>Target CoreClean:
     ...
-    1>Target NodeBuild:
+    1>Target JavascriptBuild:
     1>  yarn install v1.5.1
-    1>  YARN : warning package.json: No license field
-    1>  warning No license field
     1>  [1/4] Resolving packages...
     1>  [2/4] Fetching packages...
     1>  [3/4] Linking dependencies...
     1>  [4/4] Building fresh packages...
     1>  Done in 0.30s.
-    1>Done building target "NodeBuild" in project "MyPrismWrapper.csproj".
+    1>Done building target "JavascriptBuild" in project "MyPrismWrapper.csproj".
     1>Target GenerateTargetFrameworkMonikerAttribute:
     ...
     ```
@@ -153,14 +159,12 @@ We're going to specify which JS packages we need in a `package.json` and set thi
     ```
     1>Target CoreClean:
     ...
-    1>Target NodeBuild:
+    1>Target JavascriptBuild:
     1>  yarn install v1.5.1
-    1>  YARN : warning package.json: No license field
-    1>  warning No license field
     1>  [1/4] Resolving packages...
     1>  success Already up-to-date.
     1>  Done in 0.07s.
-    1>Done building target "NodeBuild" in project "MyPrismWrapper.csproj".
+    1>Done building target "JavascriptBuild" in project "MyPrismWrapper.csproj".
     1>Target GenerateTargetFrameworkMonikerAttribute:
     ...
     ```
@@ -212,6 +216,7 @@ infrastructure for dependency injection.
 2. Add webpack, webpack-cli and yargs to `package.json`:
    ```
     {
+        "private": true,
         "dependencies": {
             "prismjs": "^1.14.0",
             "webpack": "^4.11.1",
@@ -314,7 +319,7 @@ infrastructure for dependency injection.
     - `interop.js`, `package.json` or `webpack.config.js` has changed since the last build.
     To keep track of the mode and modification time of the last build, this script generates a file, `lastBuildData`, that should not be checked in to source control.
 
-6. Add an [Exec task](https://docs.microsoft.com/en-us/visualstudio/msbuild/exec-task) to `NodeBuild` target in `MyPrismWrapper.csproj`:
+6. Add an [Exec task](https://docs.microsoft.com/en-us/visualstudio/msbuild/exec-task) to `JavascriptBuild` target in `MyPrismWrapper.csproj`:
     ```
     <Project Sdk="Microsoft.NET.Sdk">
 
@@ -327,7 +332,7 @@ infrastructure for dependency injection.
         <PackageReference Include="Yarn.MSBuild" Version="1.5.2" />
     </ItemGroup>
 
-    <Target Name="NodeBuild" BeforeTargets="BeforeBuild">
+    <Target Name="JavascriptBuild" BeforeTargets="BeforeBuild">
         <Yarn WorkingDirectory="./Node" Command="install" />
         <Exec WorkingDirectory="./Node" Command="node build.js --mode=$(Configuration)"></Exec>
     </Target>
@@ -383,10 +388,10 @@ infrastructure for dependency injection.
                 <!-- Discards Node\bin file structure - https://github.com/Microsoft/msbuild/issues/2795 -->
                 <Link>%(Filename)%(Extension)</Link>
                 <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            </Content>
+            </Content`>`
         </ItemGroup>
 
-        <Target Name="NodeBuild" BeforeTargets="BeforeBuild">
+        <Target Name="JavascriptBuild" BeforeTargets="BeforeBuild">
             <Yarn WorkingDirectory="./Node" Command="install" />
             <Exec WorkingDirectory="./Node" Command="node build.js --mode=$(Configuration)"></Exec>
         </Target>
@@ -552,6 +557,7 @@ infrastructure for dependency injection.
     Using VS's [test explorer](https://docs.microsoft.com/en-sg/visualstudio/test/run-unit-tests-with-test-explorer) or `dotnet test`, run the test `HighlightAsync_HighlightsCode`. It should pass.
 
     TODO:INFO: Debugging javascript
+    - use debugger; and never pause here: https://medium.com/@theroccob/never-pause-here-undoing-breakpoints-in-chrome-devtools-97e64cd06086
     ```
     private PrismService CreatePrismService()
     {
@@ -627,7 +633,7 @@ We're going to tweak `MyPrismWrapper.csproj` to setup `.nuspec` generation, then
         </Content>
     </ItemGroup>
 
-    <Target Name="NodeBuild" BeforeTargets="BeforeBuild">
+    <Target Name="JavascriptBuild" BeforeTargets="BeforeBuild">
         <Yarn WorkingDirectory="./Node" Command="install" />
         <Exec WorkingDirectory="./Node" Command="node build.js --mode=$(Configuration)"></Exec>
     </Target>
