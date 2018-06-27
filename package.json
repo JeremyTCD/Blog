@@ -12,6 +12,6 @@
     },
     "devDependencies": {},
     "dependencies": {
-        "mimo-website": "^1.0.0-alpha.17"
+        "mimo-website": "^1.0.0-alpha.18"
     }
 }
