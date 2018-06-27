@@ -1,4 +1,8 @@
 #licenses {
+    #core{
+        border-top: none;
+    }
+
     .heading-1{
         &::after{
             content: none;
