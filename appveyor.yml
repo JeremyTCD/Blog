@@ -37,6 +37,7 @@ build_script:
     $headers = @{"X-Auth-Email"="$env:build_user_email"; "X-Auth-Key"="$env:cloudflare_token";}
     $body = ConvertTo-Json @{"purge_everything"=$true;}
     Invoke-RestMethod -Method DELETE -Uri https://api.cloudflare.com/client/v4/zones/3bba4bf59e182130f215856cac02c810/purge_cache/ -Headers $headers -Body $body
-cache:
-    - node_modules -> package.json
+# If caching fails, the entire build fails - https://github.com/appveyor/ci/issues/1509
+#cache:
+#    - node_modules -> package.json
 test: off
