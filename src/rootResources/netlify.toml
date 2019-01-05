@@ -1,0 +1,14 @@
+[[redirects]]
+  from = "/articles/the-semantic-versioning-lifecycle"
+  to = "https://www.jering.tech/articles/the-semantic-versioning-lifecycle"
+  status = 301
+
+[[redirects]]
+  from = "/articles/css-only-responsive-tables"
+  to = "https://www.jering.tech/articles/card-style-css-only-responsive-tables"
+  status = 301
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"

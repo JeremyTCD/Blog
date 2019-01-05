@@ -1,6 +1,0 @@
-# This file is automatically copied to your static site.
-#
-# DocFx is configured to generate a sitemap (see docfx.json). Sitemaps help web crawlers index pages - https://support.google.com/webmasters/answer/183668?hl=en
-# robots.txt directs web crawlers to your sitemap. Replace <your domain> with your domain.
-
-Sitemap: https://jeremytcd.com/sitemap.xml

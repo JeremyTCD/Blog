@@ -1,20 +1,8 @@
-﻿---
-mimo_pageDescription: Licenses for www.jeremytcd.com.
-mimo_pageTitle: Licenses
-mimo_pageID: licenses
-mimo_includeInSal: false
-mimo_includeInSearchIndex: false
-mimo_disableEditArticle: true
-mimo_disableMetadata: true
-mimo_disableCategoryMenu: true
-mimo_unneededFontPreloads:
-  - /resources/ibm-plex-mono-v3-latin-regular.woff2
----
+﻿# Licenses
+JeremyTCD.Blog, copyright © 2018-2019 JeremyTCD. All rights reserved.
 
-www.jeremytcd.com, copyright © 2018-2019 JeremyTCD. All rights reserved.
-
-## Article Code-Examples
-Article code-examples are licensed under the following license:
+## Source Code and Article Code-Examples
+Source code and article code-examples are licensed under the following license:
 
 Apache License
 Version 2.0, January 2004

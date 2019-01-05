@@ -2,16 +2,17 @@
 mimo_pageDescription: JeremyTCD's contact information.
 mimo_pageTitle: Contact
 mimo_pageID: contact
-
 mimo_includeInSal: false
 mimo_includeInSearchIndex: false
-
-mimo_disableBreadcrumbs: true
 mimo_disableEditArticle: true
 mimo_disableMetadata: true
-mimo_disableSectionMenu: true
-mimo_disableArticleMenu: true
-mimo_disableComments: true
+mimo_disableCategoryMenu: true
+mimo_unneededFontPreloads:
+  - /resources/ibm-plex-mono-v3-latin-regular.woff2
 ---
 
-If you have any questions, suggestions, or feedback, I'd love to hear from you. I can be reached at jeremytanchongdao@gmail.com.
+## Article and Site Functionality Issues
+For issues pertaining to articles or site functionality, [create a Github issue](https://github.com/JeremyTCD/Blog/issues/new).
+
+## Other Issues
+For all other issues, email me at [jeremytanchongdao@gmail.com](mailto:jeremytanchongdao@gmail.com).

@@ -1,12 +1,8 @@
-<svg class="logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="240px"
-	 height="320px" viewBox="0 0 240 320" enable-background="new 0 0 240 320" xml:space="preserve">
-	<polygon fill="#FE3D00" points="0,80 160,80 160,240 80,240 80,160 0,160 0,240 80.5,320 160.5,320 240,240 240,80 160.5,0 80.5,0 
-		0,0 	"/>
-	<rect x="160" y="80" opacity="0.11" width="80" height="160"/>
-	<rect y="160" opacity="0.11" width="80" height="80"/>
-	<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="200" y1="86" x2="200" y2="80">
-		<stop  offset="0" style="stop-color:#000000;stop-opacity:0"/>
-		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.15"/>
-	</linearGradient>
-	<rect x="160" y="80" fill="url(#SVGID_4_)" width="80" height="6"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="231px" height="312px" viewBox="0 0 231 312" enable-background="new 0 0 231 312" xml:space="preserve">
+<rect id="background" shape-rendering="crispEdges" fill="#FFFFFF" width="231" height="312"/>
+<path id="outline" shape-rendering="crispEdges" fill="#000" d="M0,0v312h231V0H0z M181,262H50v-81h50v31h31V100H50V50h131V262z"/>
 </svg>

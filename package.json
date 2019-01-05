@@ -1,6 +1,6 @@
 {
-    "name": "my-blog",
-    "version": "1.0.0",
+    "name": "jeremytcd-blog",
+    "version": "0.0.0",
     "private": true,
     "scripts": {
         "serve-dev": "set NODE_ENV=development && yarn run serve -p ../../../../",
@@ -10,8 +10,7 @@
         "build-production": "set NODE_ENV=production && yarn run build -p ../../../../",
         "build": "node  node_modules/mimo-website/dist/tools/build.js"
     },
-    "devDependencies": {},
     "dependencies": {
-        "mimo-website": "^1.0.0-alpha.18"
+        "mimo-website": "^1.0.0-alpha.32"
     }
 }

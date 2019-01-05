@@ -1,19 +1,16 @@
 ---
-mimo_pageDescription: Privacy policy for JeremyTCD's blog.
+mimo_pageDescription: Privacy policy for www.jeremytcd.com.
 mimo_pageTitle: Privacy Policy
 mimo_pageID: privacy-policy
-
 mimo_includeInSal: false
 mimo_includeInSearchIndex: false
-
-mimo_disableBreadcrumbs: true
 mimo_disableEditArticle: true
 mimo_disableMetadata: true
-mimo_disableSectionMenu: true
+mimo_disableCategoryMenu: true
 mimo_disableArticleMenu: true
-mimo_disableComments: true
+mimo_unneededFontPreloads:
+  - /resources/ibm-plex-mono-v3-latin-regular.woff2
 ---
 
-This blog does not collect or store any of your personal information. Also, it does not use cookies to track visitors. It does utilize third-party 
-services such as [Google Analytics](https://analytics.google.com/) and [Disqus](https://disqus.com/); such services have separate and independent
-privacy policies.
+This website does not collect personal information. Also, it does not make direct use of cookies. It does utilize Google Analytics to monitor traffic and usage patterns so as to provide the best experience possible.
+Google Analytics has separate and independent policies.
