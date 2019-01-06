@@ -17,7 +17,7 @@ This article describes the following: the rationale for my plan, my plan, and fa
 Essentially, this article describes the context within which I make decisions, in an attempt to make it easier for others to understand my actions and choices. 
 
 ! #### Edit - Jan 4, 2019  
-! This article was orignally written for the benefit of my family and was kept hidden on this blog. Now that I am making it accessible, I should
+! This article was originally written for the benefit of my family and was kept hidden on this blog. Now that I'm making it accessible, I should
 ! provide some context.  
 !
 ! Where I'm from (Singapore),
@@ -29,14 +29,14 @@ Essentially, this article describes the context within which I make decisions, i
 !
 ! Sometime back, I accepted that I had to move away from my family to create a conducive work environment for myself, so I moved out.
 ! Due to high property prices, moving out before getting married is quite atypical in Singapore.
-! Naturally, the questions came. My verbal responses did not not seem to satisfy them (as has been the case for the past decade),
+! Naturally, the questions came. My verbal responses did not not seem to satisfy them (as has been the case for the past decade and a half),
 ! so I figured I'd write an article explaining in no uncertain terms, 
-! what I am doing and why. This way they'd have something to stew over without bothering me.
+! what I am doing and why. This way they'd have something to stew over without bothering me (I say this half in jest, I am grateful for their concern).
 ! To their credit, they've actually come around to my point of view and I no longer dread their company.
 !
 ! Anyway, that is the context for this article. It was written in haste for my family, which includes my dear parents who believe dinosaurs are a myth created by Satan and
-! think Trump is the messiah. As such, this article is no paragon of literary excellence. Nonetheless, it has helped those around me to understand me better.
-! I hope that you find it to be of use.
+! think Trump is the messiah. As such, this article is quite utilitarian - it is no paragon of literary excellence. Technical details are sparse. 
+! Nonetheless, it has helped those around me to understand me better. I hope that you find it to be of use.
 
 ## The Rationale
 The rationale for my plan is based on a train of thought I had when I was in my teens. This section journeys through that train of thought. 
