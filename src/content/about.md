@@ -2,14 +2,7 @@
 mimo_pageDescription: About JeremyTCD.
 mimo_pageTitle: About
 mimo_pageID: about
-mimo_includeInSal: false
-mimo_includeInSearchIndex: false
-mimo_disableEditArticle: true
-mimo_disableMetadata: true
-mimo_disableCategoryMenu: true
-mimo_disableArticleMenu: true
-mimo_unneededFontPreloads:
-  - /resources/ibm-plex-mono-v3-latin-regular.woff2
+mimo_isDisplay: true
 ---
 
 My name is Jeremy Tan ChongDao (JeremyTCD) and I'm a software engineer. At present, I'm part way through a multi-year project. Last year (2018), I began laying the foundation for 

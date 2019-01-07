@@ -2,22 +2,13 @@
 mimo_pageDescription: Home page of www.jeremytcd.com.
 mimo_pageTitle: Home
 mimo_pageID: home
-
-mimo_includeInSal: false
-mimo_includeInSearchIndex: false
-
-mimo_disableEditArticle: true
-mimo_disableMetadata: true
-mimo_disableCategoryMenu: true
-mimo_disableArticleMenu: true
+mimo_isDisplay: true
 mimo_fbCardType: website
 mimo_cardTitle: JeremyTCD
 mimo_cardDescription: JeremyTCD's home on the interwebs.
-mimo_unneededFontPreloads:
-  - /resources/ibm-plex-mono-v3-latin-regular.woff2
 ---
 
-<div id="splash">
+<div class="banner-medium">
     <div>
         <div>
             <svg>
@@ -103,7 +94,7 @@ mimo_unneededFontPreloads:
             <footer></footer>
         </a>
     </section>
-    <section id="card-connect" class="card">
+    <section class="card">
         <div class="card-background">
             <svg>
                 <use xlink:href="#material-design-share" />
@@ -113,7 +104,7 @@ mimo_unneededFontPreloads:
             <header>
                 <h3>Connect</h3>
             </header>
-            <div class="card-content">
+            <div class="card-content card-content-icon-grid">
                 <a href="https://twitter.com/JeremyTCD">
                     <svg>
                         <use xlink:href="#ion-icons-logo-twitter" />
