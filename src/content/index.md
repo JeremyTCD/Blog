@@ -1,5 +1,5 @@
 ---
-mimo_pageDescription: Home page of www.jeremytcd.com.
+mimo_pageDescription: Jeremy Tan ChongDao (JeremyTCD) is a software engineer based in Singapore.
 mimo_pageTitle: Home
 mimo_pageID: home
 mimo_isDisplay: true

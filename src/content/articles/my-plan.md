@@ -1,5 +1,5 @@
 ---
-mimo_pageDescription: This article describes my plan.
+mimo_pageDescription: In my opinion, it's typically a good idea to have a plan. This is mine.
 mimo_pageTitle: My Plan
 mimo_pageID: my-plan
 mimo_date: Apr 15, 2018
