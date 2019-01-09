@@ -19,10 +19,6 @@
                         font-weight: 400;
                         font-size: $font-size-3;
                         line-height: 1.6;
-
-                        a {
-                            @include animated-underline($color-secondary-link, $animated-underline-15px-inline-ypos, $background-color: $color-secondary);
-                        }
                     }
                 }
 
