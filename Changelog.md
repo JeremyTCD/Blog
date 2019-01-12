@@ -1,8 +1,4 @@
 # Changelog
-This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Refer to 
-[The Semantic Versioning Lifecycle](https://www.jering.tech/articles/the-semantic-versioning-lifecycle)
-for an overview of semantic versioning.
-
 ## [Unreleased](https://github.com/JeremyTCD/Blog/compare/18...HEAD)
 
 ## [18](https://github.com/JeremyTCD/Blog/compare/17...18) - Jun 27, 2018
