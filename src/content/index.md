@@ -17,10 +17,10 @@ mimo_cardDescription: JeremyTCD's home on the interwebs.
         </div>
     </div>
     <h2>Hello</h2>
-    <span>My name is Jeremy Tan ChongDao (JeremyTCD) and I'm a software engineer. I enjoy turning ideas into useful systems. 
-    You can find most of my software-related work at <a href="https://www.jering.tech">www.jering.tech</a>.
-    The site that you're currently viewing is my personal blog. I intend to post non-software 
-    related articles here. I hope you find my writing to be of use.</span>
+    <span>My name is Jeremy Tan ChongDao (JeremyTCD) and I’m a software engineer. I enjoy turning ideas into useful systems. You can find most of my software-related work at 
+<a href="https://www.jering.tech">www.jering.tech</a>. The site you’re viewing is my personal blog. I intend to post articles unrelated to software here. I hope you find my 
+writing to be of use.</span>
+
 </div>
 <div class="content">
 <div class="card-set card-small">
