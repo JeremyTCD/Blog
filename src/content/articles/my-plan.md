@@ -13,8 +13,8 @@ mimo_unneededFontPreloads:
   - /resources/ibm-plex-mono-v3-latin-regular.woff2
 ---
 
-This article describes the following: the rationale for my plan, my plan, and factors that could impinge on my plan. 
-Essentially, this article describes the context within which I make decisions, in an attempt to make it easier for others to understand my actions and choices. 
+This article describes the rationale for my plan, my plan, and factors that could impinge on my plan. 
+Through these descriptions, this article explains my decisions.
 
 ! #### Edit - Jan 4, 2019  
 ! This article was originally written for the benefit of my family. I kept it hidden on this blog. Now that I'm making it accessible, I should provide some context.  
@@ -26,60 +26,61 @@ Essentially, this article describes the context within which I make decisions, i
 !
 ! Sometime back, I left the nest in search of a more conducive work environment. Due to high property prices, moving out before getting married is quite atypical in Singapore. 
 ! The questions came. My verbal responses did not satisfy them (as has been the case since I was a teen). I figured I'd write an article explaining in no uncertain terms, 
-! what I am doing and why. This way they'd have something to stew over without bothering me (I say this half in jest, I am grateful for their concern). To their credit, they've actually 
-! come around to my point of view and I no longer dread their company.  
+! what I am doing and why. This way my family would have something to stew over without bothering me (I say this half in jest, I am grateful for their concern). To their credit, they've 
+! come around to my point of view. I no longer dread their company.  
 !
 ! Anyway, that is the context for this article. I wrote it in haste for my family. This includes my dear parents, who believe dinosaurs are a myth created by Satan and think Trump is the 
 ! messiah. As such, this article is quite utilitarian - it is no paragon of literary excellence. Technical details are sparse. Nonetheless, it has helped those around me to understand me 
 ! better. I hope that you find it to be of use.
 
 ## The Rationale
-The rationale for my plan is based on a train of thought I had when I was in my teens. This section journeys through that train of thought. 
+I base the rationale for my plan on a train of thought I had in my teens. This section journeys through that train of thought.
 
 ### Why do I Exist?
-Like any child, I pondered long and hard over the reasons (or lack thereof) for my existence. Only my conclusion matters in this article: I 
-decided that I exist to contribute to the betterment of mankind.
+Like any child, I pondered over the reason for my existence. I decided that I exist to contribute to the advancement of mankind.
 
-### How Can I Contribute to the Betterment of Mankind?
-Again, only my conclusion to this question matters to this article: I decided that I would better mankind by contributing to the colonization of space.
+### How Can I Contribute to the Advancement of Mankind?
+I decided I'd advance mankind by contributing to the colonization of space.
 
 ### How Can I Contribute to the Colonization of Space?
-While intrigued by the technical side of things, what caught my attention was how little was spent on research into space exploration. Budgetary constraints were clearly 
-a major impediment to progress in the field. I decided that the best way I could contribute would be to first accumulate capital, then fund and participate in research.
+The challenge's technical side intrigued me. But the fundamental issue was how the field's lack of resources. Budgetary constraints were impeding
+progress in the field. Commercialization of related technologies required large amounts of capital and patience. I decided the best way I could contribute would be to 
+first acquire capital. Once acquired, I'd fund and take part in research.
 
-! In recent years, enlightened men with material and intellectual capital like Elon Musk and Stephen Hawking have begun pursuing and promoting the colonization of space. It is heartening to know that there 
-! are other humans who share my views. Nonetheless, for reasons that are beyond the scope of this article, I still believe that accumulating capital gives me the best chance of making a significant contribution.
+! In recent years, people with material and intellectual capital have pursued the colonization of space. These include the likes of Elon Musk, Jeff Bezos and Stephen 
+! Hawking. It is nice to know there are capable people taking on this challenge. That said, most private sector development has taken place in NA. Our region remains
+! far behind. For this reason and others beyond the scope of this article, I still believe in first acquiring capital.
 
-### How Can I Accumulate Capital?
-To answer this question, I began reading up about the super wealthy. I looked for patterns, especially amongst those who made their wealth under similar conditions to my own. Amongst the young, self-made, super wealthy, 
-many were techies. A good number sold software products and services. The question was then: what is it about selling software that enables quick accumulation of capital? My conclusions were as follows:
+### How Can I Aquire Capital?
+To answer this question, I read up about the super wealthy. I looked for patterns among those who made their wealth under similar conditions to my own. Among the young, 
+self-made, super wealthy, many were techies. A good number sold software. What was it about selling software that enabled acquiring of capital? My conclusions were:
 
-- Software products are easy to distribute globally. The day a product goes live, it has a potential market of several billion - 
-basically anyone with an internet connection. Many other industries, like the medical industry, require physical proximity.
-- Software products have minimal marginal cost. For example, it probably costs Microsoft less than a cent to create a new product key when someone purchases a copy of windows.
-- Software products can have deep technical competitive advantage. Products with deep technical competitive advantage are easy to export.  
+- Software is easy to distribute. A software product's potential market is anyone with an internet connection. Many other industries need physical proximity.
+- Software has low marginal cost. For example, it costs Microsoft a tiny amount to create a product key for a new copy of windows.
+- Software can have technical competitive advantage. This makes it hard to replicate, and so, exportable.
 
-! There is a category of software products that I refer to as *concept-based products*. Examples of concept-based products are services like Redmart and Deliveroo. These products aren't trivial to put together, but they are 
-! not examples of technical ingenuity. Their focus is not
-! on technical innovation, instead, their focus is on applying existing tech to common business models like selling groceries or delivering food. These kinds of software products do not appeal to me for the following reasons:
-! - Anybody with sufficient resources can duplicate such products. Indeed, it often becomes a question of who has more capital.
-! - The growth of such products is typically dependent on local market size. While the regional market in SEA has begun to look enticing in recent years, any player here is still a minnow next to the giants in NA and China.
-! It is extremely hard for concept-based products in SEA to grow into globally dominant products.
+! There's a large category of "tech" companies that don't sell software. For example, [Redmart](https://redmart.com/) and [Deliveroo](https://deliveroo.com.sg/). They apply 
+! existing tech to age-old challenges like selling groceries or delivering food. Because they do not sell software, the 3 bullet points above don't apply to their products. 
+! Moreover, there are more downsides to such products:
+! - Anybody with enough resources can create copies of such products. Competition between such products often devolves into 
+!   innovation-free, VC-fueled bloodbaths. 
+! - The growth of such products depends on local market size. While the regional market in SEA has looked enticing in recent years, any player here is still a minnow next 
+!   to the giants in NA and China. It is hard for such products in SEA to grow into globally dominant products.
 !
-! In short, concept-based products lack deep technical competitive advantage. Examples of software products with deep technical advantage are systems like [AutoCAD](https://www.autodesk.com.sg/products/autocad/overview),
-! [Lyrebird](https://lyrebird.ai/), and [Terraform](https://www.terraform.io/). Such products marry advanced technical concepts such as advanced physics with top-notch software engineering. 
-! These tools are incredibly hard to duplicate. Additionally, growth in their adoption is completely independent of local market size; a high-quality deep tech product built in a country with a small local market, like
-! Singapore, can be globally dominant. These are the kinds of software products that appeal to me.
+! Examples of software products are systems like [ProWritingAid](https://prowritingaid.com/), [Elasticsearch](https://www.elastic.co/products/elasticsearch), 
+! [AutoCAD](https://www.autodesk.com.sg/products/autocad/overview), [Lyrebird](https://lyrebird.ai/), and [Terraform](https://www.terraform.io/). Such products marry advanced 
+! technical concepts with top-notch software engineering. These tools are hard to copy. Also, growth in their adoption doesn't depend on local market size. High-quality 
+! software built in a country with a small local market can be globally dominant. These are the kinds of products I wanted to develop.
 
 Software was a great fit for my situation:
 
-- Singapore has a really small market. I knew that the software industry would provide the best platform for me to reach a global audience. 
-- I knew that I would be working with very limited material capital. The software industry is one within which intellectual capital alone can earn success.
-- I loved logic based subjects and I loved making things. I knew that writing software was something that I could do for the rest of my life.
+- Singapore's market is tiny. I knew the software industry would provide the best platform for me to reach a global audience.
+- I knew I'd be working with little material capital. The software industry is one within which intellectual capital alone can earn success.
+- I loved logic based subjects, and I loved making things. I knew writing software was something I could do every day for a long time.
 
-Apart from programming, I saw being an "investor" as an alternative means of accumulating capital. Investing can yield exponential returns and is not constrained by physical proximity. In addition,
-some of the men I respect, like Warren Buffet, are investors. I concluded that I would try to learn more about the finance industry, but my heart has always been in software development and building a
-company.
+You might remember that I considered a career in finance. I saw investing as a good means of acquiring capital. Investing can yield exponential returns and isn't constrained by 
+physical proximity. Also, some men I respect, like Warren Buffet, are investors. But, you need material capital to get going in that industry, and I really love writing 
+code and building things. So I dropped that alternative and don't intend to explore it again.
 
 ## The plan
 ### Overview
@@ -151,7 +152,7 @@ Once I have enough capital to venture into other sectors, I intend to do so. I l
 ### Immediate Plan
 The section above provides an overview of my plan. This section describes my immediate plan:
 
-#### Overview
+#### Summary
 As mentioned earlier, I am attempting to pre-empt the next burst of opportunity. Browsers have begun shipping a technology called [web assembly](http://webassembly.org/), it allows developers to build extremely performant 
 websites. Also, it allows developers to develop websites using their environment of choice (environment refers to a language or a group of languages, and the tooling and libraries that exist for them). Web assembly
 is incomplete but has good momentum. My opinion is that it will become the foundation for building cross-platform applications. At present, companies often build completely separate user-interface applications for android, ios, the web 
