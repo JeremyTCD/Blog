@@ -3,9 +3,10 @@ mimo_pageDescription: Jeremy Tan ChongDao (JeremyTCD) is a software engineer bas
 mimo_pageTitle: Home
 mimo_pageID: home
 mimo_isDisplay: true
-mimo_fbCardType: website
+mimo_ogType: website
 mimo_cardTitle: JeremyTCD
-mimo_cardDescription: JeremyTCD's home on the interwebs.
+mimo_twitterCardType: summary_large_image
+mimo_twitterCardImageRelPath: /resources/logo_wide.png
 ---
 
 <div class="banner-medium">

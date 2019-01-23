@@ -33,12 +33,9 @@
                 }
             ],
 
-            "mimo_baseUrl": "https://www.jeremytcd.com/",
+            "mimo_baseUrl": "https://www.jeremytcd.com",
 
             "mimo_socialMediaCards": "true",
-            "mimo_fbCardImageRelPath": "resources/logo_wide.png",
-            "mimo_twitterCardImageRelPath": "resources/logo_wide.png",
-            "mimo_twitterCardType": "summary_large_image",
             "mimo_twitterCardSite": "@JeremyTCD",
             "mimo_twitterCardCreator": "@JeremyTCD",
             "mimo_twitterCardImageAlt": "JeremyTCD Logo",
